@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { courses } from '@/lib/content'
 import { cn } from '@/lib/utils'
-import { BookOpen, Code2, User, LayoutDashboard } from 'lucide-react'
+import { BookOpen, Code2, User, LayoutDashboard, Sparkles } from 'lucide-react'
 
 const navItems = [
   { href: '/',           label: 'Inicio',     icon: LayoutDashboard },
@@ -18,6 +18,7 @@ interface SidebarProps {
   activeCourseId?:   string
   activeChapterId?:  string
   activeLessonId?:   string
+  isPremium?:        boolean
 }
 
 export function Sidebar({
@@ -25,6 +26,7 @@ export function Sidebar({
   activeCourseId,
   activeChapterId,
   activeLessonId,
+  isPremium = false,
 }: SidebarProps) {
   const pathname = usePathname()
   const activeCourse = courses.find(c => c.id === activeCourseId)
@@ -107,6 +109,19 @@ export function Sidebar({
       )}
 
       {!activeCourse && <div className="flex-1" />}
+
+      {/* CTA Premium — solo para no-premium */}
+      {!isPremium && (
+        <div className="px-3 pb-4 shrink-0">
+          <Link
+            href="/upgrade"
+            className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 text-blue-300 hover:text-white hover:border-blue-500/60 transition-all text-sm font-medium"
+          >
+            <Sparkles size={14} className="text-blue-400" />
+            Probar Premium
+          </Link>
+        </div>
+      )}
     </aside>
   )
 }

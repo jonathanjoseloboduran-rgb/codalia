@@ -5,6 +5,7 @@ import { LessonContent } from '@/components/lesson/LessonContent'
 import { LessonNav } from '@/components/lesson/LessonNav'
 import { PythonRunner } from '@/components/editor/PythonRunner'
 import { Quiz } from '@/components/lesson/Quiz'
+import { AdSlot } from '@/components/monetization/AdSlot'
 import { Clock, BookOpen } from 'lucide-react'
 import type { Metadata } from 'next'
 
@@ -38,6 +39,13 @@ export default async function LessonPage({ params }: Props) {
     .eq('lesson_id', lessonId)
     .single()
 
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('is_premium')
+    .eq('id', user!.id)
+    .single()
+
+  const isPremium = profile?.is_premium ?? false
   const isCompleted = progressRow?.status === 'completed'
   const readTime = Math.ceil(lesson.word_count / 200) // ~200 palabras/min
 
@@ -72,6 +80,9 @@ export default async function LessonPage({ params }: Props) {
 
       {/* Contenido Markdown */}
       <LessonContent content={lesson.raw_content} />
+
+      {/* Ad slot — solo para no-premium, después del contenido */}
+      <AdSlot isPremium={isPremium} format="between-lessons" />
 
       {/* Editor Python embebido */}
       <div className="mt-8">

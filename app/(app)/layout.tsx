@@ -13,9 +13,11 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   // Datos del perfil
   const { data: profile } = await supabase
     .from('profiles')
-    .select('username, avatar_url, total_xp, current_streak_days')
+    .select('username, avatar_url, total_xp, current_streak_days, is_premium')
     .eq('id', user.id)
     .single()
+
+  const isPremium = profile?.is_premium ?? false
 
   // Lecciones completadas
   const { data: progressRows } = await supabase
@@ -33,7 +35,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
     <div className="flex h-screen bg-[#0F172A] overflow-hidden">
       {/* Sidebar — oculto en mobile */}
       <div className="hidden lg:flex border-r border-slate-800">
-        <Sidebar completedLessons={completedLessons} />
+        <Sidebar completedLessons={completedLessons} isPremium={isPremium} />
       </div>
 
       {/* Contenido principal */}
@@ -44,6 +46,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
           totalXP={profile?.total_xp ?? 0}
           streakDays={profile?.current_streak_days ?? 0}
           completedLessons={completedLessons}
+          isPremium={isPremium}
         />
         <main className="flex-1 overflow-y-auto">
           {children}

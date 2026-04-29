@@ -25,11 +25,13 @@ interface HeaderProps {
   activeCourseId?:   string
   activeChapterId?:  string
   activeLessonId?:   string
+  isPremium?:        boolean
 }
 
 export function Header({
   username, avatarUrl, totalXP, streakDays,
   completedLessons, activeCourseId, activeChapterId, activeLessonId,
+  isPremium = false,
 }: HeaderProps) {
   const router = useRouter()
   const level = getLevelForXP(totalXP)
@@ -60,6 +62,7 @@ export function Header({
             activeCourseId={activeCourseId}
             activeChapterId={activeChapterId}
             activeLessonId={activeLessonId}
+            isPremium={isPremium}
           />
         </SheetContent>
       </Sheet>
