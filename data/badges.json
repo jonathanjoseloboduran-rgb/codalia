@@ -1,0 +1,173 @@
+[
+  {
+    "id": "first_lesson",
+    "icon": "🌱",
+    "name": "Primer paso",
+    "description": "Completaste tu primera lección",
+    "condition": { "type": "lessons_completed", "count": 1 },
+    "xp_reward": 0,
+    "rarity": "common"
+  },
+  {
+    "id": "first_chapter",
+    "icon": "📖",
+    "name": "Capítulo cerrado",
+    "description": "Completaste tu primer capítulo",
+    "condition": { "type": "chapters_completed", "count": 1 },
+    "xp_reward": 20,
+    "rarity": "common"
+  },
+  {
+    "id": "editor_first_run",
+    "icon": "💻",
+    "name": "Hello, World!",
+    "description": "Ejecutaste código Python por primera vez en el editor",
+    "condition": { "type": "exercises_attempted", "count": 1 },
+    "xp_reward": 15,
+    "rarity": "common"
+  },
+  {
+    "id": "first_exercise",
+    "icon": "✅",
+    "name": "Solucionador",
+    "description": "Resolviste tu primer ejercicio correctamente",
+    "condition": { "type": "exercises_passed", "count": 1 },
+    "xp_reward": 25,
+    "rarity": "common"
+  },
+  {
+    "id": "streak_3",
+    "icon": "🔥",
+    "name": "En racha",
+    "description": "Estudiaste 3 días consecutivos",
+    "condition": { "type": "streak_days", "count": 3 },
+    "xp_reward": 15,
+    "rarity": "common"
+  },
+  {
+    "id": "streak_7",
+    "icon": "🔥🔥",
+    "name": "Una semana",
+    "description": "Estudiaste 7 días consecutivos",
+    "condition": { "type": "streak_days", "count": 7 },
+    "xp_reward": 50,
+    "rarity": "rare"
+  },
+  {
+    "id": "streak_30",
+    "icon": "⚡",
+    "name": "Imparable",
+    "description": "Estudiaste 30 días consecutivos",
+    "condition": { "type": "streak_days", "count": 30 },
+    "xp_reward": 200,
+    "rarity": "epic"
+  },
+  {
+    "id": "quiz_first",
+    "icon": "🎯",
+    "name": "Quiz debutante",
+    "description": "Completaste tu primer quiz",
+    "condition": { "type": "quizzes_completed", "count": 1 },
+    "xp_reward": 10,
+    "rarity": "common"
+  },
+  {
+    "id": "quiz_perfect",
+    "icon": "💯",
+    "name": "Perfecto",
+    "description": "Obtuviste puntaje perfecto en un quiz",
+    "condition": { "type": "quiz_perfect_score", "count": 1 },
+    "xp_reward": 30,
+    "rarity": "rare"
+  },
+  {
+    "id": "quiz_master",
+    "icon": "🎓",
+    "name": "Quiz Master",
+    "description": "Completaste 10 quizzes con puntaje perfecto",
+    "condition": { "type": "quiz_perfect_score", "count": 10 },
+    "xp_reward": 100,
+    "rarity": "epic"
+  },
+  {
+    "id": "python_basics",
+    "icon": "🐍",
+    "name": "Python Básico",
+    "description": "Completaste el curso de Fundamentos de Python",
+    "condition": { "type": "course_completed", "course_id": "python-fundamentals" },
+    "xp_reward": 200,
+    "rarity": "rare"
+  },
+  {
+    "id": "python_architect",
+    "icon": "🏗️",
+    "name": "Arquitecto Python",
+    "description": "Completaste el curso de Arquitectura de Python",
+    "condition": { "type": "course_completed", "course_id": "python-architecture" },
+    "xp_reward": 200,
+    "rarity": "rare"
+  },
+  {
+    "id": "python_concurrent",
+    "icon": "🔄",
+    "name": "Maestro Concurrente",
+    "description": "Completaste el curso de Concurrencia en Python",
+    "condition": { "type": "course_completed", "course_id": "python-concurrency" },
+    "xp_reward": 200,
+    "rarity": "rare"
+  },
+  {
+    "id": "python_meta",
+    "icon": "🔮",
+    "name": "Metamago",
+    "description": "Completaste el curso de Metaprogramación",
+    "condition": { "type": "course_completed", "course_id": "python-metaprogramming" },
+    "xp_reward": 200,
+    "rarity": "epic"
+  },
+  {
+    "id": "python_performance",
+    "icon": "🚀",
+    "name": "Optimizador",
+    "description": "Completaste el curso de Rendimiento de Python",
+    "condition": { "type": "course_completed", "course_id": "python-performance" },
+    "xp_reward": 200,
+    "rarity": "epic"
+  },
+  {
+    "id": "completionist",
+    "icon": "👑",
+    "name": "Completionist",
+    "description": "Completaste todos los cursos disponibles",
+    "condition": { "type": "all_courses_completed" },
+    "xp_reward": 500,
+    "rarity": "legendary"
+  },
+  {
+    "id": "lessons_10",
+    "icon": "📚",
+    "name": "Estudioso",
+    "description": "Completaste 10 lecciones",
+    "condition": { "type": "lessons_completed", "count": 10 },
+    "xp_reward": 30,
+    "rarity": "common"
+  },
+  {
+    "id": "lessons_50",
+    "icon": "🏆",
+    "name": "Mitad del camino",
+    "description": "Completaste 50 lecciones",
+    "condition": { "type": "lessons_completed", "count": 50 },
+    "xp_reward": 100,
+    "rarity": "rare"
+  },
+  {
+    "id": "lessons_115",
+    "icon": "🌟",
+    "name": "Todo terreno",
+    "description": "Completaste las 115 lecciones del curso",
+    "condition": { "type": "lessons_completed", "count": 115 },
+    "xp_reward": 300,
+    "rarity": "legendary"
+  }
+]

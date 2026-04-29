@@ -1,0 +1,56 @@
+[
+  {
+    "id": "python-basico",
+    "title": "Python Básico",
+    "description": "Empieza desde cero con los fundamentos de Python moderno 3.14. Variables, estructuras de datos, funciones, clases y manejo de errores.",
+    "icon": "🐍",
+    "color": "#3B82F6",
+    "courses": ["python-fundamentals"],
+    "estimated_hours": 12,
+    "level": "beginner",
+    "prereq": null,
+    "status": "available"
+  },
+  {
+    "id": "python-avanzado",
+    "title": "Python Avanzado",
+    "description": "Arquitectura, patrones de diseño, concurrencia con asyncio, metaprogramación y rendimiento con JIT.",
+    "icon": "⚡",
+    "color": "#8B5CF6",
+    "courses": ["python-architecture", "python-concurrency", "python-metaprogramming", "python-performance"],
+    "estimated_hours": 35,
+    "level": "advanced",
+    "prereq": "python-basico",
+    "status": "available"
+  },
+  {
+    "id": "python-ia",
+    "title": "Python para IA",
+    "description": "NumPy, Pandas, scikit-learn, redes neuronales, embeddings y RAG. Construye tus primeros modelos de ML y aplicaciones con IA.",
+    "icon": "🤖",
+    "color": "#10B981",
+    "courses": ["python-ia"],
+    "estimated_hours": 20,
+    "level": "intermediate",
+    "prereq": "python-basico",
+    "status": "coming_soon"
+  },
+  {
+    "id": "python-mastery",
+    "title": "Python Mastery",
+    "description": "El camino completo: desde los fundamentos hasta arquitecturas avanzadas, concurrencia y optimización de rendimiento.",
+    "icon": "👑",
+    "color": "#F59E0B",
+    "courses": [
+      "python-fundamentals",
+      "python-architecture",
+      "python-concurrency",
+      "python-metaprogramming",
+      "python-performance"
+    ],
+    "estimated_hours": 47,
+    "level": "all",
+    "prereq": null,
+    "status": "available"
+  }
+]
