@@ -32,7 +32,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   return (
     <div className="flex h-screen bg-[#0F172A] overflow-hidden">
       {/* Sidebar — oculto en mobile */}
-      <div className="hidden lg:flex">
+      <div className="hidden lg:flex border-r border-slate-800">
         <Sidebar completedLessons={completedLessons} />
       </div>
 

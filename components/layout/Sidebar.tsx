@@ -30,7 +30,7 @@ export function Sidebar({
   const activeCourse = courses.find(c => c.id === activeCourseId)
 
   return (
-    <aside className="flex flex-col h-full w-64 bg-[#0F172A] border-r border-slate-800">
+    <aside className="flex flex-col h-full w-64 bg-[#0F172A]">
       {/* Logo */}
       <div className="h-14 flex items-center px-5 border-b border-slate-800 shrink-0">
         <Link href="/" className="flex items-center gap-2 font-bold text-white text-lg">

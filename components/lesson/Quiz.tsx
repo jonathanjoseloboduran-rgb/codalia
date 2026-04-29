@@ -1,12 +1,46 @@
 'use client'
 
 import { useState } from 'react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import rehypeHighlight from 'rehype-highlight'
 import { Button } from '@/components/ui/button'
 import { toast } from 'sonner'
 import {
   CheckCircle2, XCircle, Sparkles, RotateCcw, Loader2, ChevronRight, Trophy
 } from 'lucide-react'
 import type { QuizQuestion } from '@/app/api/quiz/generate/route'
+
+/** Markdown inline para preguntas, opciones y explicaciones del quiz */
+function MD({ children }: { children: string }) {
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeHighlight]}
+      components={{
+        p: ({ children }) => <span>{children}</span>,
+        code: ({ className, children }) => {
+          // Bloque de código (con className tipo language-python)
+          if (className) {
+            return (
+              <pre className="my-3 p-3 rounded-lg bg-[#0D1117] border border-slate-700/50 overflow-x-auto text-xs leading-relaxed">
+                <code className={className}>{children}</code>
+              </pre>
+            )
+          }
+          // Código inline
+          return (
+            <code className="px-1.5 py-0.5 rounded bg-slate-900 text-blue-300 text-[0.85em] font-mono">
+              {children}
+            </code>
+          )
+        },
+      }}
+    >
+      {children}
+    </ReactMarkdown>
+  )
+}
 
 interface QuizProps {
   courseId:  string
@@ -219,7 +253,9 @@ export function Quiz({ courseId, chapterId, lessonId }: QuizProps) {
       </div>
 
       {/* Pregunta */}
-      <p className="text-white font-medium text-base mb-5 leading-relaxed">{q.question}</p>
+      <div className="text-white font-medium text-base mb-5 leading-relaxed">
+        <MD>{q.question}</MD>
+      </div>
 
       {/* Opciones */}
       <div className="space-y-2 mb-5">
@@ -248,7 +284,7 @@ export function Quiz({ courseId, chapterId, lessonId }: QuizProps) {
               <span className="w-5 h-5 rounded-full border border-current flex items-center justify-center text-[10px] font-bold shrink-0">
                 {['A', 'B', 'C', 'D'][idx]}
               </span>
-              <span>{option}</span>
+              <span className="flex-1"><MD>{option}</MD></span>
               {revealed && idx === q.correct && (
                 <CheckCircle2 size={16} className="ml-auto text-emerald-400 shrink-0" />
               )}
@@ -264,7 +300,7 @@ export function Quiz({ courseId, chapterId, lessonId }: QuizProps) {
       {revealed && (
         <div className="mb-5 p-3 rounded-lg bg-slate-800/60 border border-slate-700/50 text-sm text-slate-300">
           <span className="font-semibold text-slate-200">Explicación: </span>
-          {q.explanation}
+          <MD>{q.explanation}</MD>
         </div>
       )}
 
