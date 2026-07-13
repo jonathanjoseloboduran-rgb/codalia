@@ -1,0 +1,38 @@
+[
+  {
+    "id": "python-basico",
+    "title": "Fundamentos",
+    "description": "Empieza desde cero: variables, estructuras de datos, funciones, clases y manejo de errores en Python moderno.",
+    "icon": "🐍",
+    "color": "#3B82F6",
+    "courses": ["python-fundamentals"],
+    "estimated_hours": 12,
+    "level": "beginner",
+    "prereq": null,
+    "status": "available"
+  },
+  {
+    "id": "python-avanzado",
+    "title": "Desarrollo Avanzado",
+    "description": "Arquitectura, sistema de tipos, concurrencia con asyncio, metaprogramación y rendimiento. Lleva tu Python al siguiente nivel.",
+    "icon": "⚡",
+    "color": "#8B5CF6",
+    "courses": ["python-architecture", "python-concurrency", "python-metaprogramming", "python-performance"],
+    "estimated_hours": 35,
+    "level": "advanced",
+    "prereq": "python-basico",
+    "status": "available"
+  },
+  {
+    "id": "python-ia-datos",
+    "title": "IA y Ciencia de Datos",
+    "description": "Python para Inteligencia Artificial y Ciencia de Datos: NumPy, Pandas, machine learning, redes neuronales y más.",
+    "icon": "🤖",
+    "color": "#10B981",
+    "courses": ["python-ia", "python-data-science"],
+    "estimated_hours": 40,
+    "level": "intermediate",
+    "prereq": "python-basico",
+    "status": "available"
+  }
+]

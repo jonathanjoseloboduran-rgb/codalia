@@ -1,0 +1,57 @@
+{
+  "id": "python-ia",
+  "title": "Python para Inteligencia Artificial",
+  "language": "python",
+  "chapters": [
+    {
+      "id": "numpy-fundamentos",
+      "title": "NumPy: computación numérica",
+      "lessons": [
+        { "id": "que-es-numpy-arrays", "title": "Arrays de NumPy", "topics": "qué es NumPy y por qué es la base de la IA en Python, el ndarray, crear arrays (array, zeros, ones, arange, linspace), dtype y shape, diferencia con listas de Python en rendimiento" },
+        { "id": "operaciones-vectorizadas", "title": "Operaciones vectorizadas", "topics": "operaciones elemento a elemento sin bucles, funciones universales (ufuncs), suma/producto/media/std sobre ejes, por qué la vectorización es más rápida que los bucles" },
+        { "id": "indexacion-slicing-arrays", "title": "Indexación y slicing de arrays", "topics": "indexar arrays 1D y 2D, slicing, máscaras booleanas para filtrar datos, fancy indexing, vistas vs copias" },
+        { "id": "broadcasting", "title": "Broadcasting", "topics": "qué es el broadcasting, reglas de compatibilidad de formas, ejemplos prácticos (normalizar una matriz, operar matriz + vector), errores comunes de shapes" }
+      ]
+    },
+    {
+      "id": "datos-para-ia",
+      "title": "Datos para IA con Pandas",
+      "lessons": [
+        { "id": "series-y-dataframes", "title": "Series y DataFrames", "topics": "qué es Pandas, Series y DataFrame, crear desde diccionarios y listas, index, seleccionar columnas y filas con loc/iloc" },
+        { "id": "cargar-y-explorar-datos", "title": "Cargar y explorar datos", "topics": "leer CSV/JSON, head/info/describe, tipos de datos por columna, valores únicos y conteos, primera exploración de un dataset" },
+        { "id": "limpieza-de-datos", "title": "Limpieza de datos", "topics": "detectar y tratar valores faltantes (isna, fillna, dropna), duplicados, corregir tipos, renombrar columnas, filtrar filas inválidas" },
+        { "id": "transformaciones-agrupaciones", "title": "Transformaciones y agrupaciones", "topics": "apply y map, crear columnas derivadas, groupby con agregaciones, ordenar, combinar todo en un mini análisis" }
+      ]
+    },
+    {
+      "id": "machine-learning",
+      "title": "Machine Learning con scikit-learn",
+      "lessons": [
+        { "id": "que-es-machine-learning", "title": "¿Qué es Machine Learning?", "topics": "definición intuitiva, aprendizaje supervisado vs no supervisado, features y labels, el flujo típico de un proyecto de ML, dónde encaja scikit-learn" },
+        { "id": "regresion", "title": "Regresión: predecir números", "topics": "regresión lineal intuitiva, entrenar con fit y predecir con predict, interpretar coeficientes, error cuadrático medio, ejemplo completo con datos sintéticos" },
+        { "id": "clasificacion", "title": "Clasificación: predecir categorías", "topics": "clasificación binaria y multiclase, regresión logística y árboles de decisión a nivel conceptual y práctico, probabilidades de predicción, ejemplo completo" },
+        { "id": "evaluacion-de-modelos", "title": "Evaluación de modelos", "topics": "por qué separar train/test, train_test_split, accuracy y sus límites, precisión/recall/F1, matriz de confusión, sobreajuste vs subajuste, validación cruzada básica" }
+      ]
+    },
+    {
+      "id": "redes-neuronales",
+      "title": "Redes neuronales",
+      "lessons": [
+        { "id": "neuronas-y-capas", "title": "Neuronas y capas", "topics": "la neurona artificial (pesos, sesgo, activación), funciones de activación comunes, capas y arquitectura de una red, analogía intuitiva sin matemática pesada" },
+        { "id": "perceptron-desde-cero", "title": "Un perceptrón desde cero", "topics": "implementar un perceptrón simple en Python puro con NumPy, forward pass, regla de aprendizaje, entrenarlo para una compuerta lógica, limitaciones" },
+        { "id": "entrenamiento-y-descenso", "title": "Cómo aprende una red", "topics": "función de pérdida, descenso de gradiente explicado intuitivamente, learning rate, épocas y batches, backpropagation a nivel conceptual" },
+        { "id": "frameworks-deep-learning", "title": "Frameworks de deep learning", "topics": "panorama de PyTorch y TensorFlow/Keras, qué resuelven por ti, estructura típica de un entrenamiento en Keras (conceptual), cuándo usar deep learning vs ML clásico" }
+      ]
+    },
+    {
+      "id": "ia-moderna-llms",
+      "title": "IA moderna y LLMs",
+      "lessons": [
+        { "id": "que-son-los-llms", "title": "¿Qué son los LLMs?", "topics": "modelos de lenguaje grandes explicados simple, tokens, cómo generan texto, capacidades y limitaciones (alucinaciones), panorama de modelos actuales" },
+        { "id": "usar-llms-desde-python", "title": "Usar LLMs desde Python", "topics": "consumir una API de LLM con requests/SDK (formato OpenAI-compatible), roles system/user, temperatura y max_tokens, manejar respuestas y errores, buenas prácticas con las API keys" },
+        { "id": "embeddings-y-busqueda", "title": "Embeddings y búsqueda semántica", "topics": "qué es un embedding, similitud coseno, buscar textos parecidos, ejemplo práctico de búsqueda semántica simple con NumPy" },
+        { "id": "rag-y-buenas-practicas", "title": "RAG y buenas prácticas", "topics": "qué es RAG y por qué reduce alucinaciones, arquitectura típica (indexar, recuperar, generar), ética y privacidad al usar IA, ideas de proyectos para practicar" }
+      ]
+    }
+  ]
+}

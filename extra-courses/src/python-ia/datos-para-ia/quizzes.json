@@ -1,0 +1,186 @@
+{
+  "series-y-dataframes": [
+    {
+      "question": "¿Qué diferencia principal hay entre una Serie y un DataFrame en Pandas?",
+      "options": [
+        "La Serie es una columna con índice; el DataFrame es una tabla de varias columnas",
+        "El DataFrame solo acepta números y la Serie solo texto",
+        "No hay diferencia, son nombres alternativos de la misma estructura",
+        "La Serie siempre tiene más filas que el DataFrame"
+      ],
+      "correct": 0,
+      "explanation": "La Serie representa una sola columna con su índice, mientras que el DataFrame agrupa varias Series que comparten el mismo índice."
+    },
+    {
+      "question": "¿Qué hace el índice (index) en un DataFrame?",
+      "options": [
+        "Cuenta cuántas columnas tiene el DataFrame",
+        "Etiqueta cada fila para poder identificarla y acceder a ella",
+        "Define el tipo de dato de cada columna",
+        "Ordena automáticamente los valores de menor a mayor"
+      ],
+      "correct": 1,
+      "explanation": "El índice asigna una etiqueta a cada fila, que puede ser numérica por defecto o personalizada."
+    },
+    {
+      "question": "Dado `clientes.loc[0:2, [\"nombre\", \"edad\"]]`, ¿qué obtienes?",
+      "options": [
+        "Solo la fila con posición 2",
+        "Las filas con etiquetas 0, 1 y 2, mostrando únicamente las columnas nombre y edad",
+        "Todas las columnas de las filas 0 y 1 solamente",
+        "Un error, porque loc no acepta listas de columnas"
+      ],
+      "correct": 1,
+      "explanation": "loc con un rango de etiquetas incluye el límite superior, y al pasar una lista de columnas se filtran solo esas."
+    },
+    {
+      "question": "Quieres seleccionar la tercera fila de un DataFrame sin importar cómo esté etiquetado el índice. ¿Qué usas?",
+      "options": [
+        "clientes.loc[3]",
+        "clientes.iloc[2]",
+        "clientes[\"fila3\"]",
+        "clientes.index[3]"
+      ],
+      "correct": 1,
+      "explanation": "iloc selecciona por posición numérica empezando en 0, por lo que la tercera fila corresponde a iloc[2]."
+    }
+  ],
+  "cargar-y-explorar-datos": [
+    {
+      "question": "¿Para qué sirve principalmente el método info() de un DataFrame?",
+      "options": [
+        "Para eliminar columnas vacías automáticamente",
+        "Para mostrar un resumen de columnas, tipos de dato y valores no nulos",
+        "Para calcular el promedio de todas las columnas numéricas",
+        "Para ordenar las filas alfabéticamente"
+      ],
+      "correct": 1,
+      "explanation": "info() resume cuántas filas tiene el DataFrame, el tipo de cada columna y cuántos valores no nulos hay."
+    },
+    {
+      "question": "¿Qué diferencia hay entre unique() y value_counts() aplicados a una columna?",
+      "options": [
+        "unique() lista los valores distintos; value_counts() además indica cuántas veces aparece cada uno",
+        "Son exactamente lo mismo, solo cambia el nombre",
+        "value_counts() solo funciona con columnas numéricas",
+        "unique() ordena los datos y value_counts() los elimina"
+      ],
+      "correct": 0,
+      "explanation": "unique() devuelve solo los valores distintos, mientras que value_counts() agrega el conteo de apariciones de cada uno."
+    },
+    {
+      "question": "Después de ejecutar productos.info(), ves que la columna 'stock' tiene 8 valores 'non-null' pero el DataFrame tiene 10 filas. ¿Qué indica esto?",
+      "options": [
+        "Que la columna stock tiene 2 valores faltantes",
+        "Que hay un error en el archivo y debe volver a cargarse",
+        "Que la columna stock tiene 8 filas duplicadas",
+        "Que el DataFrame en realidad tiene 8 filas, no 10"
+      ],
+      "correct": 0,
+      "explanation": "Cuando el conteo de valores 'non-null' es menor al total de filas, significa que existen valores nulos en esa columna."
+    },
+    {
+      "question": "Tienes un archivo de encuesta en formato JSON y quieres cargarlo como DataFrame. ¿Qué función usas?",
+      "options": [
+        "pd.read_csv()",
+        "pd.read_json()",
+        "pd.DataFrame.from_csv()",
+        "pd.load_json()"
+      ],
+      "correct": 1,
+      "explanation": "pd.read_json() está diseñada específicamente para cargar datos en formato JSON hacia un DataFrame."
+    }
+  ],
+  "limpieza-de-datos": [
+    {
+      "question": "¿Qué diferencia hay entre fillna() y dropna()?",
+      "options": [
+        "fillna() elimina filas y dropna() las rellena",
+        "fillna() rellena valores faltantes y dropna() elimina filas o columnas con valores faltantes",
+        "Ambas hacen lo mismo, solo cambia la sintaxis",
+        "fillna() solo funciona con texto y dropna() solo con números"
+      ],
+      "correct": 1,
+      "explanation": "fillna() sustituye los valores faltantes por uno definido, mientras que dropna() elimina las filas o columnas que los contienen."
+    },
+    {
+      "question": "¿Qué hace exactamente duplicated() sobre un DataFrame?",
+      "options": [
+        "Elimina automáticamente las filas repetidas",
+        "Marca con True las filas que son copia de una fila anterior, sin eliminarlas",
+        "Cuenta cuántas columnas están duplicadas",
+        "Duplica todas las filas del DataFrame"
+      ],
+      "correct": 1,
+      "explanation": "duplicated() solo identifica las filas repetidas devolviendo una Serie booleana; para eliminarlas se necesita drop_duplicates()."
+    },
+    {
+      "question": "Tienes esta línea: `ventas[\"monto_total\"] = ventas[\"monto_total\"].astype(float)`. ¿Qué logra?",
+      "options": [
+        "Elimina la columna monto_total",
+        "Convierte los valores de la columna monto_total a tipo numérico decimal",
+        "Rellena los valores faltantes de monto_total con cero",
+        "Ordena la columna monto_total de menor a mayor"
+      ],
+      "correct": 1,
+      "explanation": "astype(float) convierte los valores de la columna, típicamente leídos como texto, al tipo numérico float."
+    },
+    {
+      "question": "Tienes un DataFrame de sensores donde algunas temperaturas registradas son -999 por error del equipo. ¿Cuál es la mejor forma de tratarlas?",
+      "options": [
+        "Dejarlas tal cual, porque no afectan el análisis",
+        "Filtrar las filas usando una condición de rango razonable de temperatura",
+        "Convertir toda la columna a texto",
+        "Eliminar el DataFrame completo y volver a cargarlo"
+      ],
+      "correct": 1,
+      "explanation": "Filtrar por un rango de valores válidos permite descartar lecturas claramente erróneas sin perder el resto de los datos."
+    }
+  ],
+  "transformaciones-agrupaciones": [
+    {
+      "question": "¿Cuándo conviene usar map() en lugar de apply() sobre una Serie?",
+      "options": [
+        "Cuando necesitas agrupar por varias columnas a la vez",
+        "Cuando el reemplazo es simple y se puede definir con un diccionario",
+        "Cuando quieres eliminar filas duplicadas",
+        "map() y apply() nunca se usan sobre una Serie"
+      ],
+      "correct": 1,
+      "explanation": "map() es ideal para reemplazos directos usando un diccionario de valor a valor, mientras que apply() se usa para lógica más compleja."
+    },
+    {
+      "question": "¿Qué hace groupby() por sí solo, antes de aplicar una función de agregación?",
+      "options": [
+        "Calcula automáticamente el promedio de todas las columnas",
+        "Agrupa las filas según una o más columnas, sin calcular todavía ningún resultado final",
+        "Elimina las columnas que no son numéricas",
+        "Ordena el DataFrame de forma alfabética"
+      ],
+      "correct": 1,
+      "explanation": "groupby() solo organiza las filas en grupos; necesita una función como sum(), mean() o agg() para producir un resultado utilizable."
+    },
+    {
+      "question": "Dado `ventas.groupby(\"categoria\")[\"total\"].sum()`, ¿qué obtienes como resultado?",
+      "options": [
+        "Una Serie con la suma de total por cada categoría distinta",
+        "El DataFrame original sin cambios",
+        "Un solo número con la suma de toda la columna total",
+        "Un error, porque groupby no acepta el operador de corchetes"
+      ],
+      "correct": 0,
+      "explanation": "El resultado es una Serie indexada por categoría, donde cada valor es la suma de total dentro de ese grupo."
+    },
+    {
+      "question": "Quieres calcular, por categoría de producto, tanto el total vendido como el número de productos distintos, con nombres de columna claros. ¿Qué usas?",
+      "options": [
+        "ventas.sort_values(\"categoria\")",
+        "ventas.groupby(\"categoria\").agg(total_vendido=(\"total\", \"sum\"), productos_distintos=(\"producto\", \"nunique\"))",
+        "ventas[\"categoria\"].map({\"total\": \"sum\"})",
+        "ventas.apply(\"categoria\")"
+      ],
+      "correct": 1,
+      "explanation": "agg() con nombres explícitos permite calcular varias agregaciones a la vez y obtener columnas de salida claras y descriptivas."
+    }
+  ]
+}

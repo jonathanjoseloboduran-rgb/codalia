@@ -1,0 +1,186 @@
+{
+  "que-es-machine-learning": [
+    {
+      "question": "¿Cuál es la diferencia principal entre aprendizaje supervisado y no supervisado?",
+      "options": [
+        "El supervisado usa ejemplos con respuesta conocida; el no supervisado busca patrones sin respuestas dadas",
+        "El supervisado es más rápido de entrenar que el no supervisado",
+        "El no supervisado solo funciona con números, el supervisado solo con texto",
+        "No hay ninguna diferencia real entre ambos"
+      ],
+      "correct": 0,
+      "explanation": "El aprendizaje supervisado aprende de pares entrada-salida conocidos, mientras que el no supervisado descubre estructura en datos sin etiquetas."
+    },
+    {
+      "question": "En el código `modelo.fit(X, y)`, ¿qué representa `y`?",
+      "options": [
+        "El nombre del modelo",
+        "El label o respuesta que el modelo intenta predecir",
+        "El número de columnas de X",
+        "Una configuración del algoritmo"
+      ],
+      "correct": 1,
+      "explanation": "`y` es el label: la variable de salida que el modelo aprende a predecir a partir de las features en `X`."
+    },
+    {
+      "question": "¿Qué hace el método predict después de entrenar un modelo con fit?",
+      "options": [
+        "Vuelve a entrenar el modelo desde cero",
+        "Elimina los datos de entrenamiento",
+        "Genera una predicción para datos nuevos usando lo aprendido",
+        "Calcula automáticamente el error del modelo"
+      ],
+      "correct": 2,
+      "explanation": "predict usa el patrón aprendido durante fit para generar una salida a partir de features nuevas."
+    },
+    {
+      "question": "Tienes que estimar el gasto mensual futuro de un cliente en base a su historial de compras. ¿Qué tipo de problema de machine learning es?",
+      "options": [
+        "Aprendizaje no supervisado, porque no hay datos históricos",
+        "Aprendizaje supervisado, porque tienes ejemplos pasados con la respuesta (gasto) conocida",
+        "No es un problema de machine learning",
+        "Clasificación multiclase obligatoriamente"
+      ],
+      "correct": 1,
+      "explanation": "Como cuentas con historial (features) y el gasto real pasado (label), es un problema supervisado, específicamente de regresión."
+    }
+  ],
+  "regresion": [
+    {
+      "question": "¿Qué tipo de valores predice un modelo de regresión?",
+      "options": [
+        "Categorías como 'sí' o 'no'",
+        "Números continuos, como precios o salarios",
+        "Solo valores entre 0 y 1",
+        "Imágenes"
+      ],
+      "correct": 1,
+      "explanation": "La regresión se usa para predecir valores numéricos continuos, no categorías."
+    },
+    {
+      "question": "¿Qué mide el error cuadrático medio (MSE)?",
+      "options": [
+        "El número de features usadas en el modelo",
+        "El tiempo que tarda en entrenar el modelo",
+        "El promedio de los errores al cuadrado entre predicciones y valores reales",
+        "La cantidad de datos usados para entrenar"
+      ],
+      "correct": 2,
+      "explanation": "El MSE promedia el cuadrado de las diferencias entre lo predicho y lo real, penalizando más los errores grandes."
+    },
+    {
+      "question": "Dado `modelo.coef_[0]` igual a 950 y `modelo.intercept_` igual a 5000, ¿qué precio aproximado predice el modelo para 10 metros cuadrados?",
+      "options": [
+        "5000",
+        "9500",
+        "14500",
+        "950"
+      ],
+      "correct": 2,
+      "explanation": "La predicción es intercepto + coeficiente * metros = 5000 + 950*10 = 14500."
+    },
+    {
+      "question": "Quieres predecir el consumo eléctrico mensual de una casa según sus metros cuadrados y número de habitantes. ¿Qué modelo usarías primero?",
+      "options": [
+        "Un modelo de clasificación multiclase",
+        "Un árbol de decisión para categorías",
+        "Una regresión lineal, porque el consumo es un valor numérico continuo",
+        "No se puede predecir con machine learning"
+      ],
+      "correct": 2,
+      "explanation": "Como el consumo eléctrico es un número continuo, la regresión lineal es el punto de partida natural."
+    }
+  ],
+  "clasificacion": [
+    {
+      "question": "¿Qué diferencia hay entre clasificación binaria y multiclase?",
+      "options": [
+        "La binaria predice entre dos categorías; la multiclase entre tres o más",
+        "La multiclase solo funciona con árboles de decisión",
+        "La binaria predice números, la multiclase predice texto",
+        "No hay diferencia, son sinónimos"
+      ],
+      "correct": 0,
+      "explanation": "La clasificación binaria distingue entre dos categorías, mientras que la multiclase distingue entre tres o más."
+    },
+    {
+      "question": "¿Qué devuelve el método predict_proba de un clasificador?",
+      "options": [
+        "La categoría final únicamente",
+        "El error del modelo",
+        "Las probabilidades estimadas para cada categoría posible",
+        "El número de árboles usados"
+      ],
+      "correct": 2,
+      "explanation": "predict_proba entrega la probabilidad de pertenecer a cada clase, en lugar de solo la clase más probable."
+    },
+    {
+      "question": "Dado el resultado `modelo.predict_proba([[4]])` que imprime `[[0.2, 0.8]]`, ¿qué significa el 0.8?",
+      "options": [
+        "La probabilidad estimada de pertenecer a la clase 1",
+        "El error del modelo",
+        "El número de ejemplos de entrenamiento",
+        "La profundidad del árbol de decisión"
+      ],
+      "correct": 0,
+      "explanation": "En un arreglo de dos probabilidades, la segunda posición corresponde a la probabilidad de la clase 1."
+    },
+    {
+      "question": "Necesitas predecir si una transacción bancaria es fraudulenta o no, basándote en el monto y la hora. ¿Qué tipo de modelo es más adecuado?",
+      "options": [
+        "Regresión lineal, porque el resultado es un número",
+        "Un modelo de clasificación binaria, porque el resultado es una de dos categorías",
+        "No se puede resolver con machine learning",
+        "Un modelo de clasificación multiclase con diez categorías"
+      ],
+      "correct": 1,
+      "explanation": "Como la respuesta es 'fraude' o 'no fraude', es un problema de clasificación binaria."
+    }
+  ],
+  "evaluacion-de-modelos": [
+    {
+      "question": "¿Por qué es importante separar los datos en entrenamiento y prueba?",
+      "options": [
+        "Para que el modelo entrene más rápido",
+        "Para evaluar el modelo con datos que no vio durante el entrenamiento y así medir su capacidad de generalizar",
+        "Porque scikit-learn lo exige por ley",
+        "Para reducir el tamaño del archivo de datos"
+      ],
+      "correct": 1,
+      "explanation": "Evaluar con datos nuevos simula cómo se comportará el modelo en la práctica, evitando una evaluación artificialmente optimista."
+    },
+    {
+      "question": "¿Cuál es una limitación conocida de usar solo accuracy como métrica?",
+      "options": [
+        "No se puede calcular en Python",
+        "Puede dar una imagen engañosa cuando las categorías están desbalanceadas",
+        "Solo funciona con regresión, no con clasificación",
+        "Siempre da como resultado 100%"
+      ],
+      "correct": 1,
+      "explanation": "Con categorías desbalanceadas, un modelo puede lograr accuracy alta sin realmente aprender a distinguir la clase minoritaria."
+    },
+    {
+      "question": "Si `arbol.score(X_train, y_train)` da 0.99 y `arbol.score(X_test, y_test)` da 0.55, ¿qué está ocurriendo probablemente?",
+      "options": [
+        "El modelo está subajustado",
+        "El modelo está sobreajustado: memorizó el entrenamiento pero no generaliza",
+        "Los datos de prueba están mal etiquetados siempre",
+        "El modelo funciona perfectamente"
+      ],
+      "correct": 1,
+      "explanation": "Una diferencia grande entre desempeño de entrenamiento y prueba es la señal clásica de sobreajuste."
+    },
+    {
+      "question": "Estás evaluando un modelo que detecta enfermedades raras y quieres asegurarte de no dejar pasar casos positivos reales. ¿Qué métrica priorizarías junto con accuracy?",
+      "options": [
+        "El recall, porque mide cuántos positivos reales detecta el modelo",
+        "El número de columnas del dataset",
+        "El tiempo de entrenamiento del modelo",
+        "El intercepto del modelo"
+      ],
+      "correct": 0,
+      "explanation": "El recall es clave cuando el costo de no detectar un caso positivo real (como una enfermedad) es alto."
+    }
+  ]
+}

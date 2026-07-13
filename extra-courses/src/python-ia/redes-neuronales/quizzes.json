@@ -1,0 +1,186 @@
+{
+  "neuronas-y-capas": [
+    {
+      "question": "¿Qué representa el peso asociado a una entrada en una neurona artificial?",
+      "options": [
+        "El número total de capas de la red",
+        "La importancia que la neurona le da a esa entrada",
+        "El valor final que produce la red",
+        "La cantidad de épocas de entrenamiento"
+      ],
+      "correct": 1,
+      "explanation": "El peso indica cuánto influye una entrada específica en el cálculo de la neurona."
+    },
+    {
+      "question": "¿Para qué sirve la función de activación en una neurona?",
+      "options": [
+        "Para eliminar el sesgo del cálculo",
+        "Para transformar la suma ponderada en una señal útil",
+        "Para contar cuántas capas tiene la red",
+        "Para guardar los datos de entrenamiento"
+      ],
+      "correct": 1,
+      "explanation": "La función de activación convierte la suma ponderada en una salida con un rango o comportamiento específico, como ReLU o sigmoide."
+    },
+    {
+      "question": "Dado este código, ¿qué hace la función `relu`?\n\n```python\ndef relu(x):\n    return max(0, x)\n```",
+      "options": [
+        "Devuelve siempre el valor de x sin cambios",
+        "Convierte cualquier valor negativo en cero y deja igual los positivos",
+        "Calcula el promedio de una lista de valores",
+        "Aplica la función sigmoide a x"
+      ],
+      "correct": 1,
+      "explanation": "ReLU devuelve el mayor entre 0 y x, por lo que anula los valores negativos y conserva los positivos."
+    },
+    {
+      "question": "Si quieres que tu red procese datos de entrada y produzca representaciones cada vez más abstractas antes de dar un resultado final, ¿qué debes usar?",
+      "options": [
+        "Una sola neurona sin capas ocultas",
+        "Varias capas, incluyendo al menos una capa oculta",
+        "Solo la capa de salida",
+        "Ningún tipo de función de activación"
+      ],
+      "correct": 1,
+      "explanation": "Las capas ocultas permiten que la red combine y transforme información progresivamente antes de llegar a la salida."
+    }
+  ],
+  "perceptron-desde-cero": [
+    {
+      "question": "¿Qué hace la regla de aprendizaje del perceptrón cuando la predicción es correcta?",
+      "options": [
+        "Aumenta drásticamente todos los pesos",
+        "No realiza ningún cambio en los pesos",
+        "Reinicia los pesos a cero",
+        "Elimina el sesgo del modelo"
+      ],
+      "correct": 1,
+      "explanation": "Si el error es cero porque la predicción fue correcta, la fórmula de actualización no modifica los pesos."
+    },
+    {
+      "question": "¿Por qué un perceptrón simple no puede aprender la compuerta XOR?",
+      "options": [
+        "Porque XOR necesita más de dos entradas",
+        "Porque XOR no es un problema linealmente separable",
+        "Porque el perceptrón no admite números negativos",
+        "Porque XOR requiere una tasa de aprendizaje distinta"
+      ],
+      "correct": 1,
+      "explanation": "XOR no puede separarse con una sola línea recta, por lo que un perceptrón de una sola neurona no logra resolverlo."
+    },
+    {
+      "question": "En este fragmento, ¿qué representa la variable `error`?\n\n```python\ndef actualizar_pesos(entrada, esperado, prediccion, pesos, sesgo):\n    error = esperado - prediccion\n    nuevos_pesos = pesos + tasa_aprendizaje * error * entrada\n    return nuevos_pesos\n```",
+      "options": [
+        "La cantidad de épocas restantes",
+        "La diferencia entre el valor esperado y la predicción del perceptrón",
+        "El learning rate del modelo",
+        "El número de entradas del perceptrón"
+      ],
+      "correct": 1,
+      "explanation": "El error mide qué tan lejos estuvo la predicción del valor correcto, y determina cuánto se ajustan los pesos."
+    },
+    {
+      "question": "Quieres entrenar un perceptrón para clasificar correos entre 'urgente' y 'no urgente' usando solo dos características simples y sabes que los datos son separables con una línea recta. ¿Es una aplicación adecuada para un perceptrón simple?",
+      "options": [
+        "No, los perceptrones nunca sirven para clasificación",
+        "Sí, porque el problema es linealmente separable",
+        "No, se necesitan siempre redes con cientos de capas",
+        "Sí, pero solo si se usan números negativos"
+      ],
+      "correct": 1,
+      "explanation": "Un perceptrón simple puede resolver cualquier problema de clasificación que sea linealmente separable, como en este caso."
+    }
+  ],
+  "entrenamiento-y-descenso": [
+    {
+      "question": "¿Qué mide la función de pérdida durante el entrenamiento de una red?",
+      "options": [
+        "La cantidad de capas del modelo",
+        "Qué tan equivocadas están las predicciones respecto al valor real",
+        "El tiempo que toma cada época",
+        "La cantidad de neuronas activas"
+      ],
+      "correct": 1,
+      "explanation": "La función de pérdida cuantifica el error entre lo que predice la red y el valor verdadero."
+    },
+    {
+      "question": "En la analogía de 'bajar una montaña con niebla', ¿qué representa el learning rate?",
+      "options": [
+        "La altura total de la montaña",
+        "El tamaño de cada paso que se da al bajar",
+        "La cantidad de neblina presente",
+        "El punto final del valle"
+      ],
+      "correct": 1,
+      "explanation": "El learning rate controla qué tan grande es cada ajuste de los pesos, igual que el tamaño de un paso al bajar la montaña."
+    },
+    {
+      "question": "Observa este código. ¿Qué calcula la variable `batches`?\n\n```python\ndatos_entrenamiento = list(range(1, 21))\ntamano_batch = 4\n\nbatches = [\n    datos_entrenamiento[i:i + tamano_batch]\n    for i in range(0, len(datos_entrenamiento), tamano_batch)\n]\n```",
+      "options": [
+        "El número total de épocas de entrenamiento",
+        "Una lista de sublistas, cada una con 4 ejemplos de los datos",
+        "La función de pérdida del modelo",
+        "El learning rate óptimo"
+      ],
+      "correct": 1,
+      "explanation": "El código divide la lista de datos en grupos (batches) de 4 elementos cada uno."
+    },
+    {
+      "question": "Estás entrenando un modelo y notas que la pérdida sube y baja de forma muy brusca sin estabilizarse. ¿Qué ajuste probarías primero?",
+      "options": [
+        "Aumentar aún más el learning rate",
+        "Reducir el learning rate",
+        "Eliminar la función de pérdida",
+        "Entrenar con una sola época"
+      ],
+      "correct": 1,
+      "explanation": "Un learning rate demasiado alto suele causar oscilaciones bruscas en la pérdida; reducirlo ayuda a estabilizar el entrenamiento."
+    }
+  ],
+  "frameworks-deep-learning": [
+    {
+      "question": "¿Qué problema principal resuelve la diferenciación automática en frameworks como PyTorch y TensorFlow?",
+      "options": [
+        "Calcular los gradientes sin que el programador escriba las derivadas manualmente",
+        "Elegir automáticamente el mejor conjunto de datos",
+        "Visualizar gráficos de la red neuronal",
+        "Reducir el tamaño de los datos de entrada"
+      ],
+      "correct": 0,
+      "explanation": "La diferenciación automática calcula los gradientes necesarios para el backpropagation sin cálculo manual de derivadas."
+    },
+    {
+      "question": "¿Qué caracteriza principalmente a PyTorch frente a TensorFlow/Keras?",
+      "options": [
+        "Es exclusivo para procesamiento de imágenes",
+        "Ofrece mayor flexibilidad y es popular en investigación",
+        "No permite calcular gradientes automáticamente",
+        "Solo funciona con datos tabulares"
+      ],
+      "correct": 1,
+      "explanation": "PyTorch es valorado por su flexibilidad para experimentar y depurar modelos, lo que lo hace popular en investigación."
+    },
+    {
+      "question": "Según este esquema de pasos, ¿qué ocurre justo después de compilar el modelo en Keras?\n\n```python\npasos_entrenamiento_keras = [\n    \"1. Definir el modelo\",\n    \"2. Compilar el modelo\",\n    \"3. Entrenar con model.fit(...)\",\n    \"4. Evaluar con model.evaluate(...)\",\n]\n```",
+      "options": [
+        "Se define nuevamente el modelo",
+        "Se entrena el modelo con model.fit",
+        "Se elimina el optimizador",
+        "Se predicen resultados sin entrenar"
+      ],
+      "correct": 1,
+      "explanation": "Después de compilar el modelo, el siguiente paso típico es entrenarlo llamando a model.fit con los datos."
+    },
+    {
+      "question": "Tienes un dataset tabular de solo 300 filas con pocas columnas y necesitas poder explicar cada predicción a un cliente. ¿Qué enfoque conviene más?",
+      "options": [
+        "Una red neuronal profunda con muchas capas",
+        "Machine learning clásico, como árboles de decisión",
+        "PyTorch con diferenciación automática obligatoria",
+        "Cualquier framework de deep learning, sin importar el tamaño de los datos"
+      ],
+      "correct": 1,
+      "explanation": "Con pocos datos y necesidad de explicabilidad, el machine learning clásico suele ser más adecuado que el deep learning."
+    }
+  ]
+}

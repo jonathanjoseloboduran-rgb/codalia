@@ -1,0 +1,186 @@
+{
+  "estadistica-descriptiva": [
+    {
+      "question": "¿Por qué la mediana es más útil que la media cuando hay valores extremos en los datos?",
+      "options": [
+        "Porque la mediana siempre es más grande que la media",
+        "Porque la media se ve muy afectada por valores muy altos o muy bajos, mientras que la mediana no",
+        "Porque la mediana solo funciona con números pares",
+        "Porque la media no se puede calcular con listas largas"
+      ],
+      "correct": 1,
+      "explanation": "La media suma todos los valores, así que un valor extremo la desplaza mucho. La mediana solo depende del valor central, por lo que resiste mejor los outliers."
+    },
+    {
+      "question": "¿Qué mide la desviación estándar?",
+      "options": [
+        "El valor máximo del conjunto de datos",
+        "La cantidad total de datos",
+        "Qué tan lejos, en promedio, están los datos respecto a la media",
+        "El valor que más se repite en el conjunto"
+      ],
+      "correct": 2,
+      "explanation": "La desviación estándar resume la dispersión de los datos alrededor de la media, en las mismas unidades que los datos originales."
+    },
+    {
+      "question": "Dado el código `q1 = np.percentile(datos, 25)` y `q3 = np.percentile(datos, 75)`, ¿qué representa `q3 - q1`?",
+      "options": [
+        "La media de los datos",
+        "El rango intercuartílico (IQR), usado para detectar outliers",
+        "La mediana de los datos",
+        "La moda de los datos"
+      ],
+      "correct": 1,
+      "explanation": "La diferencia entre el percentil 75 y el percentil 25 es el IQR, una medida de dispersión central usada para identificar valores atípicos."
+    },
+    {
+      "question": "Tienes un dataset de tiempos de entrega y quieres detectar entregas anormalmente lentas. ¿Qué técnica de esta lección usarías primero?",
+      "options": [
+        "Calcular solo la moda de los tiempos",
+        "Usar el método del rango intercuartílico (IQR) para identificar outliers",
+        "Sumar todos los tiempos de entrega",
+        "Ordenar los datos alfabéticamente"
+      ],
+      "correct": 1,
+      "explanation": "El método IQR compara cada valor contra los límites basados en los cuartiles, marcando como outliers los valores muy alejados del rango típico."
+    }
+  ],
+  "distribuciones-probabilidad": [
+    {
+      "question": "¿Por qué la distribución normal aparece con tanta frecuencia en fenómenos naturales?",
+      "options": [
+        "Porque todos los datos del mundo son normales por definición",
+        "Por el teorema del límite central: cuando muchos factores pequeños e independientes se suman, el resultado tiende a formar una campana",
+        "Porque numpy la genera por defecto siempre",
+        "Porque la media siempre es igual a la desviación estándar"
+      ],
+      "correct": 1,
+      "explanation": "El teorema del límite central explica que la suma de muchos efectos pequeños e independientes tiende a distribuirse en forma de campana de Gauss."
+    },
+    {
+      "question": "¿Qué dice la ley de los grandes números?",
+      "options": [
+        "Que mientras más repites un experimento, el promedio observado se acerca al promedio teórico",
+        "Que los números grandes son más probables que los pequeños",
+        "Que la desviación estándar siempre disminuye a cero",
+        "Que la probabilidad de un evento depende del tamaño del número"
+      ],
+      "correct": 0,
+      "explanation": "Al aumentar el número de repeticiones de un experimento aleatorio, el promedio observado converge hacia el valor esperado teórico."
+    },
+    {
+      "question": "En el código `np.random.seed(42)` seguido de `np.random.normal(100, 15, 10)`, ¿qué logra la línea `np.random.seed(42)`?",
+      "options": [
+        "Genera exactamente 42 números aleatorios",
+        "Hace que la simulación sea reproducible, dando siempre la misma secuencia de números",
+        "Calcula la media de los datos generados",
+        "Elimina los valores atípicos de la simulación"
+      ],
+      "correct": 1,
+      "explanation": "Fijar una semilla asegura que, al ejecutar el código de nuevo, se obtenga exactamente la misma secuencia de números aleatorios."
+    },
+    {
+      "question": "Quieres simular el tiempo entre llegadas de clientes a una tienda para planear personal. ¿Qué harías con numpy.random?",
+      "options": [
+        "Generar una muestra con una distribución adecuada, como la exponencial, y analizar sus estadísticas",
+        "Copiar y pegar los mismos datos varias veces",
+        "Usar solo la función print() para mostrar el problema",
+        "Calcular la moda de una sola observación"
+      ],
+      "correct": 0,
+      "explanation": "Simular con una distribución apropiada permite explorar escenarios de tiempos de espera o llegada sin necesidad de datos reales todavía."
+    }
+  ],
+  "correlacion": [
+    {
+      "question": "¿Qué significa un coeficiente de correlación de Pearson cercano a 0?",
+      "options": [
+        "Que las dos variables son idénticas",
+        "Que no existe una relación lineal fuerte entre las variables",
+        "Que una variable causa a la otra",
+        "Que los datos tienen errores"
+      ],
+      "correct": 1,
+      "explanation": "Un coeficiente cercano a 0 indica que no hay una relación lineal clara entre las dos variables analizadas."
+    },
+    {
+      "question": "¿Por qué correlación no implica causalidad?",
+      "options": [
+        "Porque la correlación nunca es un número real",
+        "Porque puede existir una variable oculta que explique el movimiento conjunto de ambas variables, sin que una cause a la otra",
+        "Porque la correlación solo se puede calcular con menos de 10 datos",
+        "Porque pandas no permite calcular correlaciones reales"
+      ],
+      "correct": 1,
+      "explanation": "Dos variables pueden moverse juntas por la influencia de una tercera variable oculta, como ocurre con las heladerías y los ahogamientos en verano."
+    },
+    {
+      "question": "Dado `datos.corr()` en un DataFrame con las columnas 'horas_estudio' y 'horas_sueño', si el resultado muestra -0.85, ¿qué indica ese valor?",
+      "options": [
+        "Que las dos columnas son exactamente iguales",
+        "Que existe una relación negativa fuerte: cuando una sube, la otra tiende a bajar",
+        "Que hay un error en los datos",
+        "Que no existe ninguna relación entre las columnas"
+      ],
+      "correct": 1,
+      "explanation": "Un valor cercano a -1 indica una relación lineal negativa fuerte: al aumentar una variable, la otra tiende a disminuir de forma consistente."
+    },
+    {
+      "question": "Encuentras una correlación alta entre el consumo de queso y la cantidad de graduados en ingeniería en un país. ¿Qué deberías hacer antes de sacar conclusiones?",
+      "options": [
+        "Publicar de inmediato que el queso mejora el rendimiento académico",
+        "Sospechar de una correlación espuria, ya que ambas series solo comparten una tendencia temporal sin relación lógica",
+        "Ignorar por completo el resultado sin analizarlo",
+        "Asumir que existe causalidad directa entre ambas variables"
+      ],
+      "correct": 1,
+      "explanation": "Cuando dos variables solo comparten una tendencia en el tiempo, es común obtener correlaciones altas sin que exista ninguna relación real entre ellas."
+    }
+  ],
+  "pruebas-de-hipotesis": [
+    {
+      "question": "¿Qué representa la hipótesis nula en una prueba de hipótesis?",
+      "options": [
+        "La afirmación de que sí existe una diferencia real entre los grupos",
+        "La afirmación de que no hay diferencia real, y que la diferencia observada se debe al azar",
+        "El valor promedio de todos los datos",
+        "La probabilidad de que el experimento tenga errores de medición"
+      ],
+      "correct": 1,
+      "explanation": "La hipótesis nula es el punto de partida conservador: asume que no hay efecto real y que cualquier diferencia observada es producto del azar."
+    },
+    {
+      "question": "¿Qué significa realmente un p-valor bajo, por ejemplo 0.01?",
+      "options": [
+        "Que hay solo un 1% de probabilidad de que la hipótesis nula sea verdadera",
+        "Que, si la hipótesis nula fuera cierta, sería muy poco probable observar una diferencia tan grande como la que se vio",
+        "Que el efecto encontrado es necesariamente muy grande e importante",
+        "Que los datos están mal medidos"
+      ],
+      "correct": 1,
+      "explanation": "El p-valor mide la probabilidad de observar un resultado tan extremo como el obtenido, asumiendo que la hipótesis nula es cierta, no la probabilidad de que la hipótesis nula sea verdadera."
+    },
+    {
+      "question": "En el código `t_estadistico, p_valor = stats.ttest_ind(grupo_a, grupo_b)`, si `p_valor` resulta ser 0.6, ¿qué conclusión es correcta?",
+      "options": [
+        "Se rechaza la hipótesis nula porque el p-valor es alto",
+        "No hay evidencia suficiente para decir que los grupos son diferentes",
+        "Los dos grupos son exactamente iguales en todos sus valores",
+        "El experimento tiene un error de programación"
+      ],
+      "correct": 1,
+      "explanation": "Un p-valor de 0.6 es mayor al umbral típico de 0.05, por lo que no hay evidencia suficiente para rechazar la hipótesis nula de que no hay diferencia real."
+    },
+    {
+      "question": "Pruebas veinte hipótesis distintas sobre el mismo dataset y una de ellas da un p-valor de 0.04. ¿Cuál es el error común que deberías evitar aquí?",
+      "options": [
+        "Concluir automáticamente que esa hipótesis es verdadera solo porque fue la única significativa entre muchas pruebas (p-hacking)",
+        "Calcular el p-valor con más decimales",
+        "Usar una muestra más grande para el análisis",
+        "Verificar los datos antes de analizarlos"
+      ],
+      "correct": 0,
+      "explanation": "Al probar muchas hipótesis al azar, es esperable que alguna dé un resultado 'significativo' solo por casualidad. Confiar en ese único resultado sin contexto es la trampa conocida como p-hacking."
+    }
+  ]
+}

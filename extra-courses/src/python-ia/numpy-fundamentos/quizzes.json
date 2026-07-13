@@ -1,0 +1,186 @@
+{
+  "que-es-numpy-arrays": [
+    {
+      "question": "¿Qué es el ndarray en NumPy?",
+      "options": [
+        "Una lista de Python con elementos de distintos tipos",
+        "La estructura central de NumPy, un arreglo de N dimensiones con elementos del mismo tipo",
+        "Una función para crear gráficos",
+        "Un archivo de configuración de NumPy"
+      ],
+      "correct": 1,
+      "explanation": "El ndarray es la estructura base de NumPy: un arreglo de N dimensiones donde todos los elementos comparten el mismo tipo de dato."
+    },
+    {
+      "question": "¿Qué muestra este código?\n\nimport numpy as np\nm = np.array([[1, 2, 3], [4, 5, 6]])\nprint(m.shape)",
+      "options": [
+        "(6,)",
+        "(2, 3)",
+        "(3, 2)",
+        "6"
+      ],
+      "correct": 1,
+      "explanation": "La matriz tiene 2 filas y 3 columnas, por lo que su shape es (2, 3)."
+    },
+    {
+      "question": "¿Por qué NumPy es más rápido que las listas de Python para cálculos numéricos?",
+      "options": [
+        "Porque usa menos líneas de código",
+        "Porque guarda los datos en bloques compactos de memoria y usa código optimizado en C",
+        "Porque no permite números decimales",
+        "Porque solo funciona con enteros pequeños"
+      ],
+      "correct": 1,
+      "explanation": "NumPy almacena los datos de forma contigua en memoria y delega las operaciones a rutinas optimizadas en C, evitando el overhead de Python."
+    },
+    {
+      "question": "Quieres generar 5 valores espaciados uniformemente entre 0 y 1 para usarlos como datos de entrada de un modelo. ¿Qué función usarías?",
+      "options": [
+        "np.zeros(5)",
+        "np.arange(0, 1)",
+        "np.linspace(0, 1, 5)",
+        "np.ones(5)"
+      ],
+      "correct": 2,
+      "explanation": "np.linspace(0, 1, 5) genera exactamente 5 valores distribuidos uniformemente entre 0 y 1."
+    }
+  ],
+  "operaciones-vectorizadas": [
+    {
+      "question": "¿Qué es una ufunc en NumPy?",
+      "options": [
+        "Una función que solo funciona con arrays de una dimensión",
+        "Una función universal que aplica una operación a cada elemento de un array de forma optimizada",
+        "Un tipo de error común en NumPy",
+        "Una función para leer archivos CSV"
+      ],
+      "correct": 1,
+      "explanation": "Las ufuncs, como np.sqrt o np.exp, aplican una operación matemática a cada elemento del array de manera eficiente."
+    },
+    {
+      "question": "¿Qué imprime este código?\n\nimport numpy as np\nnotas = np.array([[80, 90], [70, 60]])\nprint(notas.mean(axis=1))",
+      "options": [
+        "[75. 75.]",
+        "[85. 65.]",
+        "[80. 60.]",
+        "75.0"
+      ],
+      "correct": 1,
+      "explanation": "axis=1 calcula el promedio de cada fila: (80+90)/2 = 85 y (70+60)/2 = 65, dando como resultado [85. 65.]."
+    },
+    {
+      "question": "¿Por qué la vectorización es más rápida que usar un bucle for en Python?",
+      "options": [
+        "Porque evita el overhead del intérprete de Python y usa código compilado en bloques de memoria contiguos",
+        "Porque reduce automáticamente la cantidad de datos",
+        "Porque convierte los datos a texto antes de procesarlos",
+        "Porque solo puede usarse con números negativos"
+      ],
+      "correct": 0,
+      "explanation": "Los bucles de Python pasan por el intérprete en cada iteración, mientras que las operaciones vectorizadas delegan el trabajo a rutinas compiladas mucho más rápidas."
+    },
+    {
+      "question": "Tienes una matriz de ventas por región (filas) y por mes (columnas), y quieres el total vendido por cada región. ¿Qué código usarías?",
+      "options": [
+        "ventas.sum(axis=0)",
+        "ventas.sum(axis=1)",
+        "ventas.mean()",
+        "ventas.sum()"
+      ],
+      "correct": 1,
+      "explanation": "axis=1 recorre las columnas dentro de cada fila, dando como resultado un total por cada región (fila)."
+    }
+  ],
+  "indexacion-slicing-arrays": [
+    {
+      "question": "¿Qué es una máscara booleana en NumPy?",
+      "options": [
+        "Un array de valores True/False usado para filtrar elementos que cumplen una condición",
+        "Una función para ocultar valores nulos",
+        "Un tipo de dato exclusivo para imágenes",
+        "Una copia exacta de un array original"
+      ],
+      "correct": 0,
+      "explanation": "Una máscara booleana es un array del mismo tamaño con valores True/False que, al usarse como índice, filtra los elementos donde la condición es True."
+    },
+    {
+      "question": "¿Qué imprime este código?\n\nimport numpy as np\nnotas = np.array([60, 75, 90, 55, 82])\nprint(notas[notas >= 75])",
+      "options": [
+        "[60 75 90 55 82]",
+        "[75 90 82]",
+        "[60 55]",
+        "[True False True False True]"
+      ],
+      "correct": 1,
+      "explanation": "La condición notas >= 75 filtra los elementos que cumplen esa condición: 75, 90 y 82."
+    },
+    {
+      "question": "¿Cuál es la diferencia principal entre una vista y una copia de un array?",
+      "options": [
+        "No hay diferencia, son lo mismo",
+        "La vista comparte memoria con el original y la copia es independiente",
+        "La copia siempre es más rápida de crear que la vista",
+        "La vista solo funciona con matrices, no con arrays de una dimensión"
+      ],
+      "correct": 1,
+      "explanation": "Una vista comparte la memoria del array original, por lo que modificarla afecta al original; una copia es completamente independiente."
+    },
+    {
+      "question": "Tienes una tabla de estudiantes (filas) y quieres reordenarla para que aparezcan primero los estudiantes con posiciones [3, 0, 1] según un ranking calculado. ¿Qué técnica usarías?",
+      "options": [
+        "Slicing simple con tabla[0:3]",
+        "Fancy indexing con tabla[[3, 0, 1]]",
+        "Una máscara booleana",
+        "El método .copy()"
+      ],
+      "correct": 1,
+      "explanation": "El fancy indexing permite seleccionar elementos en cualquier orden usando una lista de índices, ideal para reordenar filas."
+    }
+  ],
+  "broadcasting": [
+    {
+      "question": "¿Qué es el broadcasting en NumPy?",
+      "options": [
+        "Un mecanismo que permite operar entre arrays de formas distintas expandiendo virtualmente el más pequeño",
+        "Una función para transmitir datos por internet",
+        "Un método para eliminar filas duplicadas",
+        "Una forma de convertir arrays en listas de Python"
+      ],
+      "correct": 0,
+      "explanation": "El broadcasting expande automáticamente arrays más pequeños para que sean compatibles con arrays más grandes al operar."
+    },
+    {
+      "question": "¿Qué imprime este código?\n\nimport numpy as np\nm = np.array([[1, 2], [3, 4]])\nv = np.array([10, 20])\nprint(m + v)",
+      "options": [
+        "[[11 22] [13 24]]",
+        "[[11 12] [23 24]]",
+        "Error, las formas no son compatibles",
+        "[11 22 33 44]"
+      ],
+      "correct": 0,
+      "explanation": "v tiene shape (2,), compatible con la última dimensión de m (2,2), por lo que se suma a cada fila: [1+10, 2+20] y [3+10, 4+20]."
+    },
+    {
+      "question": "¿Cuándo son compatibles dos dimensiones para hacer broadcasting?",
+      "options": [
+        "Solo cuando ambas son exactamente iguales",
+        "Cuando son iguales, o cuando una de ellas es igual a 1",
+        "Cuando ambas son mayores a 1",
+        "El broadcasting nunca depende de las dimensiones"
+      ],
+      "correct": 1,
+      "explanation": "Dos dimensiones son compatibles para broadcasting si son iguales o si una de ellas vale 1, permitiendo que se expanda."
+    },
+    {
+      "question": "Tienes una matriz de datos de shape (100, 5) y quieres restar el promedio de cada columna, guardado en un array de shape (5,). ¿Qué sucede al hacer matriz - promedios?",
+      "options": [
+        "NumPy lanza un error porque las formas no coinciden",
+        "El broadcasting expande el array de promedios para restarlo a cada una de las 100 filas",
+        "Solo se resta el promedio a la primera fila",
+        "Hay que convertir manualmente el array de promedios a shape (100, 5) antes de restar"
+      ],
+      "correct": 1,
+      "explanation": "Como la última dimensión coincide (5 con 5), NumPy expande automáticamente el array de promedios para aplicarlo a cada fila de la matriz."
+    }
+  ]
+}

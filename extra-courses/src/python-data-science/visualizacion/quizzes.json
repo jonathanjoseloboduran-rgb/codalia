@@ -1,0 +1,186 @@
+{
+  "matplotlib-basico": [
+    {
+      "question": "¿Qué representa el objeto 'axes' en matplotlib?",
+      "options": [
+        "El lienzo completo que puede contener varios gráficos",
+        "El área específica donde se dibuja un gráfico individual",
+        "El archivo donde se guarda la figura",
+        "La leyenda que identifica cada serie de datos"
+      ],
+      "correct": 1,
+      "explanation": "La 'figure' es el lienzo completo, mientras que 'axes' es el área donde realmente se dibujan los datos."
+    },
+    {
+      "question": "¿Cuál es la diferencia principal entre usar plot() y scatter()?",
+      "options": [
+        "plot() es solo para barras y scatter() solo para líneas",
+        "plot() conecta los puntos en secuencia, scatter() dibuja puntos independientes",
+        "No hay ninguna diferencia entre ambos métodos",
+        "scatter() solo funciona con datos categóricos"
+      ],
+      "correct": 1,
+      "explanation": "plot() traza líneas conectando los puntos en orden, útil para tendencias; scatter() dibuja puntos sueltos para explorar relaciones entre variables."
+    },
+    {
+      "question": "Dado el código 'ejes.plot(meses, ventas, label=\"Tienda Centro\")' seguido de 'ejes.legend()', ¿qué aparecerá en el gráfico?",
+      "options": [
+        "Un recuadro con el texto 'Tienda Centro' identificando la línea",
+        "Un error porque falta el parámetro color",
+        "Un título automático con el nombre 'Tienda Centro'",
+        "Nada, porque legend() requiere pasar el label como argumento"
+      ],
+      "correct": 0,
+      "explanation": "El parámetro label define el texto que usará legend() para mostrar un recuadro identificando esa serie de datos."
+    },
+    {
+      "question": "Quieres exportar un gráfico terminado para incluirlo en un reporte con buena calidad de imagen. ¿Qué método usarías?",
+      "options": [
+        "ejes.export('grafico.png')",
+        "figura.savefig('grafico.png', dpi=150, bbox_inches='tight')",
+        "plt.save('grafico.png')",
+        "ejes.savefig('grafico.png')"
+      ],
+      "correct": 1,
+      "explanation": "savefig() se llama sobre el objeto figura, y dpi junto con bbox_inches='tight' aseguran buena resolución sin cortar etiquetas."
+    }
+  ],
+  "tipos-de-graficos": [
+    {
+      "question": "¿Por qué no conviene usar un gráfico de línea para comparar ventas entre distintas sucursales?",
+      "options": [
+        "Porque los gráficos de línea no admiten colores",
+        "Porque las sucursales no tienen un orden natural que justifique conectarlas",
+        "Porque matplotlib no permite líneas con datos categóricos",
+        "Porque las líneas solo funcionan con números negativos"
+      ],
+      "correct": 1,
+      "explanation": "Conectar categorías independientes con una línea sugiere una progresión o tendencia que no existe entre ellas."
+    },
+    {
+      "question": "¿Qué muestra un boxplot que un histograma no muestra directamente?",
+      "options": [
+        "La cantidad total de datos",
+        "El color de cada categoría",
+        "Los valores atípicos y los cuartiles de forma explícita",
+        "La media aritmética exacta"
+      ],
+      "correct": 2,
+      "explanation": "El boxplot resume cuartiles, mediana y valores atípicos en una sola figura, algo que el histograma no señala de forma explícita."
+    },
+    {
+      "question": "En el código 'ejes.set_ylim(1200, 2000)' aplicado a un gráfico de barras de ventas, ¿qué problema puede generar?",
+      "options": [
+        "El gráfico no se mostrará en pantalla",
+        "Puede exagerar visualmente diferencias pequeñas entre barras",
+        "Hará que todas las barras tengan el mismo color",
+        "Provocará un error de sintaxis en Python"
+      ],
+      "correct": 1,
+      "explanation": "Cortar el eje Y sin comenzar en cero puede hacer que diferencias modestas parezcan mucho más grandes de lo que realmente son."
+    },
+    {
+      "question": "Tienes las notas de 200 estudiantes y quieres ver cómo se distribuyen los valores. ¿Qué gráfico es más apropiado?",
+      "options": [
+        "Un gráfico de barras por estudiante",
+        "Un histograma",
+        "Un gráfico de dispersión",
+        "Un gráfico de pastel"
+      ],
+      "correct": 1,
+      "explanation": "El histograma agrupa los valores numéricos en rangos y muestra la forma general de la distribución, ideal para este caso."
+    }
+  ],
+  "seaborn": [
+    {
+      "question": "¿Cuál es la ventaja principal de seaborn frente a matplotlib puro?",
+      "options": [
+        "Seaborn reemplaza completamente a matplotlib y no lo necesita",
+        "Seaborn ofrece mejores valores por defecto y se integra directamente con DataFrames de pandas",
+        "Seaborn solo sirve para gráficos de barras",
+        "Seaborn no puede combinarse con pandas"
+      ],
+      "correct": 1,
+      "explanation": "Seaborn se construye sobre matplotlib pero simplifica el código y trabaja de forma nativa con columnas de un DataFrame."
+    },
+    {
+      "question": "¿Para qué sirve el parámetro 'hue' en funciones como scatterplot o boxplot?",
+      "options": [
+        "Para cambiar el tamaño de la figura",
+        "Para colorear los datos según una variable categórica y comparar grupos",
+        "Para ordenar los datos de menor a mayor",
+        "Para eliminar valores nulos automáticamente"
+      ],
+      "correct": 1,
+      "explanation": "hue asigna un color distinto a cada categoría de una variable, permitiendo comparar subgrupos dentro del mismo gráfico."
+    },
+    {
+      "question": "Dado el código 'sns.heatmap(correlaciones, annot=True, cmap=\"coolwarm\")', ¿qué logra el parámetro annot=True?",
+      "options": [
+        "Oculta los valores numéricos del mapa de calor",
+        "Escribe el valor numérico dentro de cada celda del mapa de calor",
+        "Cambia el mapa de calor a un gráfico de barras",
+        "Elimina las variables con baja correlación"
+      ],
+      "correct": 1,
+      "explanation": "annot=True muestra el valor numérico de la correlación directamente sobre cada celda, facilitando la lectura exacta."
+    },
+    {
+      "question": "Estás explorando un dataset nuevo con seis variables numéricas y quieres una primera impresión rápida de todas sus relaciones. ¿Qué función usarías?",
+      "options": [
+        "sns.histplot() una vez por cada variable por separado",
+        "sns.pairplot()",
+        "sns.boxplot() con hue en todas las columnas a la vez",
+        "plt.bar() para cada combinación de variables"
+      ],
+      "correct": 1,
+      "explanation": "pairplot genera automáticamente una cuadrícula con todas las combinaciones de variables numéricas en una sola instrucción."
+    }
+  ],
+  "storytelling-con-datos": [
+    {
+      "question": "¿Qué significa el principio de 'menos es más' en la comunicación de datos?",
+      "options": [
+        "Usar la menor cantidad de datos posible aunque se pierda precisión",
+        "Eliminar todo elemento visual que no ayude a transmitir el mensaje central",
+        "Evitar siempre el uso de color en los gráficos",
+        "Reducir el tamaño de la figura al mínimo posible"
+      ],
+      "correct": 1,
+      "explanation": "El principio busca quitar ruido visual innecesario para que la audiencia se enfoque en el mensaje principal, no en reducir datos ni tamaño."
+    },
+    {
+      "question": "¿Cuál es la forma más efectiva de usar el color para resaltar un dato importante en un gráfico?",
+      "options": [
+        "Usar un color distinto para cada categoría del gráfico",
+        "Usar colores neutros para la mayoría y un color vivo solo para el dato clave",
+        "Usar siempre colores brillantes en todos los elementos",
+        "Evitar el color por completo y usar solo escala de grises"
+      ],
+      "correct": 1,
+      "explanation": "Reservar un color contrastante solo para lo importante dirige la mirada de inmediato, mientras que colorear todo por igual no destaca nada."
+    },
+    {
+      "question": "Un gráfico tiene el título 'Ventas por mes'. Según los principios de storytelling con datos, ¿qué le falta?",
+      "options": [
+        "Nada, ese título ya es perfecto",
+        "Necesita más colores para verse mejor",
+        "Debería afirmar la conclusión, como 'Las ventas crecieron 40% en el segundo semestre'",
+        "Debería eliminar el eje Y por completo"
+      ],
+      "correct": 2,
+      "explanation": "Un título descriptivo solo indica el contenido; un título conclusivo ya comunica el hallazgo principal antes de ver el gráfico."
+    },
+    {
+      "question": "Vas a presentar un análisis a un equipo de marketing sin formación técnica. ¿Qué práctica es más recomendable?",
+      "options": [
+        "Mostrar el p-valor y el coeficiente de correlación exacto",
+        "Usar unidades familiares como porcentajes o dólares y explicar la implicación práctica",
+        "Incluir la mayor cantidad de decimales posible para mayor precisión",
+        "Usar jerga estadística para sonar más riguroso"
+      ],
+      "correct": 1,
+      "explanation": "Para audiencias no técnicas conviene usar unidades familiares y traducir el hallazgo a su impacto práctico, evitando jerga innecesaria."
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "dataframes-avanzado": [
+    {
+      "question": "¿Qué hace el método set_index en un DataFrame?",
+      "options": [
+        "Elimina una columna del DataFrame",
+        "Cambia la columna o columnas que identifican cada fila",
+        "Ordena las filas de forma ascendente",
+        "Convierte todas las columnas a texto"
+      ],
+      "correct": 1,
+      "explanation": "set_index reemplaza el índice numérico por defecto con una o varias columnas del DataFrame."
+    },
+    {
+      "question": "¿Por qué es necesario usar paréntesis alrededor de cada condición al combinarlas con & o |?",
+      "options": [
+        "Porque pandas lo exige por estética",
+        "Porque el operador & tiene mayor prioridad que los operadores de comparación en Python",
+        "Porque sin paréntesis el DataFrame se vuelve de solo lectura",
+        "Los paréntesis no son necesarios en ningún caso"
+      ],
+      "correct": 1,
+      "explanation": "Sin paréntesis, Python evalúa & antes que > o ==, lo que provoca un error o un resultado incorrecto."
+    },
+    {
+      "question": "Dado el código clientes.loc[clientes['edad'] > 30, 'grupo'] = 'senior', ¿qué ocurre?",
+      "options": [
+        "Se crea o actualiza la columna grupo solo en las filas donde edad es mayor a 30",
+        "Se eliminan las filas donde edad es menor o igual a 30",
+        "Se genera un error porque loc no admite asignaciones",
+        "Se actualiza la columna edad con el valor 'senior'"
+      ],
+      "correct": 0,
+      "explanation": "loc permite asignar un valor únicamente a las filas que cumplen la condición indicada, sin afectar el resto del DataFrame."
+    },
+    {
+      "question": "¿Cuál es la principal ventaja de usar query en vez de filtros con corchetes y &?",
+      "options": [
+        "query es más rápido en todos los casos sin excepción",
+        "query permite escribir condiciones complejas como texto, mejorando la legibilidad",
+        "query modifica el DataFrame original de forma automática",
+        "query solo funciona con columnas numéricas"
+      ],
+      "correct": 1,
+      "explanation": "query expresa las condiciones como una cadena de texto, lo que suele ser más fácil de leer que encadenar corchetes y operadores."
+    }
+  ],
+  "groupby-agregaciones": [
+    {
+      "question": "¿Qué representa el patrón split-apply-combine?",
+      "options": [
+        "Un algoritmo para ordenar DataFrames",
+        "El proceso de dividir datos en grupos, aplicar una función y combinar los resultados",
+        "Un método para eliminar valores nulos",
+        "La forma de convertir un DataFrame en un archivo CSV"
+      ],
+      "correct": 1,
+      "explanation": "Split-apply-combine describe cómo groupby divide los datos, aplica una función a cada grupo y reúne los resultados en una tabla final."
+    },
+    {
+      "question": "¿Cuál es la diferencia principal entre agg y transform?",
+      "options": [
+        "agg solo funciona con números, transform con texto",
+        "agg resume cada grupo en un valor, transform devuelve un resultado del mismo tamaño que los datos originales",
+        "No hay ninguna diferencia práctica entre ambos",
+        "transform siempre es más lento que agg"
+      ],
+      "correct": 1,
+      "explanation": "agg produce una fila por grupo, mientras que transform replica el resultado del grupo en cada fila original, conservando el tamaño del DataFrame."
+    },
+    {
+      "question": "Si ejecutas ventas.groupby('region')['unidades'].sum(), ¿qué obtienes como resultado?",
+      "options": [
+        "El DataFrame original sin cambios",
+        "Una serie con la suma de unidades para cada región",
+        "Un error, porque falta especificar agg",
+        "Una tabla dinámica con productos como columnas"
+      ],
+      "correct": 1,
+      "explanation": "El código agrupa por región y suma la columna unidades, devolviendo una serie con un valor total por cada región."
+    },
+    {
+      "question": "Quieres un reporte con el total de ventas y el promedio por región, en columnas separadas y con nombres claros. ¿Qué herramienta es más adecuada?",
+      "options": [
+        "transform con una sola función",
+        "agg con nombres explícitos para cada columna resultante",
+        "concat entre dos DataFrames distintos",
+        "to_datetime sobre la columna región"
+      ],
+      "correct": 1,
+      "explanation": "agg permite calcular varias estadísticas a la vez y asignarles nombres de columna descriptivos en un solo paso."
+    }
+  ],
+  "combinar-datasets": [
+    {
+      "question": "¿Cuál es la diferencia principal entre concat y merge?",
+      "options": [
+        "concat apila DataFrames sin necesidad de una clave en común, merge combina según columnas clave",
+        "merge solo funciona con archivos CSV",
+        "concat siempre elimina las filas duplicadas automáticamente",
+        "No existe ninguna diferencia entre ambos métodos"
+      ],
+      "correct": 0,
+      "explanation": "concat une tablas por posición, mientras que merge combina filas según los valores coincidentes de una o más columnas clave."
+    },
+    {
+      "question": "¿Qué tipo de unión conserva todas las filas de ambas tablas, tengan o no coincidencia en la clave?",
+      "options": [
+        "inner",
+        "left",
+        "outer",
+        "right"
+      ],
+      "correct": 2,
+      "explanation": "outer conserva todas las filas de ambas tablas, rellenando con valores nulos donde no hay coincidencia."
+    },
+    {
+      "question": "En un merge, la tabla A tiene el producto 'Teclado' repetido dos veces y la tabla B tiene 'Teclado' una sola vez. ¿Qué ocurre con el resultado del merge por esa clave?",
+      "options": [
+        "El resultado tiene solo una fila de Teclado",
+        "El resultado tiene dos filas de Teclado, una por cada aparición en la tabla A",
+        "pandas genera un error automáticamente",
+        "La fila de Teclado se elimina del resultado"
+      ],
+      "correct": 1,
+      "explanation": "Cuando una clave se repite en una de las tablas, el merge multiplica las filas correspondientes, generando una fila por cada combinación posible."
+    },
+    {
+      "question": "Tienes una tabla de clientes y una de pedidos, y quieres conservar todos los clientes aunque no tengan pedidos registrados. ¿Qué tipo de unión deberías usar con clientes como tabla izquierda?",
+      "options": [
+        "inner",
+        "left",
+        "right",
+        "outer con ignore_index"
+      ],
+      "correct": 1,
+      "explanation": "how='left' conserva todas las filas de la tabla izquierda, en este caso clientes, incluso si no tienen coincidencia en pedidos."
+    }
+  ],
+  "fechas-series-temporales": [
+    {
+      "question": "¿Para qué sirve la función to_datetime?",
+      "options": [
+        "Para eliminar columnas de tipo fecha",
+        "Para convertir texto o números en un tipo de fecha que pandas puede procesar",
+        "Para ordenar un DataFrame de forma alfabética",
+        "Para calcular el promedio de una columna numérica"
+      ],
+      "correct": 1,
+      "explanation": "to_datetime transforma valores de texto en objetos de fecha, habilitando comparaciones y operaciones temporales correctas."
+    },
+    {
+      "question": "¿Qué requisito necesita cumplir un DataFrame antes de poder usar resample?",
+      "options": [
+        "Debe tener al menos diez columnas",
+        "El índice debe ser de tipo fecha",
+        "Todas las columnas deben ser numéricas",
+        "No puede tener valores nulos"
+      ],
+      "correct": 1,
+      "explanation": "resample opera sobre series temporales, por lo que necesita que el índice del DataFrame sea de tipo fecha."
+    },
+    {
+      "question": "Dado el código ventas_indexadas['monto'].resample('W').sum(), ¿qué obtienes como resultado?",
+      "options": [
+        "La suma total de monto sin ninguna agrupación",
+        "La suma de monto agrupada por semana",
+        "Un error porque falta convertir monto a fecha",
+        "La suma de monto agrupada por año"
+      ],
+      "correct": 1,
+      "explanation": "El código agrupa los datos en intervalos semanales y suma la columna monto dentro de cada semana."
+    },
+    {
+      "question": "Necesitas un reporte con el total y el promedio de ventas de cada mes. ¿Qué combinación de métodos usarías?",
+      "options": [
+        "merge seguido de concat",
+        "resample('ME') seguido de agg con las funciones sum y mean",
+        "set_index seguido de query",
+        "to_datetime seguido de sort_values únicamente"
+      ],
+      "correct": 1,
+      "explanation": "resample agrupa por mes y agg permite calcular varias estadísticas, como el total y el promedio, en un solo paso."
+    }
+  ]
+}

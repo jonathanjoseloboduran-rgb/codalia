@@ -1,0 +1,186 @@
+{
+  "datos-faltantes": [
+    {
+      "question": "¿Qué significa que un dato falte de forma MAR (missing at random condicionado)?",
+      "options": [
+        "La ausencia del dato está relacionada con otra variable observada",
+        "El dato nunca podrá recuperarse bajo ninguna circunstancia",
+        "El valor faltante siempre es igual a cero",
+        "La ausencia ocurre exactamente en la mitad de las filas"
+      ],
+      "correct": 0,
+      "explanation": "MAR indica que la probabilidad de que falte un valor depende de otra variable observada en el conjunto de datos."
+    },
+    {
+      "question": "df['ingreso'].fillna(df['ingreso'].median()) ¿qué hace exactamente?",
+      "options": [
+        "Elimina las filas donde 'ingreso' está vacío",
+        "Reemplaza los valores vacíos de 'ingreso' con la mediana de esa columna",
+        "Reemplaza todos los valores de 'ingreso' con la mediana",
+        "Calcula la mediana solo de las filas sin valores vacíos y la imprime"
+      ],
+      "correct": 1,
+      "explanation": "fillna() sustituye únicamente los valores NaN de la columna por el valor indicado, en este caso la mediana."
+    },
+    {
+      "question": "¿Por qué imputar con la media puede distorsionar el análisis si hay muchos valores faltantes?",
+      "options": [
+        "Porque la media siempre es un número negativo",
+        "Porque reduce artificialmente la variabilidad real de los datos",
+        "Porque pandas no permite calcular la media de una columna con NaN",
+        "Porque cambia el tipo de dato de la columna a texto"
+      ],
+      "correct": 1,
+      "explanation": "Al rellenar muchos huecos con el mismo valor (la media), la dispersión real de los datos se reduce de forma artificial."
+    },
+    {
+      "question": "Tienes una columna con 70% de valores faltantes y sin relación clara con otras variables. ¿Qué es más razonable evaluar primero?",
+      "options": [
+        "Imputar automáticamente con la moda sin revisar más",
+        "Convertir la columna a tipo texto",
+        "Evaluar si conviene descartar la columna completa antes de imputar",
+        "Duplicar las filas existentes para compensar los huecos"
+      ],
+      "correct": 2,
+      "explanation": "Con un porcentaje tan alto de datos faltantes, imputar podría inventar más información de la que realmente existe; conviene considerar descartar la columna."
+    }
+  ],
+  "outliers": [
+    {
+      "question": "¿Qué mide el rango intercuartílico (IQR) en la detección de outliers?",
+      "options": [
+        "La diferencia entre el valor máximo y el mínimo de la columna",
+        "La diferencia entre el percentil 75 y el percentil 25",
+        "El promedio de todos los valores de la columna",
+        "La cantidad total de valores distintos en la columna"
+      ],
+      "correct": 1,
+      "explanation": "El IQR es la diferencia entre el tercer cuartil (75%) y el primer cuartil (25%), y se usa para definir límites de valores normales."
+    },
+    {
+      "question": "limite_superior = q3 + 1.5 * iqr ¿qué representa este cálculo?",
+      "options": [
+        "El valor máximo permitido antes de considerar un dato como atípico por arriba",
+        "El promedio de la columna más una desviación estándar",
+        "El valor mínimo de la columna",
+        "El percentil 100 de la distribución"
+      ],
+      "correct": 0,
+      "explanation": "Cualquier valor por encima de q3 + 1.5*IQR se considera atípico según el método estándar del rango intercuartílico."
+    },
+    {
+      "question": "¿Por qué el z-score puede no ser confiable en una distribución muy sesgada?",
+      "options": [
+        "Porque el z-score solo funciona con datos categóricos",
+        "Porque asume una distribución aproximadamente normal para ser preciso",
+        "Porque no se puede calcular si hay más de 10 datos",
+        "Porque siempre da como resultado un número negativo"
+      ],
+      "correct": 1,
+      "explanation": "El z-score se basa en la media y la desviación estándar, que pierden representatividad cuando la distribución está muy sesgada."
+    },
+    {
+      "question": "Detectas un outlier que representa una transacción real de alto valor, no un error de captura. ¿Qué opción es más razonable?",
+      "options": [
+        "Eliminarlo siempre sin excepción",
+        "Ignorar la columna completa donde apareció",
+        "Considerar una transformación como logaritmo para reducir su impacto sin eliminarlo",
+        "Duplicarlo varias veces para que el modelo lo note"
+      ],
+      "correct": 2,
+      "explanation": "Cuando el outlier es un dato legítimo, transformar la variable (por ejemplo con logaritmo) reduce su impacto sin perder la información."
+    }
+  ],
+  "variables-categoricas": [
+    {
+      "question": "¿Cuál es la diferencia principal entre una variable nominal y una ordinal?",
+      "options": [
+        "Las nominales son siempre numéricas y las ordinales son texto",
+        "Las ordinales tienen un orden natural entre sus categorías y las nominales no",
+        "Las nominales solo pueden tener dos valores posibles",
+        "No hay ninguna diferencia real entre ambas"
+      ],
+      "correct": 1,
+      "explanation": "Una variable ordinal tiene una jerarquía o secuencia lógica, como nivel educativo, mientras que una nominal no, como el color o la ciudad."
+    },
+    {
+      "question": "pd.get_dummies(df, columns=['ciudad']) ¿qué produce como resultado?",
+      "options": [
+        "Una columna numérica ordinal con un número por ciudad",
+        "Varias columnas binarias, una por cada ciudad distinta",
+        "Elimina la columna 'ciudad' sin reemplazo",
+        "Convierte todas las columnas del DataFrame a texto"
+      ],
+      "correct": 1,
+      "explanation": "get_dummies crea una columna binaria (0/1) por cada categoría distinta presente en la columna original."
+    },
+    {
+      "question": "¿Por qué usar label encoding en una variable nominal como 'ciudad' puede ser un error?",
+      "options": [
+        "Porque pandas no permite aplicar label encoding a texto",
+        "Porque introduce una relación de orden o magnitud que no existe entre las ciudades",
+        "Porque siempre genera valores decimales",
+        "Porque duplica automáticamente las filas del DataFrame"
+      ],
+      "correct": 1,
+      "explanation": "Asignar números enteros a categorías sin orden hace que el modelo interprete relaciones de magnitud falsas, como que una ciudad es 'mayor' que otra."
+    },
+    {
+      "question": "Una columna de productos tiene 800 categorías distintas casi únicas. ¿Qué conviene hacer antes de aplicar one-hot encoding?",
+      "options": [
+        "Aplicar get_dummies directamente sin ningún ajuste",
+        "Agrupar las categorías poco frecuentes en una categoría 'otro' antes de codificar",
+        "Eliminar la columna sin analizarla",
+        "Convertir la columna a valores booleanos únicamente"
+      ],
+      "correct": 1,
+      "explanation": "Con alta cardinalidad, agrupar categorías poco frecuentes evita generar cientos de columnas dispersas que complican el modelo."
+    }
+  ],
+  "escalado-normalizacion": [
+    {
+      "question": "¿Por qué algoritmos como KNN o K-means son sensibles a la escala de las variables?",
+      "options": [
+        "Porque calculan distancias entre puntos y las variables con valores más grandes dominan el resultado",
+        "Porque solo aceptan variables categóricas",
+        "Porque no pueden procesar más de dos columnas",
+        "Porque requieren que todos los datos sean enteros"
+      ],
+      "correct": 0,
+      "explanation": "Estos algoritmos se basan en distancias, y una variable con una escala mucho mayor domina el cálculo aunque no sea más importante."
+    },
+    {
+      "question": "escalador.fit(entrenamiento); escalador.transform(prueba) ¿qué principio ilustra correctamente este código?",
+      "options": [
+        "El escalador se ajusta solo con los datos de entrenamiento y luego se aplica también a los de prueba",
+        "El escalador debe ajustarse por separado en cada conjunto",
+        "El orden de fit y transform no importa en absoluto",
+        "Los datos de prueba deben escalarse antes que los de entrenamiento"
+      ],
+      "correct": 0,
+      "explanation": "El escalador aprende sus parámetros solo del entrenamiento y luego transforma ambos conjuntos con esos mismos parámetros, evitando fuga de datos."
+    },
+    {
+      "question": "¿Cuál es la diferencia principal entre min-max scaling y estandarización (z-score)?",
+      "options": [
+        "Min-max lleva los datos a un rango fijo entre 0 y 1; la estandarización centra en media 0 y desviación 1 sin rango fijo",
+        "Min-max solo funciona con números negativos",
+        "La estandarización siempre elimina los valores atípicos",
+        "No existe ninguna diferencia práctica entre ambas técnicas"
+      ],
+      "correct": 0,
+      "explanation": "Min-max acota los valores a un rango específico, mientras que la estandarización centra los datos sin un límite fijo, permitiendo valores negativos."
+    },
+    {
+      "question": "Estás por dividir tus datos en entrenamiento y prueba para un modelo. ¿Cuál es el orden correcto respecto al escalado?",
+      "options": [
+        "Escalar todo el conjunto de datos y después dividirlo en entrenamiento y prueba",
+        "Dividir primero en entrenamiento y prueba, y luego ajustar el escalador solo con el entrenamiento",
+        "Escalar solo el conjunto de prueba",
+        "El orden nunca afecta el resultado del modelo"
+      ],
+      "correct": 1,
+      "explanation": "Dividir antes de escalar evita que información del conjunto de prueba se filtre al ajuste del escalador, previniendo la fuga de datos."
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "que-son-los-llms": [
+    {
+      "question": "¿Qué hace un LLM en su nivel más básico para generar texto?",
+      "options": [
+        "Busca la respuesta exacta en una base de datos interna",
+        "Predice el siguiente token en función del texto anterior",
+        "Traduce el texto a código binario antes de responder",
+        "Copia fragmentos de internet en tiempo real"
+      ],
+      "correct": 1,
+      "explanation": "Un LLM genera texto prediciendo, uno a la vez, el token más probable según todo el contexto anterior."
+    },
+    {
+      "question": "¿Qué es una alucinación en el contexto de los LLMs?",
+      "options": [
+        "Un error de conexión con el servidor del modelo",
+        "Un límite de la ventana de contexto",
+        "Información inventada que el modelo presenta como si fuera cierta",
+        "Un tipo de token especial usado para terminar una respuesta"
+      ],
+      "correct": 2,
+      "explanation": "Una alucinación es contenido generado que suena convincente pero es falso o inventado, por eso conviene verificar datos importantes."
+    },
+    {
+      "question": "En el siguiente código, ¿qué representa aproximadamente la variable 'tokens_estimados'?",
+      "options": [
+        "El número de líneas del texto",
+        "Una estimación de cuántos tokens ocupa el texto, basada en su longitud",
+        "El número de palabras únicas en el texto",
+        "El tiempo estimado de respuesta del modelo"
+      ],
+      "correct": 1,
+      "explanation": "La función divide la longitud del texto entre 4 como una aproximación simple de la cantidad de tokens, ya que en promedio un token equivale a unos 4 caracteres en español."
+    },
+    {
+      "question": "Estás construyendo una aplicación que debe resumir un documento muy largo. ¿Qué concepto de esta lección debes tener en cuenta antes de enviarlo completo al modelo?",
+      "options": [
+        "La temperatura del modelo",
+        "La ventana de contexto",
+        "El nombre del proveedor del modelo",
+        "El color de la interfaz de usuario"
+      ],
+      "correct": 1,
+      "explanation": "Si el documento supera la ventana de contexto del modelo, no cabrá completo en una sola solicitud y deberás dividirlo en partes."
+    }
+  ],
+  "usar-llms-desde-python": [
+    {
+      "question": "¿Cuál es la forma recomendada de manejar una clave de API en tu código Python?",
+      "options": [
+        "Escribirla directamente como texto en el script",
+        "Guardarla en una variable de entorno y leerla con os.environ",
+        "Compartirla en comentarios dentro del código",
+        "Enviarla como parte de la URL en cada solicitud"
+      ],
+      "correct": 1,
+      "explanation": "Las claves de API deben mantenerse fuera del código fuente, típicamente usando variables de entorno, para evitar exponerlas accidentalmente."
+    },
+    {
+      "question": "¿Qué controla el parámetro de temperatura al llamar a un LLM?",
+      "options": [
+        "La velocidad de respuesta del servidor",
+        "El idioma en el que responde el modelo",
+        "Qué tan creativas o predecibles son las respuestas generadas",
+        "El costo económico de la solicitud"
+      ],
+      "correct": 2,
+      "explanation": "Una temperatura baja produce respuestas más consistentes y predecibles; una temperatura alta genera más variedad y creatividad."
+    },
+    {
+      "question": "En el código de la lección, ¿qué logra la línea 'respuesta.raise_for_status()'?",
+      "options": [
+        "Convierte la respuesta a formato JSON",
+        "Lanza una excepción si el servidor respondió con un código de error",
+        "Aumenta el límite de tokens de la respuesta",
+        "Guarda la respuesta en un archivo de log"
+      ],
+      "correct": 1,
+      "explanation": "raise_for_status() revisa el código de estado HTTP y lanza una excepción automáticamente si indica un error, evitando procesar una respuesta inválida como si fuera correcta."
+    },
+    {
+      "question": "Estás construyendo un chatbot de soporte técnico donde la precisión importa más que la creatividad. ¿Qué configuración de temperatura tiene más sentido?",
+      "options": [
+        "Una temperatura alta, cercana a 1.0",
+        "Una temperatura baja, cercana a 0.2",
+        "No definir la temperatura en ningún caso",
+        "Usar siempre la temperatura máxima permitida"
+      ],
+      "correct": 1,
+      "explanation": "Para tareas donde la consistencia y precisión son prioritarias, como soporte técnico, conviene usar una temperatura baja."
+    }
+  ],
+  "embeddings-y-busqueda": [
+    {
+      "question": "¿Qué representa un embedding de texto?",
+      "options": [
+        "Una copia exacta del texto original comprimida",
+        "Un vector numérico que representa el significado del texto",
+        "Un identificador único asignado por el servidor",
+        "La cantidad de tokens que contiene el texto"
+      ],
+      "correct": 1,
+      "explanation": "Un embedding es una representación numérica del significado de un texto, generada por un modelo entrenado para ese propósito."
+    },
+    {
+      "question": "¿Qué indica un valor de similitud coseno cercano a 1 entre dos vectores?",
+      "options": [
+        "Que los textos son completamente distintos",
+        "Que los vectores tienen la misma longitud de texto",
+        "Que los textos son muy parecidos en significado",
+        "Que uno de los vectores contiene un error"
+      ],
+      "correct": 2,
+      "explanation": "Una similitud coseno cercana a 1 indica que los vectores apuntan en direcciones muy parecidas, lo que sugiere significados similares."
+    },
+    {
+      "question": "En la función 'buscar_mas_similar' de la lección, ¿qué hace la variable 'mejor_similitud' inicializada en -1.0?",
+      "options": [
+        "Define el número mínimo de resultados a devolver",
+        "Sirve como punto de partida para encontrar el mayor valor de similitud",
+        "Indica que la búsqueda falló desde el inicio",
+        "Limita la cantidad de dimensiones de los vectores"
+      ],
+      "correct": 1,
+      "explanation": "Al iniciar en -1.0, un valor por debajo del rango posible de similitud coseno, cualquier similitud real calculada será mayor y podrá reemplazarla en la comparación."
+    },
+    {
+      "question": "Quieres construir un buscador de FAQs que encuentre preguntas relacionadas aunque usen palabras distintas a la consulta del usuario. ¿Qué técnica de esta lección aplicarías?",
+      "options": [
+        "Comparar las cadenas de texto letra por letra",
+        "Buscar solo coincidencias exactas de palabras clave",
+        "Generar embeddings y comparar su similitud coseno",
+        "Ordenar las preguntas alfabéticamente"
+      ],
+      "correct": 2,
+      "explanation": "La búsqueda semántica con embeddings permite encontrar contenido relacionado por significado, no solo por coincidencia literal de palabras."
+    }
+  ],
+  "rag-y-buenas-practicas": [
+    {
+      "question": "¿Cuál es el objetivo principal de usar RAG con un LLM?",
+      "options": [
+        "Aumentar la temperatura del modelo automáticamente",
+        "Reducir alucinaciones basando las respuestas en información recuperada",
+        "Eliminar por completo la necesidad de una API key",
+        "Acelerar la velocidad de tokenización"
+      ],
+      "correct": 1,
+      "explanation": "RAG combina recuperación de información relevante con generación de texto, ayudando a que el modelo base sus respuestas en datos concretos en vez de inventar contenido."
+    },
+    {
+      "question": "¿Cuáles son las tres etapas típicas de una arquitectura RAG?",
+      "options": [
+        "Indexar, recuperar y generar",
+        "Traducir, resumir y publicar",
+        "Entrenar, validar y desplegar",
+        "Tokenizar, comprimir y enviar"
+      ],
+      "correct": 0,
+      "explanation": "Un sistema RAG típico prepara un índice de documentos, recupera los fragmentos más relevantes para una consulta, y luego genera la respuesta usando ese contexto."
+    },
+    {
+      "question": "En la función 'construir_prompt_con_contexto' de la lección, ¿por qué se incluye la instrucción de decir 'no lo sé' si el contexto no tiene la respuesta?",
+      "options": [
+        "Para que el modelo responda más rápido",
+        "Para reducir el riesgo de que el modelo invente una respuesta",
+        "Para ahorrar tokens en la solicitud",
+        "Porque es un requisito técnico obligatorio de todas las APIs"
+      ],
+      "correct": 1,
+      "explanation": "Darle al modelo permiso explícito para admitir que no sabe algo reduce las alucinaciones, en vez de forzarlo a inventar una respuesta plausible."
+    },
+    {
+      "question": "Estás construyendo un asistente de soporte que a veces recibe mensajes con números de tarjeta de crédito. ¿Qué práctica de esta lección deberías aplicar antes de enviarlos a una API externa?",
+      "options": [
+        "Enviar el mensaje completo sin cambios para mantener el contexto",
+        "Aumentar la temperatura para que el modelo sea más cuidadoso",
+        "Filtrar o anonimizar los datos sensibles antes de enviarlos",
+        "Ignorar el problema porque las APIs son siempre seguras"
+      ],
+      "correct": 2,
+      "explanation": "Filtrar o anonimizar datos sensibles antes de enviarlos a un servicio externo es una práctica ética y de seguridad indispensable al trabajar con IA."
+    }
+  ]
+}

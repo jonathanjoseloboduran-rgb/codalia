@@ -1,0 +1,186 @@
+{
+  "flujo-eda": [
+    {
+      "question": "¿Cuál es el orden correcto de un flujo de EDA?",
+      "options": [
+        "Preguntas, carga, limpieza, univariado, bivariado, hallazgos",
+        "Carga, hallazgos, limpieza, preguntas",
+        "Limpieza, hallazgos, carga, preguntas",
+        "Bivariado, univariado, carga, limpieza"
+      ],
+      "correct": 0,
+      "explanation": "El EDA sigue un flujo lógico que empieza por definir la pregunta y termina en hallazgos respaldados por los datos."
+    },
+    {
+      "question": "¿Qué diferencia principal hay entre un análisis univariado y uno bivariado?",
+      "options": [
+        "El univariado usa gráficos y el bivariado no",
+        "El univariado estudia una variable a la vez, el bivariado estudia relaciones entre dos variables",
+        "El bivariado solo aplica a datos numéricos",
+        "No hay diferencia real entre ambos"
+      ],
+      "correct": 1,
+      "explanation": "El análisis univariado mira cada variable por separado, mientras que el bivariado explora cómo se relacionan dos variables entre sí."
+    },
+    {
+      "question": "En el código `ventas_limpias = ventas.dropna(subset=[\"producto\"]).copy()`, ¿qué hace esta línea?",
+      "options": [
+        "Elimina la columna producto completa",
+        "Elimina las filas donde la columna producto tiene valores nulos",
+        "Reemplaza los valores nulos de producto por cero",
+        "Ordena los datos por la columna producto"
+      ],
+      "correct": 1,
+      "explanation": "dropna con subset elimina las filas que tienen valores nulos en la columna especificada, en este caso producto."
+    },
+    {
+      "question": "Estás analizando encuestas de satisfacción y notas que el análisis univariado de la columna 'puntaje' no muestra nada raro por sí sola. ¿Qué deberías hacer a continuación?",
+      "options": [
+        "Detener el análisis porque ya no hay nada que encontrar",
+        "Cruzar el puntaje con otras variables, como región o tipo de cliente, para buscar patrones",
+        "Eliminar la columna puntaje del dataset",
+        "Repetir el mismo análisis univariado varias veces"
+      ],
+      "correct": 1,
+      "explanation": "Los patrones más interesantes suelen aparecer al cruzar variables (análisis bivariado), no solo mirándolas por separado."
+    }
+  ],
+  "feature-engineering": [
+    {
+      "question": "¿Qué es el binning en feature engineering?",
+      "options": [
+        "Eliminar variables que no aportan información",
+        "Convertir una variable numérica continua en categorías o rangos",
+        "Unir dos datasets distintos en uno solo",
+        "Calcular el promedio de una columna"
+      ],
+      "correct": 1,
+      "explanation": "El binning agrupa valores numéricos continuos en rangos o categorías, como convertir edad en 'joven', 'adulto' y 'mayor'."
+    },
+    {
+      "question": "¿Por qué un ratio puede ser más informativo que una diferencia simple entre dos columnas?",
+      "options": [
+        "Porque siempre da un número más grande",
+        "Porque compara las cantidades de forma relativa, no solo en términos absolutos",
+        "Porque el ratio nunca puede ser negativo",
+        "Porque es más fácil de calcular en Python"
+      ],
+      "correct": 1,
+      "explanation": "El ratio compara proporcionalmente dos valores, lo que a veces revela información que la diferencia absoluta no muestra."
+    },
+    {
+      "question": "En el código `compras[\"es_fin_de_semana\"] = compras[\"fecha_compra\"].dt.dayofweek >= 5`, ¿qué representa la nueva columna?",
+      "options": [
+        "El número de compras realizadas en el mes",
+        "Un valor booleano que indica si la fecha cae en sábado o domingo",
+        "El nombre del día de la semana en texto",
+        "La cantidad de días transcurridos desde la primera compra"
+      ],
+      "correct": 1,
+      "explanation": "dayofweek devuelve 5 y 6 para sábado y domingo, así que la comparación >= 5 genera una columna booleana de fin de semana."
+    },
+    {
+      "question": "Creaste una nueva variable 'categoria_gasto' para un análisis de retención de clientes. ¿Cómo deberías evaluar si esa variable realmente aporta valor?",
+      "options": [
+        "Asumir que aporta porque suena razonable",
+        "Comparar cómo varía la tasa de clientes que dejan de comprar entre las distintas categorías",
+        "Verificar que la variable tenga menos de diez caracteres",
+        "Eliminar todas las demás variables del dataset"
+      ],
+      "correct": 1,
+      "explanation": "Una feature aporta valor si su relación con la variable de interés (como dejar de comprar) muestra diferencias claras entre categorías."
+    }
+  ],
+  "comunicar-resultados": [
+    {
+      "question": "¿Cuál es la estructura recomendada para un informe de análisis?",
+      "options": [
+        "Código, gráficos, código, conclusión",
+        "Contexto, método, hallazgos, recomendaciones",
+        "Hallazgos, hallazgos, hallazgos, anexo",
+        "Introducción técnica extensa y luego los datos crudos"
+      ],
+      "correct": 1,
+      "explanation": "Esta estructura responde primero al porqué del análisis, luego cómo se hizo, qué se encontró y qué hacer al respecto."
+    },
+    {
+      "question": "¿Por qué es recomendable traducir la jerga técnica al comunicar resultados a una audiencia de negocio?",
+      "options": [
+        "Porque los términos técnicos siempre son incorrectos",
+        "Porque la audiencia de negocio suele carecer del contexto técnico para interpretar esos términos",
+        "Porque los términos técnicos no tienen ningún significado real",
+        "Porque las herramientas de análisis no permiten usar esas palabras"
+      ],
+      "correct": 1,
+      "explanation": "Traducir la jerga no elimina el rigor del análisis, solo lo hace comprensible para quien tomará decisiones con esa información."
+    },
+    {
+      "question": "¿Qué título de gráfico comunica mejor un hallazgo?",
+      "options": [
+        "'Ventas por mes'",
+        "'Gráfico 3'",
+        "'Las ventas de diciembre duplican el promedio anual'",
+        "'Datos de ventas.csv'"
+      ],
+      "correct": 2,
+      "explanation": "Un buen título expresa la conclusión del gráfico, no solo el nombre de las variables o del archivo."
+    },
+    {
+      "question": "Terminaste un análisis que muestra que los clientes de bajo gasto tienen alta probabilidad de dejar de comprar. ¿Qué deberías incluir en tu informe además del hallazgo?",
+      "options": [
+        "Nada más, el hallazgo se explica solo",
+        "Una recomendación accionable, como una campaña de retención dirigida a ese grupo",
+        "El código completo del notebook sin editar",
+        "Una lista de todas las columnas del dataset original"
+      ],
+      "correct": 1,
+      "explanation": "Un hallazgo sin recomendación deja a la audiencia sin saber qué hacer; la recomendación traduce el hallazgo en una acción concreta."
+    }
+  ],
+  "siguientes-pasos": [
+    {
+      "question": "¿Qué ventaja principal tiene convertir código de notebook en funciones?",
+      "options": [
+        "El código se ejecuta más rápido automáticamente",
+        "Facilita reutilizar, probar y mantener el código a lo largo del tiempo",
+        "Elimina la necesidad de usar pandas",
+        "Hace que el análisis ya no necesite datos"
+      ],
+      "correct": 1,
+      "explanation": "Las funciones organizan el código en piezas reutilizables, lo que facilita su mantenimiento y reduce errores al repetirlo."
+    },
+    {
+      "question": "¿Para qué sirve fijar una semilla aleatoria (seed) en un análisis?",
+      "options": [
+        "Para que el análisis se ejecute más rápido",
+        "Para que los resultados con componentes aleatorios sean reproducibles entre ejecuciones",
+        "Para eliminar valores nulos automáticamente",
+        "Para conectar el notebook con una base de datos"
+      ],
+      "correct": 1,
+      "explanation": "Fijar una semilla garantiza que un proceso con aleatoriedad, como tomar una muestra, produzca siempre el mismo resultado."
+    },
+    {
+      "question": "En el código `def resumen_por_region(datos: pd.DataFrame) -> pd.Series:`, ¿qué indica la anotación `-> pd.Series`?",
+      "options": [
+        "Que la función recibe una Serie como parámetro",
+        "Que la función devuelve un objeto de tipo Serie",
+        "Que la función modifica el DataFrame original",
+        "Que la función lanzará un error si no recibe una Serie"
+      ],
+      "correct": 1,
+      "explanation": "La flecha indica el tipo de dato que devuelve la función, en este caso una Serie de pandas, y es solo una anotación informativa."
+    },
+    {
+      "question": "Tu equipo necesita el mismo reporte de ventas cada lunes. ¿Cuál es la mejor forma de resolverlo según lo visto en esta lección?",
+      "options": [
+        "Reescribir el análisis desde cero cada semana en un notebook nuevo",
+        "Crear una función que genere el reporte y ejecutarla cada semana",
+        "Enviar el notebook original sin ejecutar",
+        "Pedirle a otra persona que copie los resultados manualmente"
+      ],
+      "correct": 1,
+      "explanation": "Automatizar el reporte con una función reutilizable evita el trabajo manual repetido y reduce el riesgo de errores."
+    }
+  ]
+}

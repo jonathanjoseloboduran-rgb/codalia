@@ -1,0 +1,57 @@
+{
+  "id": "python-data-science",
+  "title": "Python para Ciencia de Datos",
+  "language": "python",
+  "chapters": [
+    {
+      "id": "pandas-a-fondo",
+      "title": "Pandas a fondo",
+      "lessons": [
+        { "id": "dataframes-avanzado", "title": "DataFrames en profundidad", "topics": "índices y multiíndice básico, seleccionar con condiciones complejas, query, asignaciones con loc, encadenar operaciones de forma legible" },
+        { "id": "groupby-agregaciones", "title": "GroupBy y agregaciones", "topics": "el patrón split-apply-combine, groupby con múltiples columnas, agg con varias funciones, transform vs agg, tablas dinámicas con pivot_table" },
+        { "id": "combinar-datasets", "title": "Combinar datasets", "topics": "concat, merge tipo SQL (inner, left, right, outer), claves de unión, problemas comunes al combinar (duplicados, sufijos), ejemplo con dos tablas relacionadas" },
+        { "id": "fechas-series-temporales", "title": "Fechas y series temporales", "topics": "to_datetime, extraer componentes de fechas, filtrar por rangos de tiempo, resample para agregar por mes/semana, ejemplo con datos de ventas en el tiempo" }
+      ]
+    },
+    {
+      "id": "visualizacion",
+      "title": "Visualización de datos",
+      "lessons": [
+        { "id": "matplotlib-basico", "title": "Matplotlib esencial", "topics": "anatomía de una figura (figure, axes), gráficos de línea y dispersión, títulos/etiquetas/leyendas, guardar figuras, estilo básico" },
+        { "id": "tipos-de-graficos", "title": "Elegir el gráfico correcto", "topics": "barras para comparar, histogramas para distribuciones, boxplots para dispersión y outliers, líneas para tendencias, errores comunes (pie charts, ejes engañosos)" },
+        { "id": "seaborn", "title": "Seaborn: visualización estadística", "topics": "por qué seaborn sobre matplotlib, histplot/boxplot/scatterplot con hue, heatmaps de correlación, pairplot para explorar un dataset completo" },
+        { "id": "storytelling-con-datos", "title": "Storytelling con datos", "topics": "principios para comunicar hallazgos, simplificar (menos es más), resaltar lo importante con color, títulos que cuentan la conclusión, preparar gráficos para una audiencia no técnica" }
+      ]
+    },
+    {
+      "id": "estadistica-practica",
+      "title": "Estadística práctica",
+      "lessons": [
+        { "id": "estadistica-descriptiva", "title": "Estadística descriptiva", "topics": "media/mediana/moda y cuándo usar cada una, varianza y desviación estándar, percentiles y cuartiles, resumir un dataset con números, outliers con IQR" },
+        { "id": "distribuciones-probabilidad", "title": "Distribuciones y probabilidad", "topics": "probabilidad intuitiva, la distribución normal y por qué aparece tanto, simular con numpy.random, ley de los grandes números con un ejemplo simulado" },
+        { "id": "correlacion", "title": "Correlación y relaciones", "topics": "correlación de Pearson, corr() en pandas, correlación no implica causalidad (con ejemplos), correlaciones espurias, visualizar relaciones" },
+        { "id": "pruebas-de-hipotesis", "title": "Pruebas de hipótesis", "topics": "la lógica de una prueba de hipótesis explicada simple, hipótesis nula, p-valor sin misticismo, test t para comparar dos grupos con scipy, errores comunes de interpretación" }
+      ]
+    },
+    {
+      "id": "preparacion-de-datos",
+      "title": "Limpieza y preparación",
+      "lessons": [
+        { "id": "datos-faltantes", "title": "Datos faltantes", "topics": "tipos de faltantes, detectar patrones de ausencia, estrategias (eliminar, imputar con media/mediana/moda), cuándo cada estrategia distorsiona el análisis" },
+        { "id": "outliers", "title": "Valores atípicos (outliers)", "topics": "qué es un outlier, detectarlos con IQR y z-score, visualizarlos, decidir qué hacer (mantener, transformar, eliminar) según el contexto" },
+        { "id": "variables-categoricas", "title": "Variables categóricas", "topics": "encoding: one-hot vs label encoding, get_dummies en pandas, cardinalidad alta, ordinales vs nominales, errores comunes" },
+        { "id": "escalado-normalizacion", "title": "Escalado y normalización", "topics": "por qué escalar (algoritmos sensibles a la escala), min-max vs estandarización z-score, implementarlo con pandas/sklearn, no filtrar información del test al train" }
+      ]
+    },
+    {
+      "id": "proyecto-de-analisis",
+      "title": "Proyecto de análisis completo",
+      "lessons": [
+        { "id": "flujo-eda", "title": "Análisis exploratorio (EDA)", "topics": "el flujo completo de un EDA: preguntas → carga → limpieza → univariado → bivariado → hallazgos, checklist práctico, ejemplo guiado con un dataset pequeño" },
+        { "id": "feature-engineering", "title": "Feature engineering", "topics": "crear variables con valor predictivo, ratios y diferencias, extraer de fechas y texto, binning, evaluar si una feature aporta" },
+        { "id": "comunicar-resultados", "title": "Comunicar resultados", "topics": "estructurar un informe de análisis (contexto, método, hallazgos, recomendaciones), del notebook al reporte, visualizaciones clave, hablar al negocio y no en jerga" },
+        { "id": "siguientes-pasos", "title": "De notebook a producción", "topics": "organizar código de análisis en funciones y módulos, reproducibilidad (semillas, versiones), automatizar un reporte, ruta de aprendizaje para seguir creciendo" }
+      ]
+    }
+  ]
+}

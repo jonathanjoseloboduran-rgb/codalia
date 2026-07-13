@@ -1,0 +1,138 @@
+{
+  "version": 7,
+  "updated_at": "2026-07-02T12:56:14.966Z",
+  "courses": [
+    {
+      "id": "python-fundamentals",
+      "title": "Fundamentos de Python: Edición Moderna 3.14",
+      "language": "python",
+      "icon": "🐍",
+      "color": "#3B82F6",
+      "premium": false,
+      "version": 7,
+      "file": "courses/python-fundamentals.json",
+      "chapter_count": 7,
+      "total_lessons": 28
+    },
+    {
+      "id": "python-architecture",
+      "title": "Arquitectura de Python: Patrones y Sistema de Tipos",
+      "language": "python",
+      "icon": "🏛️",
+      "color": "#8B5CF6",
+      "premium": true,
+      "version": 7,
+      "file": "courses/python-architecture.json",
+      "chapter_count": 6,
+      "total_lessons": 20
+    },
+    {
+      "id": "python-concurrency",
+      "title": "Concurrencia en Python: Asyncio y Free-Threading",
+      "language": "python",
+      "icon": "⚡",
+      "color": "#10B981",
+      "premium": true,
+      "version": 7,
+      "file": "courses/python-concurrency.json",
+      "chapter_count": 6,
+      "total_lessons": 24
+    },
+    {
+      "id": "python-metaprogramming",
+      "title": "Python Metaprogramación e Introspección",
+      "language": "python",
+      "icon": "🪄",
+      "color": "#F59E0B",
+      "premium": true,
+      "version": 7,
+      "file": "courses/python-metaprogramming.json",
+      "chapter_count": 6,
+      "total_lessons": 19
+    },
+    {
+      "id": "python-performance",
+      "title": "Rendimiento de Python: JIT y Internos",
+      "language": "python",
+      "icon": "🚀",
+      "color": "#EF4444",
+      "premium": true,
+      "version": 7,
+      "file": "courses/python-performance.json",
+      "chapter_count": 6,
+      "total_lessons": 24
+    },
+    {
+      "id": "python-data-science",
+      "title": "Python para Ciencia de Datos",
+      "language": "python",
+      "icon": "📊",
+      "color": "#F59E0B",
+      "premium": true,
+      "version": 1,
+      "file": "courses/python-data-science.json",
+      "chapter_count": 5,
+      "total_lessons": 20
+    },
+    {
+      "id": "python-ia",
+      "title": "Python para Inteligencia Artificial",
+      "language": "python",
+      "icon": "🤖",
+      "color": "#10B981",
+      "premium": true,
+      "version": 1,
+      "file": "courses/python-ia.json",
+      "chapter_count": 5,
+      "total_lessons": 20
+    }
+  ],
+  "learning_paths": [
+    {
+      "id": "python-basico",
+      "title": "Fundamentos",
+      "description": "Empieza desde cero: variables, estructuras de datos, funciones, clases y manejo de errores en Python moderno.",
+      "icon": "🐍",
+      "color": "#3B82F6",
+      "courses": [
+        "python-fundamentals"
+      ],
+      "estimated_hours": 12,
+      "level": "beginner",
+      "prereq": null,
+      "status": "available"
+    },
+    {
+      "id": "python-avanzado",
+      "title": "Desarrollo Avanzado",
+      "description": "Arquitectura, sistema de tipos, concurrencia con asyncio, metaprogramación y rendimiento. Lleva tu Python al siguiente nivel.",
+      "icon": "⚡",
+      "color": "#8B5CF6",
+      "courses": [
+        "python-architecture",
+        "python-concurrency",
+        "python-metaprogramming",
+        "python-performance"
+      ],
+      "estimated_hours": 35,
+      "level": "advanced",
+      "prereq": "python-basico",
+      "status": "available"
+    },
+    {
+      "id": "python-ia-datos",
+      "title": "IA y Ciencia de Datos",
+      "description": "Python para Inteligencia Artificial y Ciencia de Datos: NumPy, Pandas, machine learning, redes neuronales y más.",
+      "icon": "🤖",
+      "color": "#10B981",
+      "courses": [
+        "python-ia",
+        "python-data-science"
+      ],
+      "estimated_hours": 40,
+      "level": "intermediate",
+      "prereq": "python-basico",
+      "status": "available"
+    }
+  ]
+}

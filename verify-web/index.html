@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0F172A" />
+  <title>Verificar certificado — Codalia</title>
+  <meta name="description" content="Verifica la autenticidad de un certificado de Codalia con su código." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh; background: #0F172A; color: #e2e8f0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+    }
+    .card { width: 100%; max-width: 26rem; }
+    .brand { display: flex; align-items: center; justify-content: center; gap: .6rem; margin-bottom: .4rem; }
+    .brand .dot {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: linear-gradient(135deg, #3B82F6, #2563EB);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 800; font-size: .9rem;
+    }
+    .brand span { font-weight: 800; letter-spacing: .06em; font-size: 1.15rem; color: #fff; }
+    .sub { text-align: center; color: #64748b; font-size: .85rem; margin-bottom: 1.6rem; }
+    .box { background: #1E293B; border: 1px solid #33415588; border-radius: 1rem; padding: 1.4rem; }
+    label { display: block; font-size: .8rem; color: #94a3b8; margin-bottom: .45rem; }
+    .row { display: flex; gap: .5rem; }
+    input {
+      flex: 1; background: #0f172a; border: 1px solid #334155; color: #fff;
+      border-radius: .6rem; padding: .7rem .9rem; font-size: 1rem; outline: none;
+      text-transform: uppercase; letter-spacing: .05em;
+    }
+    input:focus { border-color: #3B82F6; }
+    button {
+      background: #2563EB; color: #fff; border: none; border-radius: .6rem;
+      padding: .7rem 1.1rem; font-size: .95rem; font-weight: 600; cursor: pointer;
+    }
+    button:disabled { opacity: .5; }
+    .result { margin-top: 1rem; border-radius: .8rem; padding: 1.1rem; font-size: .92rem; display: none; }
+    .result.ok { display: block; background: #05966922; border: 1px solid #10b98155; }
+    .result.bad { display: block; background: #dc262622; border: 1px solid #ef444455; color: #fca5a5; }
+    .result h2 { font-size: 1rem; color: #34d399; margin-bottom: .55rem; }
+    .result .line { display: flex; justify-content: space-between; gap: 1rem; padding: .22rem 0; }
+    .result .line b { color: #fff; font-weight: 600; text-align: right; }
+    .result .line span { color: #94a3b8; }
+    .foot { text-align: center; color: #475569; font-size: .75rem; margin-top: 1.4rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="brand"><div class="dot">&lt;/&gt;</div><span>CODALIA</span></div>
+    <p class="sub">Verificación de certificados</p>
+
+    <div class="box">
+      <label for="code">Código del certificado (ej: CDL-A1B2C3)</label>
+      <div class="row">
+        <input id="code" placeholder="CDL-XXXXXX" autocomplete="off" spellcheck="false" />
+        <button id="btn">Verificar</button>
+      </div>
+      <div id="out" class="result"></div>
+    </div>
+
+    <p class="foot">Codalia — Aprende Python en español, desde tu teléfono.</p>
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://wfbsfbhpzxmbwiwrfbgd.supabase.co'
+    const ANON_KEY = 'sb_publishable_i775W2v1ULEUEaXA9n6JKQ_vCiwztmk'
+
+    const $code = document.getElementById('code')
+    const $btn = document.getElementById('btn')
+    const $out = document.getElementById('out')
+
+    async function verify() {
+      const code = $code.value.trim().toUpperCase()
+      if (!code) return
+      $btn.disabled = true
+      $out.className = 'result'
+      try {
+        const res = await fetch(
+          `${SUPABASE_URL}/rest/v1/certificates?code=eq.${encodeURIComponent(code)}&select=*`,
+          { headers: { apikey: ANON_KEY, Authorization: `Bearer ${ANON_KEY}` } }
+        )
+        const rows = await res.json()
+        if (Array.isArray(rows) && rows.length > 0) {
+          const c = rows[0]
+          const fecha = new Date(c.issued_at).toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'numeric' })
+          $out.className = 'result ok'
+          $out.innerHTML = `
+            <h2>✓ Certificado válido</h2>
+            <div class="line"><span>Otorgado a</span><b>${escapeHtml(c.name)}</b></div>
+            <div class="line"><span>Especialización</span><b>${escapeHtml(c.path_title)}</b></div>
+            <div class="line"><span>Emitido el</span><b>${fecha}</b></div>
+            <div class="line"><span>Código</span><b>${escapeHtml(c.code)}</b></div>`
+        } else {
+          $out.className = 'result bad'
+          $out.textContent = 'No se encontró ningún certificado con ese código. Verifica que esté bien escrito.'
+        }
+      } catch {
+        $out.className = 'result bad'
+        $out.textContent = 'Error de conexión. Intenta de nuevo.'
+      } finally {
+        $btn.disabled = false
+      }
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]))
+    }
+
+    $btn.addEventListener('click', verify)
+    $code.addEventListener('keydown', e => { if (e.key === 'Enter') verify() })
+
+    // Soporta enlaces directos: verify.../?code=CDL-XXXXXX
+    const param = new URLSearchParams(location.search).get('code')
+    if (param) { $code.value = param; verify() }
+  </script>
+</body>
+</html>
