@@ -1,32 +1,45 @@
-# React + TypeScript + Vite
+# 🐍 Codalia
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+App para **aprender Python desde el teléfono**, con un intérprete real que corre **dentro del navegador** — sin servidor, sin instalar nada.
 
-Currently, two official plugins are available:
+## ✨ Funciones
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Curso interactivo en español**: lecciones con teoría + ejercicios de código verificados al instante.
+- **Playground**: editor Python completo (resaltado, autocompletado) para experimentar libremente.
+- **Quizzes y rutas de aprendizaje** con progreso, rachas y badges.
+- **Funciona offline**: el intérprete y el contenido del curso van empaquetados en la app.
 
-## React Compiler
+## 🛠️ Cómo funciona
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+La pieza central es **[Pyodide](https://pyodide.org/)** — CPython compilado a WebAssembly. El código del alumno se ejecuta localmente en el dispositivo, lo que permite:
 
-## Expanding the Oxlint configuration
+- feedback inmediato sin latencia de red ni costo de servidor,
+- uso 100% offline,
+- ejecutar código arbitrario del usuario sin riesgo (sandbox del navegador).
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```
+React (screens/) ──► CodeMirror (editor Python)
+      │                    │
+      ▼                    ▼
+ Curso/quizzes JSON   Pyodide (WASM) ── ejecuta y valida el código
+      │
+      ▼
+ Supabase (perfil, progreso) + Capacitor Preferences (local)
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## 📦 Stack
+
+- **Frontend**: React 19 + TypeScript + Vite
+- **Editor**: CodeMirror 6 (`@codemirror/lang-python`)
+- **Runtime Python**: Pyodide (WebAssembly), copiado al bundle en build (`scripts/copy-pyodide.mjs`)
+- **Android**: Capacitor 8 (notificaciones locales, share, AdMob)
+- **Backend**: Supabase (auth y sincronización de progreso)
+
+## 🚀 Desarrollo
+
+```bash
+npm install
+npm run dev          # web en localhost
+npm run cap:sync     # build + sincronizar proyecto Android
+npm run cap:open     # abrir en Android Studio
+```
