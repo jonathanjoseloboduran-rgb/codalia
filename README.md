@@ -43,3 +43,16 @@ npm run dev          # web en localhost
 npm run cap:sync     # build + sincronizar proyecto Android
 npm run cap:open     # abrir en Android Studio
 ```
+
+## 📚 Contenido del curso
+
+El contenido completo del curso (lecciones, ejercicios, quizzes) es propietario y **no está incluido** en este repositorio. Se incluyen archivos `*.sample.json` con la estructura y una muestra para poder compilar y probar la app:
+
+```bash
+cd src/data
+cp course_es.sample.json course_es.json
+cp exercises.sample.json exercises.json
+cp quizzes.sample.json quizzes.json
+cp bundled/catalog.sample.json bundled/catalog.json
+cp bundled/python-fundamentals.sample.json bundled/python-fundamentals.json
+```

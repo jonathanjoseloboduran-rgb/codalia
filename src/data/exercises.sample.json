@@ -1,0 +1,24 @@
+{
+  "basic-data-types": [
+    {
+      "id": "basic-data-types-ex1",
+      "prompt": "Escribe una función `es_par(n)` que devuelva True si el número n es par, y False si es impar.",
+      "starter": "def es_par(n):\n    # tu código aquí\n    pass",
+      "solution": "def es_par(n):\n    return n % 2 == 0",
+      "tests": [
+        {
+          "call": "es_par(4)",
+          "expected": "True"
+        },
+        {
+          "call": "es_par(7)",
+          "expected": "False"
+        },
+        {
+          "call": "es_par(0)",
+          "expected": "True"
+        }
+      ]
+    }
+  ]
+}

@@ -38,3 +38,10 @@ android/.idea/
 .env
 *.keystore
 *.jks
+
+# Contenido del curso (propietario — no se publica; ver README)
+src/data/course_es.json
+src/data/exercises.json
+src/data/quizzes.json
+src/data/bundled/catalog.json
+src/data/bundled/python-fundamentals.json

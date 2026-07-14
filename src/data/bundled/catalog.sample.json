@@ -1,0 +1,34 @@
+{
+  "version": 7,
+  "updated_at": "2026-07-02T12:56:14.966Z",
+  "courses": [
+    {
+      "id": "python-fundamentals",
+      "title": "Fundamentos de Python: Edición Moderna 3.14",
+      "language": "python",
+      "icon": "🐍",
+      "color": "#3B82F6",
+      "premium": false,
+      "version": 7,
+      "file": "courses/python-fundamentals.json",
+      "chapter_count": 7,
+      "total_lessons": 28
+    }
+  ],
+  "learning_paths": [
+    {
+      "id": "python-basico",
+      "title": "Fundamentos",
+      "description": "Empieza desde cero: variables, estructuras de datos, funciones, clases y manejo de errores en Python moderno.",
+      "icon": "🐍",
+      "color": "#3B82F6",
+      "courses": [
+        "python-fundamentals"
+      ],
+      "estimated_hours": 12,
+      "level": "beginner",
+      "prereq": null,
+      "status": "available"
+    }
+  ]
+}

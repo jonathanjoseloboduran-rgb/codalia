@@ -1,0 +1,494 @@
+{
+  "language": "es",
+  "subject": "Python",
+  "total_courses": 1,
+  "total_lessons": 2,
+  "courses": [
+    {
+      "id": "python-fundamentals",
+      "title": "Fundamentos de Python: Edición Moderna 3.14",
+      "order": 1,
+      "folder": "python",
+      "chapters": [
+        {
+          "id": "foundations",
+          "folder": "1-foundations",
+          "order": 1,
+          "title": "Foundations",
+          "description": "🏗️ Modern Python Foundations",
+          "lessons": [
+            {
+              "id": "the-zen-of-python-the-repl",
+              "filename": "1-philosophy-repl.md",
+              "order": 1,
+              "title": "El Zen de Python y el REPL",
+              "raw_content": "---\nsource_course: \"python\"\nsource_lesson: \"python-philosophy-repl\"\n---\n\n# El Zen de Python y el REPL\n\n## Introducción\nPython es más que reglas de sintaxis: está construido sobre una filosofía de legibilidad y simplicidad que lo diferencia de la mayoría de los demás lenguajes. En esta lección aprenderás los principios guía que todo desarrollador de Python debe conocer y explorarás el REPL moderno que hace que experimentar con Python sea más rápido que nunca.\n\n## Conceptos Clave\n- **The Zen of Python (PEP 20)**: Una colección de 19 aforismos que capturan la filosofía de diseño detrás de Python.\n- **REPL (Read-Eval-Print Loop)**: Un shell interactivo donde escribes expresiones de Python y ves los resultados inmediatamente.\n- **Pythonic code**: Código que sigue las convenciones de Python y se lee de forma natural para otros desarrolladores de Python.\n\n## Contexto del Mundo Real\nCada revisión de código en un equipo profesional de Python gira en torno a la legibilidad y la simplicidad. Cuando alguien dice que tu código \"no es Pythonic\", se está refiriendo a estos principios. Entenderlos desde el principio significa menos reescrituras, pull requests más fluidos y código fácil de mantener años después.\n\n## Profundización\n\nEjecuta `import this` en tu REPL para ver los principios guía que han moldeado el diseño de Python durante décadas.\n\n### Principios Fundamentales\n\nEl Zen de Python contiene 19 aforismos que guían el código Pythonic:\n\n- **Beautiful is better than ugly**: Escribe código que sea agradable de leer\n- **Explicit is better than implicit**: No dependas de magia oculta\n- **Simple is better than complex**: Elige soluciones directas\n- **Readability counts**: El código se lee más a menudo de lo que se escribe\n- **There should be one obvious way to do it**: Cons",
+              "sections": {
+                "el_zen_de_python_y_el_repl": "",
+                "introducción": "Python es más que reglas de sintaxis: está construido sobre una filosofía de legibilidad y simplicidad que lo diferencia de la mayoría de los demás lenguajes. En esta lección aprenderás los principios guía que todo desarrollador de Python debe conocer y explorarás el REPL moderno que hace que experimentar con Python sea más rápido que nunca.",
+                "conceptos_clave": "- **The Zen of Python (PEP 20)**: Una colección de 19 aforismos que capturan la filosofía de diseño detrás de Python.\n- **REPL (Read-Eval-Print Loop)**: Un shell interactivo donde escribes expresiones de Python y ves los resultados inmediatamente.\n- **Pythonic code**: Código que sigue las convenciones de Python y se lee de forma natural para otros desarrolladores de Python.",
+                "contexto_del_mundo_real": "Cada revisión de código en un equipo profesional de Python gira en torno a la legibilidad y la simplicidad. Cuando alguien dice que tu código \"no es Pythonic\", se está refiriendo a estos principios. Entenderlos desde el principio significa menos reescrituras, pull requests más fluidos y código fácil de mantener años después.",
+                "profundización": "Ejecuta `import this` en tu REPL para ver los principios guía que han moldeado el diseño de Python durante décadas.",
+                "principios_fundamentales": "El Zen de Python contiene 19 aforismos que guían el código Pythonic:\n\n- **Beautiful is better than ugly**: Escribe código que sea agradable de leer\n- **Explicit is better than implicit**: No dependas de magia oculta\n- **Simple is better than complex**: Elige soluciones directas\n- **Readability counts**: El código se lee más a menudo de lo que se escribe\n- **There should be one obvious way to do it**: Cons"
+              },
+              "code_blocks": [
+                {
+                  "language": "python",
+                  "code": "# Start the REPL by typing 'python' in your terminal\n>>> import this\n# The Zen of Python, by Tim Peters\n# Beautiful is better than ugly.\n# Explicit is better than implicit.\n# ..."
+                },
+                {
+                  "language": "python",
+                  "code": "import this\n\n# Beautiful is better than ugly.\n# Explicit is better than implicit.\n# Simple is better than complex.\n# Complex is better than complicated.\n# Flat is better than nested.\n# Sparse is better than dense.\n# Readability counts."
+                }
+              ],
+              "word_count": 658
+            },
+            {
+              "id": "basic-data-types",
+              "filename": "2-basic-types.md",
+              "order": 2,
+              "title": "Tipos de datos básicos",
+              "raw_content": "---\nsource_course: \"python\"\nsource_lesson: \"python-basic-types\"\n---\n\n# Tipos de datos básicos\n\n## Introducción\nCada valor en Python tiene un tipo, y comprender esos tipos es el primer paso para escribir programas correctos. Esta lección cubre los tipos numéricos, booleanos y None que usarás en prácticamente cualquier script de Python.\n\n## Conceptos clave\n- **Tipado dinámico**: Python infiere el tipo de una variable en tiempo de ejecución -- nunca escribes `int x = 42`.\n- **int**: Enteros de precisión ilimitada.\n- **float**: Números de doble precisión IEEE 754 de 64 bits.\n- **complex**: Soporte incorporado para números complejos con un sufijo `j`.\n- **bool**: `True` o `False`, en realidad una subclase de `int`.\n- **None**: Valor nulo de Python, que representa la ausencia de datos.\n\n## Contexto del mundo real\nEntender mal el sistema de tipos de Python genera errores sutiles en producción. Por ejemplo, comparar `True == 1` evalúa a `True` porque `bool` es una subclase de `int`. Conocer cómo funciona la veracidad es esencial para escribir condicionales y filtros correctos en pipelines de datos, manejadores web y herramientas de línea de comandos.\n\n## Análisis profundo\n\n### Enteros (`int`)\nEnteros de precisión ilimitada -- Python maneja números arbitrariamente grandes automáticamente.\n\n```python\nx = 42\nbig = 10 ** 100  # No overflow!\nhex_val = 0xFF   # 255 in hexadecimal\nbinary = 0b1010  # 10 in binary\n```\n\n### Punto flotante (`float`)\nNúmeros de doble precisión IEEE 754 de 64 bits.\n\n```python\npi = 3.14159\nscientific = 1.5e-10  # 0.00000000015\n```\n\n### Números complejos (`complex`)\nSoporte incorporado para aritmética compleja.\n\n```python\nz = 3 + 4j\nprint(z.real, z.imag)  # 3.0 4.0\n```\n\n### Tipo booleano (`bool`)\n\nLos booleanos son `True` o `False` (nota la capitalización). En realidad son una subclase de `int`.\n\n```python\nis_valid = True\nprint(True + True)  # 2 (booleans are integers!)\n```\n\n### Tipo None\n\n`None` representa la ausencia de un valor. Es el equivalente nulo de Python.\n\n```python\nresult = None\nif result is None:\n    print(\"No result yet\")\n```\n\n### Verificación de tipos\n\nUsa `type()` para comprobar el tipo de un objeto, y `isinstance()` para verificación de tipos que respeta la herencia.\n\n```python\ntype(42)           # <class 'int'>\nisinstance(42, int)  # True\nisinstance(True, int)  # True (bool is subclass of int)\n```\n\n## Errores comunes\n1. **Errores de precisión de punto flotante** -- `0.1 + 0.2` no es igual a `0.3` debido a la representación IEEE 754. Usa `math.isclose()` o el módulo `decimal` cuando la aritmética decimal exacta sea importante.\n2. **Confundir `==` con `is` para verificaciones de None** -- Siempre usa `is None` en lugar de `== None`. El operador `is` verifica identidad, que es la forma correcta de probar contra None.\n3. **Suponer que `bool` se comporta diferente de `int`** -- Porque `True == 1` y `False == 0`, la aritmética con booleanos puede producir resultados inesperados si olvidas esta relación.\n\n## Buenas prácticas\n1. **Usa `isinstance()` sobre `type()` para verificaciones de tipo** -- `isinstance` respeta la herencia y funciona con clases base abstractas, haciendo tu código más flexible.\n2. **Usa `is` para comparaciones de singletons** -- Compara contra `None`, `True` y `False` con `is`, no con `==`.\n\n## Resumen\n- Python es tipado dinámicamente; nunca declaras tipos explícitamente.\n- Los enteros tienen precisión ilimitada, los flotantes siguen IEEE 754 y los números complejos están incorporados.\n- `bool` es una subclase de `int`; `True` y `False` se comportan como 1 y 0 en aritmética.\n- `None` representa la ausencia de un valor y debe verificarse con `is None`.\n- Usa `isinstance()` para verificación de tipos y `math.isclose()` para comparaciones de flotantes.\n\n## Ejemplos de código\n\n**Operaciones numéricas y conversión de tipos**\n\n```python\n# Numeric operations\nx = 10\ny = 3\n\nprint(x / y)   # 3.333... (true division)\nprint(x // y)  # 3 (floor division)\nprint(x % y)   # 1 (modulo)\nprint(x ** y)  # 1000 (power)\n\n# Type conversion\nprint(int(3.7))    # 3\nprint(float(42))   # 42.0\nprint(bool(0))     # False\nprint(bool(1))     # True\n```\n\n## Recursos\n\n- [Built-in Types](https://docs.python.org/3.14/library/stdtypes.html) — Referencia oficial de Python 3.14 para tipos incorporados, incluidos numéricos, booleanos y None\n\n---\n\n> 📘 *Esta lección forma parte del curso [Python Fundamentals: Modern 3.14 Edition](https://Codalia/courses/python) en [Codalia](https://Codalia) — la plataforma de aprendizaje nativa del IDE para desarrolladores.*",
+              "sections": {
+                "tipos_de_datos_básicos": "",
+                "introducción": "Cada valor en Python tiene un tipo, y comprender esos tipos es el primer paso para escribir programas correctos. Esta lección cubre los tipos numéricos, booleanos y None que usarás en prácticamente cualquier script de Python.",
+                "conceptos_clave": "- **Tipado dinámico**: Python infiere el tipo de una variable en tiempo de ejecución -- nunca escribes `int x = 42`.\n- **int**: Enteros de precisión ilimitada.\n- **float**: Números de doble precisión IEEE 754 de 64 bits.\n- **complex**: Soporte incorporado para números complejos con un sufijo `j`.\n- **bool**: `True` o `False`, en realidad una subclase de `int`.\n- **None**: Valor nulo de Python, que representa la ausencia de datos.",
+                "contexto_del_mundo_real": "Entender mal el sistema de tipos de Python genera errores sutiles en producción. Por ejemplo, comparar `True == 1` evalúa a `True` porque `bool` es una subclase de `int`. Conocer cómo funciona la veracidad es esencial para escribir condicionales y filtros correctos en pipelines de datos, manejadores web y herramientas de línea de comandos.",
+                "análisis_profundo": "",
+                "enteros_int": "Enteros de precisión ilimitada -- Python maneja números arbitrariamente grandes automáticamente.\n\n```python\nx = 42\nbig = 10 ** 100  # No overflow!\nhex_val = 0xFF   # 255 in hexadecimal\nbinary = 0b1010  # 10 in binary\n```",
+                "punto_flotante_float": "Números de doble precisión IEEE 754 de 64 bits.\n\n```python\npi = 3.14159\nscientific = 1.5e-10  # 0.00000000015\n```",
+                "números_complejos_complex": "Soporte incorporado para aritmética compleja.\n\n```python\nz = 3 + 4j\nprint(z.real, z.imag)  # 3.0 4.0\n```",
+                "tipo_booleano_bool": "Los booleanos son `True` o `False` (nota la capitalización). En realidad son una subclase de `int`.\n\n```python\nis_valid = True\nprint(True + True)  # 2 (booleans are integers!)\n```",
+                "tipo_none": "`None` representa la ausencia de un valor. Es el equivalente nulo de Python.\n\n```python\nresult = None\nif result is None:\n    print(\"No result yet\")\n```",
+                "verificación_de_tipos": "Usa `type()` para comprobar el tipo de un objeto, y `isinstance()` para verificación de tipos que respeta la herencia.\n\n```python\ntype(42)           # <class 'int'>\nisinstance(42, int)  # True\nisinstance(True, int)  # True (bool is subclass of int)\n```",
+                "errores_comunes": "1. **Errores de precisión de punto flotante** -- `0.1 + 0.2` no es igual a `0.3` debido a la representación IEEE 754. Usa `math.isclose()` o el módulo `decimal` cuando la aritmética decimal exacta sea importante.\n2. **Confundir `==` con `is` para verificaciones de None** -- Siempre usa `is None` en lugar de `== None`. El operador `is` verifica identidad, que es la forma correcta de probar contra None.\n3. **Suponer que `bool` se comporta diferente de `int`** -- Porque `True == 1` y `False == 0`, la aritmética con booleanos puede producir resultados inesperados si olvidas esta relación.",
+                "buenas_prácticas": "1. **Usa `isinstance()` sobre `type()` para verificaciones de tipo** -- `isinstance` respeta la herencia y funciona con clases base abstractas, haciendo tu código más flexible.\n2. **Usa `is` para comparaciones de singletons** -- Compara contra `None`, `True` y `False` con `is`, no con `==`.",
+                "resumen": "- Python es tipado dinámicamente; nunca declaras tipos explícitamente.\n- Los enteros tienen precisión ilimitada, los flotantes siguen IEEE 754 y los números complejos están incorporados.\n- `bool` es una subclase de `int`; `True` y `False` se comportan como 1 y 0 en aritmética.\n- `None` representa la ausencia de un valor y debe verificarse con `is None`.\n- Usa `isinstance()` para verificación de tipos y `math.isclose()` para comparaciones de flotantes.",
+                "ejemplos_de_código": "**Operaciones numéricas y conversión de tipos**\n\n```python",
+                "numeric_operations": "x = 10\ny = 3\n\nprint(x / y)   # 3.333... (true division)\nprint(x // y)  # 3 (floor division)\nprint(x % y)   # 1 (modulo)\nprint(x ** y)  # 1000 (power)",
+                "type_conversion": "print(int(3.7))    # 3\nprint(float(42))   # 42.0\nprint(bool(0))     # False\nprint(bool(1))     # True\n```",
+                "recursos": "- [Built-in Types](https://docs.python.org/3.14/library/stdtypes.html) — Referencia oficial de Python 3.14 para tipos incorporados, incluidos numéricos, booleanos y None\n\n---\n\n> 📘 *Esta lección forma parte del curso [Python Fundamentals: Modern 3.14 Edition](https://Codalia/courses/python) en [Codalia](https://Codalia) — la plataforma de aprendizaje nativa del IDE para desarrolladores.*"
+              },
+              "code_blocks": [
+                {
+                  "language": "python",
+                  "code": "x = 42\nbig = 10 ** 100  # No overflow!\nhex_val = 0xFF   # 255 in hexadecimal\nbinary = 0b1010  # 10 in binary"
+                },
+                {
+                  "language": "python",
+                  "code": "pi = 3.14159\nscientific = 1.5e-10  # 0.00000000015"
+                },
+                {
+                  "language": "python",
+                  "code": "z = 3 + 4j\nprint(z.real, z.imag)  # 3.0 4.0"
+                },
+                {
+                  "language": "python",
+                  "code": "is_valid = True\nprint(True + True)  # 2 (booleans are integers!)"
+                },
+                {
+                  "language": "python",
+                  "code": "result = None\nif result is None:\n    print(\"No result yet\")"
+                },
+                {
+                  "language": "python",
+                  "code": "type(42)           # <class 'int'>\nisinstance(42, int)  # True\nisinstance(True, int)  # True (bool is subclass of int)"
+                },
+                {
+                  "language": "python",
+                  "code": "# Numeric operations\nx = 10\ny = 3\n\nprint(x / y)   # 3.333... (true division)\nprint(x // y)  # 3 (floor division)\nprint(x % y)   # 1 (modulo)\nprint(x ** y)  # 1000 (power)\n\n# Type conversion\nprint(int(3.7))    # 3\nprint(float(42))   # 42.0\nprint(bool(0))     # False\nprint(bool(1))     # True"
+                }
+              ],
+              "word_count": 645
+            },
+            {
+              "id": "strings-deep-dive",
+              "filename": "3-deep-dive.md",
+              "order": 3,
+              "title": "Cadenas: inmersión profunda",
+              "raw_content": "---\nsource_course: \"python\"\nsource_lesson: \"python-strings-deep-dive\"\n---\n\n# Cadenas: inmersión profunda\n\n## Introducción\nLas cadenas son uno de los tipos más utilizados en cualquier programa Python. Esta lección cubre la creación, el formateo, el corte y las nuevas cadenas plantilla en Python 3.14 que le brindan un control granular sobre la interpolación.\n\n## Conceptos clave\n- **str**: Una secuencia inmutable de caracteres Unicode.\n- **F-string**: La sintaxis recomendada para formatear cadenas, usando el prefijo `f\"...\"`.\n- **Slice notation**: `s[start:stop:step]` para extraer subcadenas sin copiar el original.\n- **Template string (t-string)**: Una característica de Python 3.14 que devuelve un objeto `Template` en lugar de una cadena finalizada, permitiendo una interpolación segura.\n\n## Contexto del mundo real\nEl manejo de cadenas aparece en todas partes: construir respuestas de API, formatear mensajes de registro, sanear la entrada del usuario para consultas SQL y renderizar HTML. Elegir el enfoque de formateo adecuado puede prevenir vulnerabilidades de seguridad como la inyección SQL (donde las t-strings sobresalen) y hacer que su código sea mucho más legible.\n\n## Inmersión profunda\n\n### Creación de cadenas\n\n```python\nsingle = 'Hello'\ndouble = \"World\"\nmultiline = '''This is\na multiline\nstring'''\nraw = r\"C:\\Users\\name\"  # Raw string (no escape processing)\n```\n\n### Métodos de cadena\n\nLas cadenas tienen muchos métodos incorporados:\n\n```python\ntext = \"  Hello World  \"\n\ntext.strip()       # \"Hello World\"\ntext.lower()       # \"  hello world  \"\ntext.upper()       # \"  HELLO WORLD  \"\ntext.split()       # [\"Hello\", \"World\"]\ntext.replace(\"World\", \"Python\")  # \"  Hello Python  \"\n```\n\n### Formateo de cadenas\n\nPython ofrece múltiples formas de formatear cadenas:\n\n#### F-Strings (Recomendado)\n```python\nname = \"Alice\"\nage = 30\nprint(f\"{name} is {age} years old\")\nprint(f\"{age:03d}\")  # \"030\" (zero-padded)\nprint(f\"{3.14159:.2f}\")  # \"3.14\" (2 decimal places)\n```\n\n#### Especificadores de formato\n```python\n# Width and alignment\nf\"{'left':<10}\"   # 'left      '\nf\"{'right':>10}\"  # '     right'\nf\"{'center':^10}\" # '  center  '\n\n# Number formatting\nf\"{1000000:,}\"    # '1,000,000'\nf\"{0.5:.0%}\"      # '50%'\n```\n\n### Indexación y corte de cadenas\n\n```python\ns = \"Python\"\ns[0]      # 'P'\ns[-1]     # 'n'\ns[0:3]    # 'Pyt'\ns[::2]    # 'Pto' (every second character)\ns[::-1]   # 'nohtyP' (reversed)\n```\n\n### Cadenas plantilla (Python 3.14+)\n\nPython 3.14 introduce cadenas plantilla con el prefijo `t`. A diferencia de los f-strings que producen inmediatamente una cadena, las t-strings devuelven un objeto `Template` que le permite inspeccionar y procesar los valores interpolados antes de combinarlos:\n\n```python\nfrom string.templatelib import Template, Interpolation\n\nname = \"Alice\"\ntemplate = t\"Hello, {name}!\"\n# template is a Template object, not a string\n\n# Access parts separately\nprint(template.strings)         # ('Hello, ', '!')\nprint(template.interpolations)  # (Interpolation('Alice', 'name', None, ''),)\n```\n\nEsto es útil para la sanitización de SQL, el escape de HTML y cualquier escenario donde necesite procesar los valores interpolados de forma segura antes de combinarlos.\n\n## Errores comunes\n1. **Olvidar que las cadenas son inmutables** — Llamar a `text.upper()` no cambia `text`; devuelve una nueva cadena. Debe reasignar: `text = text.upper()`.\n2. **Usar `+` para concatenación repetida en bucles** — Construir una cadena con `+=` dentro de un bucle crea una nueva cadena en cada iteración. Use `\"\\n\".join(parts)` o un búfer `io.StringIO` en su lugar.\n3. **Confundir f-strings con t-strings** — Un f-string (`f\"...\"`) produce un `str` inmediatamente. Un t-string (`t\"...\"`) produce un objeto `Template`. Usar uno cuando se pretende el otro provocará errores de tipo.\n\n## Buenas prácticas\n1. **Preferir f-strings para el formateo cotidiano** — Son la opción más legible y eficiente para construir cadenas a partir de variables.\n2. **Usar cadenas crudas (raw strings) para expresiones regulares y rutas de Windows** — `r\"\\d+\"` evita secuencias de escape accidentales y mantiene los patrones claros.\n3. **Usar t-strings para datos suministrados por el usuario** — Al construir SQL o HTML a partir de entrada no confiable, las t-strings le permiten sanear los valores interpolados antes de combinarlos.\n\n## Resumen\n- Las cadenas en Python son secuencias Unicode inmutables con ricos métodos incorporados.\n- Los f-strings son el enfoque de formateo recomendado; los especificadores de formato manejan alineación, relleno y form",
+              "sections": {
+                "cadenas_inmersión_profunda": "",
+                "introducción": "Las cadenas son uno de los tipos más utilizados en cualquier programa Python. Esta lección cubre la creación, el formateo, el corte y las nuevas cadenas plantilla en Python 3.14 que le brindan un control granular sobre la interpolación.",
+                "conceptos_clave": "- **str**: Una secuencia inmutable de caracteres Unicode.\n- **F-string**: La sintaxis recomendada para formatear cadenas, usando el prefijo `f\"...\"`.\n- **Slice notation**: `s[start:stop:step]` para extraer subcadenas sin copiar el original.\n- **Template string (t-string)**: Una característica de Python 3.14 que devuelve un objeto `Template` en lugar de una cadena finalizada, permitiendo una interpolación segura.",
+                "contexto_del_mundo_real": "El manejo de cadenas aparece en todas partes: construir respuestas de API, formatear mensajes de registro, sanear la entrada del usuario para consultas SQL y renderizar HTML. Elegir el enfoque de formateo adecuado puede prevenir vulnerabilidades de seguridad como la inyección SQL (donde las t-strings sobresalen) y hacer que su código sea mucho más legible.",
+                "inmersión_profunda": "",
+                "creación_de_cadenas": "```python\nsingle = 'Hello'\ndouble = \"World\"\nmultiline = '''This is\na multiline\nstring'''\nraw = r\"C:\\Users\\name\"  # Raw string (no escape processing)\n```",
+                "métodos_de_cadena": "Las cadenas tienen muchos métodos incorporados:\n\n```python\ntext = \"  Hello World  \"\n\ntext.strip()       # \"Hello World\"\ntext.lower()       # \"  hello world  \"\ntext.upper()       # \"  HELLO WORLD  \"\ntext.split()       # [\"Hello\", \"World\"]\ntext.replace(\"World\", \"Python\")  # \"  Hello Python  \"\n```",
+                "formateo_de_cadenas": "Python ofrece múltiples formas de formatear cadenas:\n\n#### F-Strings (Recomendado)\n```python\nname = \"Alice\"\nage = 30\nprint(f\"{name} is {age} years old\")\nprint(f\"{age:03d}\")  # \"030\" (zero-padded)\nprint(f\"{3.14159:.2f}\")  # \"3.14\" (2 decimal places)\n```\n\n#### Especificadores de formato\n```python",
+                "width_and_alignment": "f\"{'left':<10}\"   # 'left      '\nf\"{'right':>10}\"  # '     right'\nf\"{'center':^10}\" # '  center  '",
+                "number_formatting": "f\"{1000000:,}\"    # '1,000,000'\nf\"{0.5:.0%}\"      # '50%'\n```",
+                "indexación_y_corte_de_cadenas": "```python\ns = \"Python\"\ns[0]      # 'P'\ns[-1]     # 'n'\ns[0:3]    # 'Pyt'\ns[::2]    # 'Pto' (every second character)\ns[::-1]   # 'nohtyP' (reversed)\n```",
+                "cadenas_plantilla_python_314": "Python 3.14 introduce cadenas plantilla con el prefijo `t`. A diferencia de los f-strings que producen inmediatamente una cadena, las t-strings devuelven un objeto `Template` que le permite inspeccionar y procesar los valores interpolados antes de combinarlos:\n\n```python\nfrom string.templatelib import Template, Interpolation\n\nname = \"Alice\"\ntemplate = t\"Hello, {name}!\"",
+                "template_is_a_template_object_not_a_string": "",
+                "access_parts_separately": "print(template.strings)         # ('Hello, ', '!')\nprint(template.interpolations)  # (Interpolation('Alice', 'name', None, ''),)\n```\n\nEsto es útil para la sanitización de SQL, el escape de HTML y cualquier escenario donde necesite procesar los valores interpolados de forma segura antes de combinarlos.",
+                "errores_comunes": "1. **Olvidar que las cadenas son inmutables** — Llamar a `text.upper()` no cambia `text`; devuelve una nueva cadena. Debe reasignar: `text = text.upper()`.\n2. **Usar `+` para concatenación repetida en bucles** — Construir una cadena con `+=` dentro de un bucle crea una nueva cadena en cada iteración. Use `\"\\n\".join(parts)` o un búfer `io.StringIO` en su lugar.\n3. **Confundir f-strings con t-strings** — Un f-string (`f\"...\"`) produce un `str` inmediatamente. Un t-string (`t\"...\"`) produce un objeto `Template`. Usar uno cuando se pretende el otro provocará errores de tipo.",
+                "buenas_prácticas": "1. **Preferir f-strings para el formateo cotidiano** — Son la opción más legible y eficiente para construir cadenas a partir de variables.\n2. **Usar cadenas crudas (raw strings) para expresiones regulares y rutas de Windows** — `r\"\\d+\"` evita secuencias de escape accidentales y mantiene los patrones claros.\n3. **Usar t-strings para datos suministrados por el usuario** — Al construir SQL o HTML a partir de entrada no confiable, las t-strings le permiten sanear los valores interpolados antes de combinarlos.",
+                "resumen": "- Las cadenas en Python son secuencias Unicode inmutables con ricos métodos incorporados.\n- Los f-strings son el enfoque de formateo recomendado; los especificadores de formato manejan alineación, relleno y form"
+              },
+              "code_blocks": [
+                {
+                  "language": "python",
+                  "code": "single = 'Hello'\ndouble = \"World\"\nmultiline = '''This is\na multiline\nstring'''\nraw = r\"C:\\Users\\name\"  # Raw string (no escape processing)"
+                },
+                {
+                  "language": "python",
+                  "code": "text = \"  Hello World  \"\n\ntext.strip()       # \"Hello World\"\ntext.lower()       # \"  hello world  \"\ntext.upper()       # \"  HELLO WORLD  \"\ntext.split()       # [\"Hello\", \"World\"]\ntext.replace(\"World\", \"Python\")  # \"  Hello Python  \""
+                },
+                {
+                  "language": "python",
+                  "code": "name = \"Alice\"\nage = 30\nprint(f\"{name} is {age} years old\")\nprint(f\"{age:03d}\")  # \"030\" (zero-padded)\nprint(f\"{3.14159:.2f}\")  # \"3.14\" (2 decimal places)"
+                },
+                {
+                  "language": "python",
+                  "code": "# Width and alignment\nf\"{'left':<10}\"   # 'left      '\nf\"{'right':>10}\"  # '     right'\nf\"{'center':^10}\" # '  center  '\n\n# Number formatting\nf\"{1000000:,}\"    # '1,000,000'\nf\"{0.5:.0%}\"      # '50%'"
+                },
+                {
+                  "language": "python",
+                  "code": "s = \"Python\"\ns[0]      # 'P'\ns[-1]     # 'n'\ns[0:3]    # 'Pyt'\ns[::2]    # 'Pto' (every second character)\ns[::-1]   # 'nohtyP' (reversed)"
+                },
+                {
+                  "language": "python",
+                  "code": "from string.templatelib import Template, Interpolation\n\nname = \"Alice\"\ntemplate = t\"Hello, {name}!\"\n# template is a Template object, not a string\n\n# Access parts separately\nprint(template.strings)         # ('Hello, ', '!')\nprint(template.interpolations)  # (Interpolation('Alice', 'name', None, ''),)"
+                },
+                {
+                  "language": "python",
+                  "code": "# F-string debugging (3.8+)\nx = 10\ny = 20\nprint(f\"{x=}, {y=}\")  # \"x=10, y=20\"\n\n# F-string expressions\nitems = [\"apple\", \"banana\"]\nprint(f\"Count: {len(items)}\")  # \"Count: 2\"\n\n# Nested quotes (3.12+)\ndata = {\"key\": \"value\"}\nprint(f\"Result: {data[\"key\"]}\")"
+                }
+              ],
+              "word_count": 714
+            },
+            {
+              "id": "variables-scopes-assignment-expressions",
+              "filename": "4-walrus-fstrings.md",
+              "order": 4,
+              "title": "Variables, Ámbitos y Expresiones de Asignación",
+              "raw_content": "---\nsource_course: \"python\"\nsource_lesson: \"python-variables-walrus-fstrings\"\n---\n\n# Variables, Ámbitos y Expresiones de Asignación\n\n## Introducción\nLas variables en Python no son cajas que contienen valores — son etiquetas que apuntan a objetos en memoria. Esta lección explica cómo funciona la asignación, cómo Python resuelve nombres mediante la regla LEGB y cómo el operador walrus permite asignar y probar en una sola expresión.\n\n## Conceptos clave\n- **Asignación de variable**: Vincular un nombre a una referencia de objeto, no copiar un valor.\n- **Regla LEGB**: El orden de búsqueda que Python usa para resolver nombres — Local, Enclosing, Global, Built-in.\n- **`global` / `nonlocal`**: Palabras clave que permiten escribir en variables en ámbitos externos.\n- **Operador walrus (`:=`)**: Una expresión de asignación (Python 3.8+) que asigna y devuelve un valor en un solo paso.\n\n## Contexto del mundo real\nLos errores de ámbito están entre los más difíciles de diagnosticar. Una función que accidentalmente oculta una variable global o muta una variable de cierre sin `nonlocal` puede comportarse correctamente en pruebas unitarias pero fallar en producción. Comprender LEGB y el operador walrus te ayuda a escribir condicionales y comprensiones concisas y libres de errores.\n\n## Exploración profunda\n\n### Asignación de variable\nLas variables en Python son referencias a objetos. La asignación vincula un nombre a un objeto.\n\n```python\nx = 42        # x refers to an int object\ny = x         # y refers to the same object\nx = \"hello\"   # x now refers to a string, y still refers to 42\n```\n\n### Asignación múltiple\n```python\na, b, c = 1, 2, 3\nx = y = z = 0  # All refer to the same object\na, b = b, a    # Swap values\n```\n\n### La regla LEGB\nPython resuelve los nombres de variables en este orden:\n\n1. **L**ocal — Dentro de la función actual\n2. **E**nclosing — En funciones externas (para funciones anidadas)\n3. **G**lobal — A nivel de módulo\n4. **B**uilt-in — Nombres incorporados de Python\n\n```python\nx = \"global\"\n\ndef outer():\n    x = \"enclosing\"\n    \n    def inner():\n        x = \"local\"\n        print(x)  # \"local\"\n    \n    inner()\n    print(x)  # \"enclosing\"\n\nouter()\nprint(x)  # \"global\"\n```\n\n### Las palabras clave `global` y `nonlocal`\n```python\ncount = 0\n\ndef increment():\n    global count\n    count += 1\n\ndef outer():\n    x = 10\n    def inner():\n        nonlocal x\n        x += 1\n    inner()\n    print(x)  # 11\n```\n\n### El operador walrus `:=` (Expresión de asignación)\nIntroducido en Python 3.8, asigna y devuelve un valor en una sola expresión.\n\n```python\n# Without walrus\ndata = get_data()\nif data:\n    process(data)\n\n# With walrus\nif (data := get_data()):\n    process(data)\n\n# In list comprehensions\nresults = [y for x in items if (y := expensive(x)) > 0]\n```\n\n## Errores comunes\n1. **Olvidar `global` o `nonlocal` al modificar variables externas** — Sin estas palabras clave, asignar a una variable dentro de una función crea una nueva variable local en lugar de modificar la externa, lo que lleva a `UnboundLocalError`.\n2. **Abusar del operador walrus** — `:=` es potente para bucles `while` y filtros de comprensiones, pero anidar múltiples asignaciones walrus en una sola expresión perjudica la legibilidad.\n3. **Ocultar nombres incorporados** — Nombrar una variable como `list`, `dict` o `id` oculta el incorporado y causa errores difíciles de encontrar más adelante.\n\n## Mejores prácticas\n1. **Minimizar el uso de `global`** — El estado mutable global hace que el código sea difícil de probar y razonar. Pasa los valores como argumentos de función en su lugar.\n2. **Usar el operador walrus para el patrón \"compute-then-check\"** — Brilla en `while (line := f.readline()):` y `[y for x in data if (y := transform(x)) is not None]`.\n\n## Resumen\n- Las variables de Python son enlaces nombre‑objeto, no contenedores de valores.\n- La regla LEGB determina el orden de resolución de nombres: Local, Enclosing, Global, Built-in.\n- Usa `global` y `nonlocal` con moderación para modificar variables en ámbitos externos.\n- El operador walrus `:=` asigna y devuelve un valor en una sola expresión, ideal para bucles while y filtros de comprensiones.\n- Evita ocultar nombres incorporados como `list`, `dict` y `id`.\n\n## Ejemplos de código\n\n**Uso práctico del operador walrus**\n\n```python\n# Walrus operator in a while loop\nwhile (line := input(\"Enter text: \")) != \"quit\":\n    print(f\"You entered: {line}\")\n\n# Walrus in list comprehension filtering\ndata = [1, 2, 3, 4, 5]\nresults = [squared for x in data if (squared := x**2) > 10]\nprint(results)  # [16, 25]\n```\n\n## Recursos\n\n- [Sentencias de asignación](https://docs.python.org/3.14/reference/simple_stmts.html#assignment-statements) — Referencia oficial de Python 3.14 para sentencias de asignación, incluyendo operadores aumentados y walrus\n\n---\n\n> 📘 *Esta lección forma parte del curso [Python Fundamentals: Modern 3.14 Edition](https://Codalia/courses/python) en [Codalia](https://Codalia) — la plataforma de aprendizaje nativa del IDE para desarrolladores.*",
+              "sections": {
+                "variables_ámbitos_y_expresiones_de_asignación": "",
+                "introducción": "Las variables en Python no son cajas que contienen valores — son etiquetas que apuntan a objetos en memoria. Esta lección explica cómo funciona la asignación, cómo Python resuelve nombres mediante la regla LEGB y cómo el operador walrus permite asignar y probar en una sola expresión.",
+                "conceptos_clave": "- **Asignación de variable**: Vincular un nombre a una referencia de objeto, no copiar un valor.\n- **Regla LEGB**: El orden de búsqueda que Python usa para resolver nombres — Local, Enclosing, Global, Built-in.\n- **`global` / `nonlocal`**: Palabras clave que permiten escribir en variables en ámbitos externos.\n- **Operador walrus (`:=`)**: Una expresión de asignación (Python 3.8+) que asigna y devuelve un valor en un solo paso.",
+                "contexto_del_mundo_real": "Los errores de ámbito están entre los más difíciles de diagnosticar. Una función que accidentalmente oculta una variable global o muta una variable de cierre sin `nonlocal` puede comportarse correctamente en pruebas unitarias pero fallar en producción. Comprender LEGB y el operador walrus te ayuda a escribir condicionales y comprensiones concisas y libres de errores.",
+                "exploración_profunda": "",
+                "asignación_de_variable": "Las variables en Python son referencias a objetos. La asignación vincula un nombre a un objeto.\n\n```python\nx = 42        # x refers to an int object\ny = x         # y refers to the same object\nx = \"hello\"   # x now refers to a string, y still refers to 42\n```",
+                "asignación_múltiple": "```python\na, b, c = 1, 2, 3\nx = y = z = 0  # All refer to the same object\na, b = b, a    # Swap values\n```",
+                "la_regla_legb": "Python resuelve los nombres de variables en este orden:\n\n1. **L**ocal — Dentro de la función actual\n2. **E**nclosing — En funciones externas (para funciones anidadas)\n3. **G**lobal — A nivel de módulo\n4. **B**uilt-in — Nombres incorporados de Python\n\n```python\nx = \"global\"\n\ndef outer():\n    x = \"enclosing\"\n    \n    def inner():\n        x = \"local\"\n        print(x)  # \"local\"\n    \n    inner()\n    print(x)  # \"enclosing\"\n\nouter()\nprint(x)  # \"global\"\n```",
+                "las_palabras_clave_global_y_nonlocal": "```python\ncount = 0\n\ndef increment():\n    global count\n    count += 1\n\ndef outer():\n    x = 10\n    def inner():\n        nonlocal x\n        x += 1\n    inner()\n    print(x)  # 11\n```",
+                "el_operador_walrus_expresión_de_asignación": "Introducido en Python 3.8, asigna y devuelve un valor en una sola expresión.\n\n```python",
+                "without_walrus": "data = get_data()\nif data:\n    process(data)",
+                "with_walrus": "if (data := get_data()):\n    process(data)",
+                "in_list_comprehensions": "results = [y for x in items if (y := expensive(x)) > 0]\n```",
+                "errores_comunes": "1. **Olvidar `global` o `nonlocal` al modificar variables externas** — Sin estas palabras clave, asignar a una variable dentro de una función crea una nueva variable local en lugar de modificar la externa, lo que lleva a `UnboundLocalError`.\n2. **Abusar del operador walrus** — `:=` es potente para bucles `while` y filtros de comprensiones, pero anidar múltiples asignaciones walrus en una sola expresión perjudica la legibilidad.\n3. **Ocultar nombres incorporados** — Nombrar una variable como `list`, `dict` o `id` oculta el incorporado y causa errores difíciles de encontrar más adelante.",
+                "mejores_prácticas": "1. **Minimizar el uso de `global`** — El estado mutable global hace que el código sea difícil de probar y razonar. Pasa los valores como argumentos de función en su lugar.\n2. **Usar el operador walrus para el patrón \"compute-then-check\"** — Brilla en `while (line := f.readline()):` y `[y for x in data if (y := transform(x)) is not None]`.",
+                "resumen": "- Las variables de Python son enlaces nombre‑objeto, no contenedores de valores.\n- La regla LEGB determina el orden de resolución de nombres: Local, Enclosing, Global, Built-in.\n- Usa `global` y `nonlocal` con moderación para modificar variables en ámbitos externos.\n- El operador walrus `:=` asigna y devuelve un valor en una sola expresión, ideal para bucles while y filtros de comprensiones.\n- Evita ocultar nombres incorporados como `list`, `dict` y `id`.",
+                "ejemplos_de_código": "**Uso práctico del operador walrus**\n\n```python",
+                "walrus_operator_in_a_while_loop": "while (line := input(\"Enter text: \")) != \"quit\":\n    print(f\"You entered: {line}\")",
+                "walrus_in_list_comprehension_filtering": "data = [1, 2, 3, 4, 5]\nresults = [squared for x in data if (squared := x**2) > 10]\nprint(results)  # [16, 25]\n```",
+                "recursos": "- [Sentencias de asignación](https://docs.python.org/3.14/reference/simple_stmts.html#assignment-statements) — Referencia oficial de Python 3.14 para sentencias de asignación, incluyendo operadores aumentados y walrus\n\n---\n\n> 📘 *Esta lección forma parte del curso [Python Fundamentals: Modern 3.14 Edition](https://Codalia/courses/python) en [Codalia](https://Codalia) — la plataforma de aprendizaje nativa del IDE para desarrolladores.*"
+              },
+              "code_blocks": [
+                {
+                  "language": "python",
+                  "code": "x = 42        # x refers to an int object\ny = x         # y refers to the same object\nx = \"hello\"   # x now refers to a string, y still refers to 42"
+                },
+                {
+                  "language": "python",
+                  "code": "a, b, c = 1, 2, 3\nx = y = z = 0  # All refer to the same object\na, b = b, a    # Swap values"
+                },
+                {
+                  "language": "python",
+                  "code": "x = \"global\"\n\ndef outer():\n    x = \"enclosing\"\n    \n    def inner():\n        x = \"local\"\n        print(x)  # \"local\"\n    \n    inner()\n    print(x)  # \"enclosing\"\n\nouter()\nprint(x)  # \"global\""
+                },
+                {
+                  "language": "python",
+                  "code": "count = 0\n\ndef increment():\n    global count\n    count += 1\n\ndef outer():\n    x = 10\n    def inner():\n        nonlocal x\n        x += 1\n    inner()\n    print(x)  # 11"
+                },
+                {
+                  "language": "python",
+                  "code": "# Without walrus\ndata = get_data()\nif data:\n    process(data)\n\n# With walrus\nif (data := get_data()):\n    process(data)\n\n# In list comprehensions\nresults = [y for x in items if (y := expensive(x)) > 0]"
+                },
+                {
+                  "language": "python",
+                  "code": "# Walrus operator in a while loop\nwhile (line := input(\"Enter text: \")) != \"quit\":\n    print(f\"You entered: {line}\")\n\n# Walrus in list comprehension filtering\ndata = [1, 2, 3, 4, 5]\nresults = [squared for x in data if (squared := x**2) > 10]\nprint(results)  # [16, 25]"
+                }
+              ],
+              "word_count": 726
+            }
+          ],
+          "lesson_count": 4
+        },
+        {
+          "id": "data-structures",
+          "folder": "2-data-structures",
+          "order": 2,
+          "title": "Data Structures",
+          "description": "📊 Data Structures & Algorithms",
+          "lessons": [
+            {
+              "id": "lists-and-tuples",
+              "filename": "1-and-tuples.md",
+              "order": 1,
+              "title": "Listas y Tuplas",
+              "raw_content": "---\nsource_course: \"python\"\nsource_lesson: \"python-lists-and-tuples\"\n---\n\n# Listas y Tuplas\n\n## Introducción\nLas listas y las tuplas son los dos tipos de secuencia fundamentales en Python. Saber cuándo usar una lista mutable en lugar de una tupla inmutable es una habilidad que utilizarás en cada proyecto de Python, desde scripts hasta aplicaciones a gran escala.\n\n## Conceptos clave\n- **list**: Secuencia mutable y ordenada que puede crecer o reducirse dinámicamente.\n- **tuple**: Secuencia inmutable y ordenada cuyo contenido no puede cambiar después de su creación.\n- **Unpacking**: Asignar elementos de una secuencia a variables individuales en una sola instrucción.\n- **Extended unpacking (`*`)**: Capturar varios elementos en una sub‑lista durante el desempaquetado.\n\n## Contexto del mundo real\nLas funciones que devuelven múltiples valores usan tuplas por defecto (`return x, y`). Las claves de los diccionarios deben ser hashables, por lo que puedes usar tuplas como claves compuestas pero nunca listas. En código con gran cantidad de datos, elegir el tipo de secuencia correcto afecta tanto la corrección como el rendimiento: las tuplas son ligeramente más rápidas y usan menos memoria.\n\n## Análisis profundo\n\n### Listas (`list`)\n\nLas listas son secuencias mutables y ordenadas. Pueden contener cualquier tipo de objeto y pueden crecer o reducirse dinámicamente.\n\n```python\n# Creating lists\nnumbers = [1, 2, 3, 4, 5]\nmixed = [1, \"hello\", 3.14, True]\nempty = []\nfrom_range = list(range(5))  # [0, 1, 2, 3, 4]\n```\n\n#### Operaciones de lista\n\n```python\nlst = [1, 2, 3]\n\n# Adding elements\nlst.append(4)         # [1, 2, 3, 4]\nlst.insert(0, 0)      # [0, 1, 2, 3, 4]\nlst.extend([5, 6])    # [0, 1, 2, 3, 4, 5, 6]\n\n# Removing elements\nlst.pop()             # Returns 6, lst = [0, 1, 2, 3, 4, 5]\nlst.remove(0)         # [1, 2, 3, 4, 5]\ndel lst[0]            # [2, 3, 4, 5]\n\n# Other operations\nlst.reverse()         # Reverses in place\nlst.sort()            # Sorts in place\nlst.index(3)          # Find index of value\nlst.count(3)          # Count occurrences\n```\n\n### Tuplas (`tuple`)\n\nLas tuplas son secuencias inmutables. Una vez creadas, no pueden modificarse.\n\n```python\ncoordinates = (10, 20)\nsingleton = (42,)      # Note the comma!\nempty = ()\nfrom_list = tuple([1, 2, 3])\n```\n\n#### Cuándo usar tuplas\n\n- Valores de retorno de funciones (múltiples valores)\n- Claves de diccionarios (las listas no pueden ser claves)\n- Datos que no deben cambiar\n- Ligeramente más rápidas que las listas\n\n### Unpacking\n\n```python\n# Basic unpacking\nx, y = (10, 20)\na, b, c = [1, 2, 3]\n\n# Extended unpacking with *\nfirst, *middle, last = [1, 2, 3, 4, 5]\n# first=1, middle=[2,3,4], last=5\n\n# Ignoring values with _\nx, _, z = (1, 2, 3)  # Ignore second value\n```\n\n## Errores comunes\n1. **Olvidar la coma en tuplas de un solo elemento** -- `(42)` es solo un entero entre paréntesis. Necesitas `(42,)` para crear una tupla.\n2. **Confundir `append` con `extend`** -- `lst.append([1, 2])` agrega la lista como un solo elemento. `lst.extend([1, 2])` agrega cada elemento individualmente.\n3. **Modificar una lista mientras se itera sobre ella** -- Eliminar o insertar elementos durante la iteración puede omitir elementos o generar errores. Itera sobre una copia o construye una nueva lista en su lugar.\n\n## Buenas prácticas\n1. **Preferir tuplas para colecciones fijas** -- Si los datos no van a cambiar, usa una tupla. Comunica la intención y permite su uso como claves de diccionario o miembros de conjuntos.\n2. **Usar unpacking para escribir código más claro** -- `x, y = point` es más legible que `x = point[0]; y = point[1]`.\n\n## Resumen\n- Las listas son secuencias mutables ideales para colecciones que cambian con el tiempo.\n- Las tuplas son secuencias inmutables perfectas para datos fijos, valores de retorno de funciones y claves de diccionario.\n- El unpacking con `*` te permite capturar elegantemente un número variable de elementos.\n- Siempre usa una coma al final para tuplas de un solo elemento: `(42,)`.\n- Prefiere tuplas cuando los datos no serán modificados.\n\n## Ejemplos de código\n\n**Uso avanzado de tuplas**\n\n```python\n# Tuple unpacking in loops\npoints = [(0, 0), (1, 1), (2, 4)]\nfor x, y in points:\n    print(f\"x={x}, y={y}\")\n\n# Swapping variables\na, b = 1, 2\na, b = b, a  # a=2, b=1\n\n# Named tuples for clarity\nfrom collections import namedtuple\nPoint = namedtuple('Point', ['x', 'y'])\np = Point(10, 20)\nprint(p.x, p.y)  # 10 20\n```\n\n## Recursos\n\n- [Data Structures Tutorial](https://docs.python.org/3.14/tutorial/datastructures.html) — Tutorial oficial de Python 3.14 que cubre listas, tuplas y operaciones de secuencias\n\n---\n\n> 📘 *Esta lección forma parte del curso [Python Fundamentals: Modern 3.14 Edition](https://Codalia/courses/python) en [Codalia](https://Codalia) — la plataforma de aprendizaje nativa del IDE para desarrolladores.*",
+              "sections": {
+                "listas_y_tuplas": "",
+                "introducción": "Las listas y las tuplas son los dos tipos de secuencia fundamentales en Python. Saber cuándo usar una lista mutable en lugar de una tupla inmutable es una habilidad que utilizarás en cada proyecto de Python, desde scripts hasta aplicaciones a gran escala.",
+                "conceptos_clave": "- **list**: Secuencia mutable y ordenada que puede crecer o reducirse dinámicamente.\n- **tuple**: Secuencia inmutable y ordenada cuyo contenido no puede cambiar después de su creación.\n- **Unpacking**: Asignar elementos de una secuencia a variables individuales en una sola instrucción.\n- **Extended unpacking (`*`)**: Capturar varios elementos en una sub‑lista durante el desempaquetado.",
+                "contexto_del_mundo_real": "Las funciones que devuelven múltiples valores usan tuplas por defecto (`return x, y`). Las claves de los diccionarios deben ser hashables, por lo que puedes usar tuplas como claves compuestas pero nunca listas. En código con gran cantidad de datos, elegir el tipo de secuencia correcto afecta tanto la corrección como el rendimiento: las tuplas son ligeramente más rápidas y usan menos memoria.",
+                "análisis_profundo": "",
+                "listas_list": "Las listas son secuencias mutables y ordenadas. Pueden contener cualquier tipo de objeto y pueden crecer o reducirse dinámicamente.\n\n```python",
+                "creating_lists": "numbers = [1, 2, 3, 4, 5]\nmixed = [1, \"hello\", 3.14, True]\nempty = []\nfrom_range = list(range(5))  # [0, 1, 2, 3, 4]\n```\n\n#### Operaciones de lista\n\n```python\nlst = [1, 2, 3]",
+                "adding_elements": "lst.append(4)         # [1, 2, 3, 4]\nlst.insert(0, 0)      # [0, 1, 2, 3, 4]\nlst.extend([5, 6])    # [0, 1, 2, 3, 4, 5, 6]",
+                "removing_elements": "lst.pop()             # Returns 6, lst = [0, 1, 2, 3, 4, 5]\nlst.remove(0)         # [1, 2, 3, 4, 5]\ndel lst[0]            # [2, 3, 4, 5]",
+                "other_operations": "lst.reverse()         # Reverses in place\nlst.sort()            # Sorts in place\nlst.index(3)          # Find index of value\nlst.count(3)          # Count occurrences\n```",
+                "tuplas_tuple": "Las tuplas son secuencias inmutables. Una vez creadas, no pueden modificarse.\n\n```python\ncoordinates = (10, 20)\nsingleton = (42,)      # Note the comma!\nempty = ()\nfrom_list = tuple([1, 2, 3])\n```\n\n#### Cuándo usar tuplas\n\n- Valores de retorno de funciones (múltiples valores)\n- Claves de diccionarios (las listas no pueden ser claves)\n- Datos que no deben cambiar\n- Ligeramente más rápidas que las listas",
+                "unpacking": "```python",
+                "basic_unpacking": "x, y = (10, 20)\na, b, c = [1, 2, 3]",
+                "extended_unpacking_with": "first, *middle, last = [1, 2, 3, 4, 5]",
+                "first1_middle234_last5": "",
+                "ignoring_values_with__": "x, _, z = (1, 2, 3)  # Ignore second value\n```",
+                "errores_comunes": "1. **Olvidar la coma en tuplas de un solo elemento** -- `(42)` es solo un entero entre paréntesis. Necesitas `(42,)` para crear una tupla.\n2. **Confundir `append` con `extend`** -- `lst.append([1, 2])` agrega la lista como un solo elemento. `lst.extend([1, 2])` agrega cada elemento individualmente.\n3. **Modificar una lista mientras se itera sobre ella** -- Eliminar o insertar elementos durante la iteración puede omitir elementos o generar errores. Itera sobre una copia o construye una nueva lista en su lugar.",
+                "buenas_prácticas": "1. **Preferir tuplas para colecciones fijas** -- Si los datos no van a cambiar, usa una tupla. Comunica la intención y permite su uso como claves de diccionario o miembros de conjuntos.\n2. **Usar unpacking para escribir código más claro** -- `x, y = point` es más legible que `x = point[0]; y = point[1]`.",
+                "resumen": "- Las listas son secuencias mutables ideales para colecciones que cambian con el tiempo.\n- Las tuplas son secuencias inmutables perfectas para datos fijos, valores de retorno de funciones y claves de diccionario.\n- El unpacking con `*` te permite capturar elegantemente un número variable de elementos.\n- Siempre usa una coma al final para tuplas de un solo elemento: `(42,)`.\n- Prefiere tuplas cuando los datos no serán modificados.",
+                "ejemplos_de_código": "**Uso avanzado de tuplas**\n\n```python",
+                "tuple_unpacking_in_loops": "points = [(0, 0), (1, 1), (2, 4)]\nfor x, y in points:\n    print(f\"x={x}, y={y}\")",
+                "swapping_variables": "a, b = 1, 2\na, b = b, a  # a=2, b=1",
+                "named_tuples_for_clarity": "from collections import namedtuple\nPoint = namedtuple('Point', ['x', 'y'])\np = Point(10, 20)\nprint(p.x, p.y)  # 10 20\n```",
+                "recursos": "- [Data Structures Tutorial](https://docs.python.org/3.14/tutorial/datastructures.html) — Tutorial oficial de Python 3.14 que cubre listas, tuplas y operaciones de secuencias\n\n---\n\n> 📘 *Esta lección forma parte del curso [Python Fundamentals: Modern 3.14 Edition](https://Codalia/courses/python) en [Codalia](https://Codalia) — la plataforma de aprendizaje nativa del IDE para desarrolladores.*"
+              },
+              "code_blocks": [
+                {
+                  "language": "python",
+                  "code": "# Creating lists\nnumbers = [1, 2, 3, 4, 5]\nmixed = [1, \"hello\", 3.14, True]\nempty = []\nfrom_range = list(range(5))  # [0, 1, 2, 3, 4]"
+                },
+                {
+                  "language": "python",
+                  "code": "lst = [1, 2, 3]\n\n# Adding elements\nlst.append(4)         # [1, 2, 3, 4]\nlst.insert(0, 0)      # [0, 1, 2, 3, 4]\nlst.extend([5, 6])    # [0, 1, 2, 3, 4, 5, 6]\n\n# Removing elements\nlst.pop()             # Returns 6, lst = [0, 1, 2, 3, 4, 5]\nlst.remove(0)         # [1, 2, 3, 4, 5]\ndel lst[0]            # [2, 3, 4, 5]\n\n# Other operations\nlst.reverse()         # Reverses in place\nlst.sort()            # Sorts in place\nlst.index(3)          # Find index of value\nlst.count(3)          # Count occurrences"
+                },
+                {
+                  "language": "python",
+                  "code": "coordinates = (10, 20)\nsingleton = (42,)      # Note the comma!\nempty = ()\nfrom_list = tuple([1, 2, 3])"
+                },
+                {
+                  "language": "python",
+                  "code": "# Basic unpacking\nx, y = (10, 20)\na, b, c = [1, 2, 3]\n\n# Extended unpacking with *\nfirst, *middle, last = [1, 2, 3, 4, 5]\n# first=1, middle=[2,3,4], last=5\n\n# Ignoring values with _\nx, _, z = (1, 2, 3)  # Ignore second value"
+                },
+                {
+                  "language": "python",
+                  "code": "# Tuple unpacking in loops\npoints = [(0, 0), (1, 1), (2, 4)]\nfor x, y in points:\n    print(f\"x={x}, y={y}\")\n\n# Swapping variables\na, b = 1, 2\na, b = b, a  # a=2, b=1\n\n# Named tuples for clarity\nfrom collections import namedtuple\nPoint = namedtuple('Point', ['x', 'y'])\np = Point(10, 20)\nprint(p.x, p.y)  # 10 20"
+                }
+              ],
+              "word_count": 716
+            },
+            {
+              "id": "list-comprehensions-generator-expressions",
+              "filename": "2-list-comprehensions.md",
+              "order": 2,
+              "title": "Comprensiones de listas y expresiones generadoras",
+              "raw_content": "---\nsource_course: \"python\"\nsource_lesson: \"python-list-comprehensions\"\n---\n\n# Comprensiones de listas y expresiones generadoras\n\n## Introducción\nLas comprensiones de listas son una de las características más distintivas de Python: una forma concisa y legible de crear listas a partir de iterables existentes. Esta lección también cubre las expresiones generadoras, que brindan el mismo poder con evaluación perezosa para eficiencia de memoria.\n\n## Conceptos clave\n- **Comprensión de lista**: `[expr for item in iterable if condition]` -- construye una lista en una sola expresión.\n- **Expresión generadora**: `(expr for item in iterable if condition)` -- produce valores de forma perezosa, uno a la vez.\n- **Comprensión de diccionario**: `{key: value for item in iterable}` -- construye un diccionario.\n- **Comprensión de conjunto**: `{expr for item in iterable}` -- construye un conjunto de valores únicos.\n\n## Contexto del mundo real\nLas comprensiones aparecen en casi todas las bases de código Python en producción. Los pipelines de datos las usan para transformar filas, los frameworks web las utilizan para filtrar resultados de consultas y las herramientas de línea de comandos las emplean para procesar listados de archivos. Elegir entre una comprensión de lista y una expresión generadora puede significar la diferencia entre un script que se ejecuta con megabytes de memoria y uno que se bloquea con conjuntos de datos grandes.\n\n## Análisis profundo\n\n### Sintaxis básica\n\n```python\n# Traditional approach\nsquares = []\nfor x in range(10):\n    squares.append(x ** 2)\n\n# List comprehension\nsquares = [x ** 2 for x in range(10)]\n```\n\n### Con condiciones\n\n```python\n# Filter with if\nevens = [x for x in range(20) if x % 2 == 0]\n\n# If-else (ternary)\nlabels = [\"even\" if x % 2 == 0 else \"odd\" for x in range(5)]\n# ['even', 'odd', 'even', 'odd', 'even']\n```\n\n### Comprensiones anidadas\n\n```python\n# Flatten a 2D list\nmatrix = [[1, 2], [3, 4], [5, 6]]\nflat = [num for row in matrix for num in row]\n# [1, 2, 3, 4, 5, 6]\n\n# Create a matrix\nmatrix = [[i * j for j in range(5)] for i in range(5)]\n```\n\n### Comprensiones de diccionarios y conjuntos\n\n```python\n# Dict comprehension\nsquare_dict = {x: x**2 for x in range(5)}\n# {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}\n\n# Set comprehension\nunique_lengths = {len(word) for word in [\"hello\", \"world\", \"hi\"]}\n# {2, 5}\n```\n\n### Expresiones generadoras\n\nUsa paréntesis en lugar de corchetes para una iteración eficiente en memoria:\n\n```python\n# Generator expression (lazy evaluation)\nsum_of_squares = sum(x**2 for x in range(1000000))\n\n# List comprehension would create entire list in memory\n# sum([x**2 for x in range(1000000)])  # Uses more memory\n```\n\n### Cuándo usar cada una\n\n- **Comprensión de lista**: Cuando necesitas la lista completa\n- **Expresión generadora**: Cuando iteras una sola vez (sum, any, all)\n- **Bucle tradicional**: Lógica compleja o efectos secundarios\n\n## Errores comunes\n1. **Colocar el if-else en la posición incorrecta** -- El filtrado (`if` solo) va después del `for`: `[x for x in items if x > 0]`. Un ternario (`if-else`) va antes del `for`: `[x if x > 0 else 0 for x in items]`. Mezclarlos produce un error de sintaxis.\n2. **Escribir comprensiones demasiado complejas** -- Una comprensión con tres bucles anidados y dos condiciones es más difícil de leer que un bucle simple. Si no cabe cómodamente en una sola línea, usa un bucle regular.\n3. **Usar una comprensión de lista cuando solo necesitas iterar** -- `sum([x**2 for x in data])` construye una lista completa solo para descartarla. Usa un generador: `sum(x**2 for x in data)`.\n\n## Buenas prácticas\n1. **Mantén las comprensiones simples** -- Un bucle y un filtro es el punto óptimo. Más allá de eso, divídelo en un bucle o en una función auxiliar.\n2. **Usa expresiones generadoras con funciones de agregación** -- `sum()`, `any()`, `all()` y `max()` aceptan generadores, ahorrando memoria.\n\n## Resumen\n- Las comprensiones de listas ofrecen una forma concisa y pythonica de crear listas a partir de iterables.\n- Las expresiones generadoras usan evaluación perezosa y son ideales cuando iteras solo una vez.\n- Las comprensiones de diccionarios y conjuntos siguen el mismo patrón con la sintaxis `{}`.\n- Mantén las comprensiones legibles; si se vuelven complejas, cambia a un bucle tradicional.\n- Prefiere las expresiones generadoras cuando alimentas resultados directamente a `sum()`, `any()` o `all()`.\n\n## Ejemplos de código\n\n**Patrones prácticos de comprensión de listas**\n\n```python\n# Practical examples\nwords = [\"Hello\", \"World\", \"Python\"]\n\n# Transform\nlower = [w.lower() for w in words]\n\n# Filter and transform\nlong_upper = [w.upper() for w in words if len(w) > 4]\n\n# Multiple conditions\nresult = [x for x in range(100) if x % 2 == 0 if x % 3 == 0]\n# Divisible by both 2 and 3\n\n# Walrus operator in comprehensions (3.8+)\nresults = [y for x in range(10) if (y := x ** 2) > 50]\n```\n\n## Recursos\n\n- [List Comprehensions](https://docs.python.org/3.14/tutorial/datastructures.html#list-comprehensions) — Sección oficial del tutorial de Python 3.14 sobre comprensiones de listas y expresiones generadoras\n\n---\n\n> 📘 *Esta lección forma parte del curso [Python Fundamentals: Modern 3.14 Edition](https://Codalia/courses/python) en [Codalia](https://Codalia) — la plataforma de aprendizaje nativa del IDE para desarrolladores.*",
+              "sections": {
+                "comprensiones_de_listas_y_expresiones_generadoras": "",
+                "introducción": "Las comprensiones de listas son una de las características más distintivas de Python: una forma concisa y legible de crear listas a partir de iterables existentes. Esta lección también cubre las expresiones generadoras, que brindan el mismo poder con evaluación perezosa para eficiencia de memoria.",
+                "conceptos_clave": "- **Comprensión de lista**: `[expr for item in iterable if condition]` -- construye una lista en una sola expresión.\n- **Expresión generadora**: `(expr for item in iterable if condition)` -- produce valores de forma perezosa, uno a la vez.\n- **Comprensión de diccionario**: `{key: value for item in iterable}` -- construye un diccionario.\n- **Comprensión de conjunto**: `{expr for item in iterable}` -- construye un conjunto de valores únicos.",
+                "contexto_del_mundo_real": "Las comprensiones aparecen en casi todas las bases de código Python en producción. Los pipelines de datos las usan para transformar filas, los frameworks web las utilizan para filtrar resultados de consultas y las herramientas de línea de comandos las emplean para procesar listados de archivos. Elegir entre una comprensión de lista y una expresión generadora puede significar la diferencia entre un script que se ejecuta con megabytes de memoria y uno que se bloquea con conjuntos de datos grandes.",
+                "análisis_profundo": "",
+                "sintaxis_básica": "```python",
+                "traditional_approach": "squares = []\nfor x in range(10):\n    squares.append(x ** 2)",
+                "list_comprehension": "squares = [x ** 2 for x in range(10)]\n```",
+                "con_condiciones": "```python",
+                "filter_with_if": "evens = [x for x in range(20) if x % 2 == 0]",
+                "ifelse_ternary": "labels = [\"even\" if x % 2 == 0 else \"odd\" for x in range(5)]",
+                "even_odd_even_odd_even": "```",
+                "comprensiones_anidadas": "```python",
+                "flatten_a_2d_list": "matrix = [[1, 2], [3, 4], [5, 6]]\nflat = [num for row in matrix for num in row]",
+                "1_2_3_4_5_6": "",
+                "create_a_matrix": "matrix = [[i * j for j in range(5)] for i in range(5)]\n```",
+                "comprensiones_de_diccionarios_y_conjuntos": "```python",
+                "dict_comprehension": "square_dict = {x: x**2 for x in range(5)}",
+                "0_0_1_1_2_4_3_9_4_16": "",
+                "set_comprehension": "unique_lengths = {len(word) for word in [\"hello\", \"world\", \"hi\"]}",
+                "2_5": "```",
+                "expresiones_generadoras": "Usa paréntesis en lugar de corchetes para una iteración eficiente en memoria:\n\n```python",
+                "generator_expression_lazy_evaluation": "sum_of_squares = sum(x**2 for x in range(1000000))",
+                "list_comprehension_would_create_entire_list_in_memory": "",
+                "sumx2_for_x_in_range1000000_uses_more_memory": "```",
+                "cuándo_usar_cada_una": "- **Comprensión de lista**: Cuando necesitas la lista completa\n- **Expresión generadora**: Cuando iteras una sola vez (sum, any, all)\n- **Bucle tradicional**: Lógica compleja o efectos secundarios",
+                "errores_comunes": "1. **Colocar el if-else en la posición incorrecta** -- El filtrado (`if` solo) va después del `for`: `[x for x in items if x > 0]`. Un ternario (`if-else`) va antes del `for`: `[x if x > 0 else 0 for x in items]`. Mezclarlos produce un error de sintaxis.\n2. **Escribir comprensiones demasiado complejas** -- Una comprensión con tres bucles anidados y dos condiciones es más difícil de leer que un bucle simple. Si no cabe cómodamente en una sola línea, usa un bucle regular.\n3. **Usar una comprensión de lista cuando solo necesitas iterar** -- `sum([x**2 for x in data])` construye una lista completa solo para descartarla. Usa un generador: `sum(x**2 for x in data)`.",
+                "buenas_prácticas": "1. **Mantén las comprensiones simples** -- Un bucle y un filtro es el punto óptimo. Más allá de eso, divídelo en un bucle o en una función auxiliar.\n2. **Usa expresiones generadoras con funciones de agregación** -- `sum()`, `any()`, `all()` y `max()` aceptan generadores, ahorrando memoria.",
+                "resumen": "- Las comprensiones de listas ofrecen una forma concisa y pythonica de crear listas a partir de iterables.\n- Las expresiones generadoras usan evaluación perezosa y son ideales cuando iteras solo una vez.\n- Las comprensiones de diccionarios y conjuntos siguen el mismo patrón con la sintaxis `{}`.\n- Mantén las comprensiones legibles; si se vuelven complejas, cambia a un bucle tradicional.\n- Prefiere las expresiones generadoras cuando alimentas resultados directamente a `sum()`, `any()` o `all()`.",
+                "ejemplos_de_código": "**Patrones prácticos de comprensión de listas**\n\n```python",
+                "practical_examples": "words = [\"Hello\", \"World\", \"Python\"]",
+                "transform": "lower = [w.lower() for w in words]",
+                "filter_and_transform": "long_upper = [w.upper() for w in words if len(w) > 4]",
+                "multiple_conditions": "result = [x for x in range(100) if x % 2 == 0 if x % 3 == 0]",
+                "divisible_by_both_2_and_3": "",
+                "walrus_operator_in_comprehensions_38": "results = [y for x in range(10) if (y := x ** 2) > 50]\n```",
+                "recursos": "- [List Comprehensions](https://docs.python.org/3.14/tutorial/datastructures.html#list-comprehensions) — Sección oficial del tutorial de Python 3.14 sobre comprensiones de listas y expresiones generadoras\n\n---\n\n> 📘 *Esta lección forma parte del curso [Python Fundamentals: Modern 3.14 Edition](https://Codalia/courses/python) en [Codalia](https://Codalia) — la plataforma de aprendizaje nativa del IDE para desarrolladores.*"
+              },
+              "code_blocks": [
+                {
+                  "language": "python",
+                  "code": "# Traditional approach\nsquares = []\nfor x in range(10):\n    squares.append(x ** 2)\n\n# List comprehension\nsquares = [x ** 2 for x in range(10)]"
+                },
+                {
+                  "language": "python",
+                  "code": "# Filter with if\nevens = [x for x in range(20) if x % 2 == 0]\n\n# If-else (ternary)\nlabels = [\"even\" if x % 2 == 0 else \"odd\" for x in range(5)]\n# ['even', 'odd', 'even', 'odd', 'even']"
+                },
+                {
+                  "language": "python",
+                  "code": "# Flatten a 2D list\nmatrix = [[1, 2], [3, 4], [5, 6]]\nflat = [num for row in matrix for num in row]\n# [1, 2, 3, 4, 5, 6]\n\n# Create a matrix\nmatrix = [[i * j for j in range(5)] for i in range(5)]"
+                },
+                {
+                  "language": "python",
+                  "code": "# Dict comprehension\nsquare_dict = {x: x**2 for x in range(5)}\n# {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}\n\n# Set comprehension\nunique_lengths = {len(word) for word in [\"hello\", \"world\", \"hi\"]}\n# {2, 5}"
+                },
+                {
+                  "language": "python",
+                  "code": "# Generator expression (lazy evaluation)\nsum_of_squares = sum(x**2 for x in range(1000000))\n\n# List comprehension would create entire list in memory\n# sum([x**2 for x in range(1000000)])  # Uses more memory"
+                },
+                {
+                  "language": "python",
+                  "code": "# Practical examples\nwords = [\"Hello\", \"World\", \"Python\"]\n\n# Transform\nlower = [w.lower() for w in words]\n\n# Filter and transform\nlong_upper = [w.upper() for w in words if len(w) > 4]\n\n# Multiple conditions\nresult = [x for x in range(100) if x % 2 == 0 if x % 3 == 0]\n# Divisible by both 2 and 3\n\n# Walrus operator in comprehensions (3.8+)\nresults = [y for x in range(10) if (y := x ** 2) > 50]"
+                }
+              ],
+              "word_count": 801
+            },
+            {
+              "id": "dictionaries-and-sets",
+              "filename": "3-and-sets.md",
+              "order": 3,
+              "title": "Diccionarios y Conjuntos",
+              "raw_content": "---\nsource_course: \"python\"\nsource_lesson: \"python-dictionaries-and-sets\"\n---\n\n# Diccionarios y Conjuntos\n\n## Introducción\nLos diccionarios y los conjuntos son colecciones basadas en hash que te brindan búsquedas de tiempo promedio O(1). Esta lección cubre cómo crear, modificar y combinar, incluyendo los operadores de fusión modernos introducidos en Python 3.9.\n\n## Conceptos clave\n- **dict**: Un mapeo mutable de claves a valores con búsqueda promedio O(1).\n- **set**: Una colección desordenada de elementos únicos y hashables.\n- **Vistas de diccionario**: Objetos en vivo (`keys()`, `values()`, `items()`) que reflejan cambios en el dict subyacente.\n- **Operador de unión `|`**: Fusiona dos dicts o dos sets en una nueva colección (Python 3.9+ para dicts).\n\n## Contexto del mundo real\nLos diccionarios son la columna vertebral de la programación en Python. El análisis de JSON produce dicts, los argumentos de palabras clave de funciones se almacenan en dicts, y los atributos de clase viven en `__dict__`. Los sets permiten pruebas rápidas de pertenencia — verificar si un ID de usuario está en una lista de bloqueo, eliminar duplicados de entradas de registro o calcular la intersección de grupos de permisos.\n\n## Análisis profundo\n\n### Creación de diccionarios\n\n```python\n# Literal syntax\nuser = {\"name\": \"Alice\", \"age\": 30}\n\n# From sequences\nkeys = [\"a\", \"b\", \"c\"]\nvalues = [1, 2, 3]\nd = dict(zip(keys, values))  # {'a': 1, 'b': 2, 'c': 3}\n\n# Default values\nd = dict.fromkeys(['a', 'b', 'c'], 0)  # {'a': 0, 'b': 0, 'c': 0}\n```\n\n### Operaciones de diccionario\n\n```python\nd = {\"a\": 1, \"b\": 2}\n\n# Access\nd[\"a\"]              # 1 (raises KeyError if missing)\nd.get(\"c\", 0)       # 0 (default if missing)\n\n# Modification\nd[\"c\"] = 3          # Add or update\nd.update({\"d\": 4})  # Merge another dict\nd.setdefault(\"e\", 5)  # Set only if key missing\n\n# Removal\ndel d[\"a\"]          # Remove key\nvalue = d.pop(\"b\")  # Remove and return value\nd.clear()           # Remove all items\n```\n\n### Vistas de diccionario\n\n```python\nd = {\"a\": 1, \"b\": 2}\n\nd.keys()    # dict_keys(['a', 'b'])\nd.values()  # dict_values([1, 2])\nd.items()   # dict_items([('a', 1), ('b', 2)])\n\n# Iteration\nfor key, value in d.items():\n    print(f\"{key}: {value}\")\n```\n\n### Fusión de diccionarios (3.9+)\n\n```python\ndefaults = {\"theme\": \"light\", \"lang\": \"en\"}\nuser = {\"theme\": \"dark\"}\n\n# Union operator (creates new dict)\nconfig = defaults | user  # {'theme': 'dark', 'lang': 'en'}\n\n# In-place update\ndefaults |= user\n```\n\n### Conjuntos\n\nLos sets son colecciones desordenadas de elementos únicos.\n\n```python\na = {1, 2, 3}\nb = {2, 3, 4}\n\na | b   # Union: {1, 2, 3, 4}\na & b   # Intersection: {2, 3}\na - b   # Difference: {1}\na ^ b   # Symmetric difference: {1, 4}\n\na.add(5)        # Add element\na.discard(5)    # Remove (no error if missing)\na.remove(1)     # Remove (KeyError if missing)\n```\n\n## Errores comunes\n1. **Usar `d[key]` sin comprobar su existencia** — Esto genera `KeyError` cuando la clave falta. Usa `d.get(key, default)` o `d.setdefault(key, default)` para un acceso seguro.\n2. **Usar un valor predeterminado mutable con `fromkeys`** — `dict.fromkeys(keys, [])` hace que cada clave comparta el mismo objeto lista. Usa una comprensión de dict en su lugar: `{k: [] for k in keys}`.\n3. **Confundir `discard` y `remove` en sets** — `remove` genera `KeyError` si el elemento está ausente; `discard` no hace nada silenciosamente. Elige según si un elemento faltante es un error o se espera.\n\n## Buenas prácticas\n1. **Usa `defaultdict` o `setdefault` para patrones de agrupamiento** — Eliminan el código repetitivo de comprobar si una clave existe antes de agregar a una lista.\n2. **Usa el operador de fusión `|` para combinar configuraciones** — Es más claro y crea un nuevo dict, evitando la mutación de los originales.\n\n## Resumen\n- Los diccionarios proporcionan búsquedas de clave-valor O(1) y son centrales en casi cualquier programa Python.\n- Usa `.get()`, `.setdefault()` y `defaultdict` para patrones de acceso seguro.\n- El operador `|` (Python 3.9+) fusiona diccionarios de forma limpia.\n- Los sets ofrecen pruebas rápidas de pertenencia y operaciones matemáticas como unión, intersección y diferencia.\n- Nunca uses objetos mutables como valores predeterminados en `fromkeys`; usa una comprensión de dict en su lugar.\n\n## Ejemplos de código\n\n**Ayudantes del módulo collections**\n\n```python\n# defaultdict for automatic default values\nfrom collections import defaultdict\n\nword_count = defaultdict(int)\nfor word in [\"apple\", \"banana\", \"apple\"]:\n    word_count[word] += 1\n# {'apple': 2, 'banana': 1}\n\n# Counter for counting\nfrom collections import Counter\ncounts = Counter([\"a\", \"b\", \"a\", \"c\", \"a\"])\nprint(counts.most_common(2))  # [('a', 3), ('b', 1)]\n```\n\n## Recursos\n\n- [Mapping Types — dict](https://docs.python.org/3.14/library/stdtypes.html#mapping-types-dict) — Referencia oficial de Python 3.14 para métodos de diccionario y operaciones de sets\n\n---\n\n> 📘 *Esta lección forma parte del curso [Python Fundamentals: Modern 3.14 Edition](https://Codalia/courses/python) en [Codalia](https://Codalia) — la plataforma de aprendizaje nativa del IDE para desarrolladores.*",
+              "sections": {
+                "diccionarios_y_conjuntos": "",
+                "introducción": "Los diccionarios y los conjuntos son colecciones basadas en hash que te brindan búsquedas de tiempo promedio O(1). Esta lección cubre cómo crear, modificar y combinar, incluyendo los operadores de fusión modernos introducidos en Python 3.9.",
+                "conceptos_clave": "- **dict**: Un mapeo mutable de claves a valores con búsqueda promedio O(1).\n- **set**: Una colección desordenada de elementos únicos y hashables.\n- **Vistas de diccionario**: Objetos en vivo (`keys()`, `values()`, `items()`) que reflejan cambios en el dict subyacente.\n- **Operador de unión `|`**: Fusiona dos dicts o dos sets en una nueva colección (Python 3.9+ para dicts).",
+                "contexto_del_mundo_real": "Los diccionarios son la columna vertebral de la programación en Python. El análisis de JSON produce dicts, los argumentos de palabras clave de funciones se almacenan en dicts, y los atributos de clase viven en `__dict__`. Los sets permiten pruebas rápidas de pertenencia — verificar si un ID de usuario está en una lista de bloqueo, eliminar duplicados de entradas de registro o calcular la intersección de grupos de permisos.",
+                "análisis_profundo": "",
+                "creación_de_diccionarios": "```python",
+                "literal_syntax": "user = {\"name\": \"Alice\", \"age\": 30}",
+                "from_sequences": "keys = [\"a\", \"b\", \"c\"]\nvalues = [1, 2, 3]\nd = dict(zip(keys, values))  # {'a': 1, 'b': 2, 'c': 3}",
+                "default_values": "d = dict.fromkeys(['a', 'b', 'c'], 0)  # {'a': 0, 'b': 0, 'c': 0}\n```",
+                "operaciones_de_diccionario": "```python\nd = {\"a\": 1, \"b\": 2}",
+                "access": "d[\"a\"]              # 1 (raises KeyError if missing)\nd.get(\"c\", 0)       # 0 (default if missing)",
+                "modification": "d[\"c\"] = 3          # Add or update\nd.update({\"d\": 4})  # Merge another dict\nd.setdefault(\"e\", 5)  # Set only if key missing",
+                "removal": "del d[\"a\"]          # Remove key\nvalue = d.pop(\"b\")  # Remove and return value\nd.clear()           # Remove all items\n```",
+                "vistas_de_diccionario": "```python\nd = {\"a\": 1, \"b\": 2}\n\nd.keys()    # dict_keys(['a', 'b'])\nd.values()  # dict_values([1, 2])\nd.items()   # dict_items([('a', 1), ('b', 2)])",
+                "iteration": "for key, value in d.items():\n    print(f\"{key}: {value}\")\n```",
+                "fusión_de_diccionarios_39": "```python\ndefaults = {\"theme\": \"light\", \"lang\": \"en\"}\nuser = {\"theme\": \"dark\"}",
+                "union_operator_creates_new_dict": "config = defaults | user  # {'theme': 'dark', 'lang': 'en'}",
+                "inplace_update": "defaults |= user\n```",
+                "conjuntos": "Los sets son colecciones desordenadas de elementos únicos.\n\n```python\na = {1, 2, 3}\nb = {2, 3, 4}\n\na | b   # Union: {1, 2, 3, 4}\na & b   # Intersection: {2, 3}\na - b   # Difference: {1}\na ^ b   # Symmetric difference: {1, 4}\n\na.add(5)        # Add element\na.discard(5)    # Remove (no error if missing)\na.remove(1)     # Remove (KeyError if missing)\n```",
+                "errores_comunes": "1. **Usar `d[key]` sin comprobar su existencia** — Esto genera `KeyError` cuando la clave falta. Usa `d.get(key, default)` o `d.setdefault(key, default)` para un acceso seguro.\n2. **Usar un valor predeterminado mutable con `fromkeys`** — `dict.fromkeys(keys, [])` hace que cada clave comparta el mismo objeto lista. Usa una comprensión de dict en su lugar: `{k: [] for k in keys}`.\n3. **Confundir `discard` y `remove` en sets** — `remove` genera `KeyError` si el elemento está ausente; `discard` no hace nada silenciosamente. Elige según si un elemento faltante es un error o se espera.",
+                "buenas_prácticas": "1. **Usa `defaultdict` o `setdefault` para patrones de agrupamiento** — Eliminan el código repetitivo de comprobar si una clave existe antes de agregar a una lista.\n2. **Usa el operador de fusión `|` para combinar configuraciones** — Es más claro y crea un nuevo dict, evitando la mutación de los originales.",
+                "resumen": "- Los diccionarios proporcionan búsquedas de clave-valor O(1) y son centrales en casi cualquier programa Python.\n- Usa `.get()`, `.setdefault()` y `defaultdict` para patrones de acceso seguro.\n- El operador `|` (Python 3.9+) fusiona diccionarios de forma limpia.\n- Los sets ofrecen pruebas rápidas de pertenencia y operaciones matemáticas como unión, intersección y diferencia.\n- Nunca uses objetos mutables como valores predeterminados en `fromkeys`; usa una comprensión de dict en su lugar.",
+                "ejemplos_de_código": "**Ayudantes del módulo collections**\n\n```python",
+                "defaultdict_for_automatic_default_values": "from collections import defaultdict\n\nword_count = defaultdict(int)\nfor word in [\"apple\", \"banana\", \"apple\"]:\n    word_count[word] += 1",
+                "apple_2_banana_1": "",
+                "counter_for_counting": "from collections import Counter\ncounts = Counter([\"a\", \"b\", \"a\", \"c\", \"a\"])\nprint(counts.most_common(2))  # [('a', 3), ('b', 1)]\n```",
+                "recursos": "- [Mapping Types — dict](https://docs.python.org/3.14/library/stdtypes.html#mapping-types-dict) — Referencia oficial de Python 3.14 para métodos de diccionario y operaciones de sets\n\n---\n\n> 📘 *Esta lección forma parte del curso [Python Fundamentals: Modern 3.14 Edition](https://Codalia/courses/python) en [Codalia](https://Codalia) — la plataforma de aprendizaje nativa del IDE para desarrolladores.*"
+              },
+              "code_blocks": [
+                {
+                  "language": "python",
+                  "code": "# Literal syntax\nuser = {\"name\": \"Alice\", \"age\": 30}\n\n# From sequences\nkeys = [\"a\", \"b\", \"c\"]\nvalues = [1, 2, 3]\nd = dict(zip(keys, values))  # {'a': 1, 'b': 2, 'c': 3}\n\n# Default values\nd = dict.fromkeys(['a', 'b', 'c'], 0)  # {'a': 0, 'b': 0, 'c': 0}"
+                },
+                {
+                  "language": "python",
+                  "code": "d = {\"a\": 1, \"b\": 2}\n\n# Access\nd[\"a\"]              # 1 (raises KeyError if missing)\nd.get(\"c\", 0)       # 0 (default if missing)\n\n# Modification\nd[\"c\"] = 3          # Add or update\nd.update({\"d\": 4})  # Merge another dict\nd.setdefault(\"e\", 5)  # Set only if key missing\n\n# Removal\ndel d[\"a\"]          # Remove key\nvalue = d.pop(\"b\")  # Remove and return value\nd.clear()           # Remove all items"
+                },
+                {
+                  "language": "python",
+                  "code": "d = {\"a\": 1, \"b\": 2}\n\nd.keys()    # dict_keys(['a', 'b'])\nd.values()  # dict_values([1, 2])\nd.items()   # dict_items([('a', 1), ('b', 2)])\n\n# Iteration\nfor key, value in d.items():\n    print(f\"{key}: {value}\")"
+                },
+                {
+                  "language": "python",
+                  "code": "defaults = {\"theme\": \"light\", \"lang\": \"en\"}\nuser = {\"theme\": \"dark\"}\n\n# Union operator (creates new dict)\nconfig = defaults | user  # {'theme': 'dark', 'lang': 'en'}\n\n# In-place update\ndefaults |= user"
+                },
+                {
+                  "language": "python",
+                  "code": "a = {1, 2, 3}\nb = {2, 3, 4}\n\na | b   # Union: {1, 2, 3, 4}\na & b   # Intersection: {2, 3}\na - b   # Difference: {1}\na ^ b   # Symmetric difference: {1, 4}\n\na.add(5)        # Add element\na.discard(5)    # Remove (no error if missing)\na.remove(1)     # Remove (KeyError if missing)"
+                },
+                {
+                  "language": "python",
+                  "code": "# defaultdict for automatic default values\nfrom collections import defaultdict\n\nword_count = defaultdict(int)\nfor word in [\"apple\", \"banana\", \"apple\"]:\n    word_count[word] += 1\n# {'apple': 2, 'banana': 1}\n\n# Counter for counting\nfrom collections import Counter\ncounts = Counter([\"a\", \"b\", \"a\", \"c\", \"a\"])\nprint(counts.most_common(2))  # [('a', 3), ('b', 1)]"
+                }
+              ],
+              "word_count": 721
+            },
+            {
+              "id": "built-in-functions-for-data-structures",
+              "filename": "4-builtin-functions.md",
+              "order": 4,
+              "title": "Funciones incorporadas para estructuras de datos",
+              "raw_content": "---\nsource_course: \"python\"\nsource_lesson: \"python-builtin-functions\"\n---\n\n# Funciones incorporadas para estructuras de datos\n\n## Introducción\nPython viene con un conjunto amplio de funciones incorporadas diseñadas específicamente para trabajar con secuencias e iterables. Dominar `enumerate`, `zip`, `sorted`, `any` y `all` hará que tu código sea más corto, rápido y más Pythonic.\n\n## Conceptos clave\n- **`enumerate(iterable, start=0)`**: Empareja cada elemento con su índice.\n- **`zip(*iterables)`**: Combina elementos de múltiples iterables posición por posición.\n- **`sorted(iterable, key=None, reverse=False)`**: Devuelve una nueva lista ordenada sin modificar la original.\n- **`any()` / `all()`**: Evaluaciones booleanas de cortocircuito a través de un iterable.\n- **`map()` / `filter()`**: Transformación y filtrado al estilo funcional (las comprensiones suelen ser preferidas).\n\n## Contexto del mundo real\nEstas funciones incorporadas son la base del procesamiento de datos en Python. Un manejador web podría usar `any()` para verificar si un usuario tiene algún permiso requerido, `sorted()` con un `key` para clasificar resultados de búsqueda, o `zip()` para emparejar encabezados de columna con valores de fila de un CSV. Conocerlas de memoria elimina la necesidad de rastrear índices manualmente y de bucles verbosos.\n\n## Análisis profundo\n\n### Ayudas de iteración\n\n#### `enumerate()`\n```python\nfruits = [\"apple\", \"banana\", \"cherry\"]\nfor i, fruit in enumerate(fruits):\n    print(f\"{i}: {fruit}\")\n\n# Start from different index\nfor i, fruit in enumerate(fruits, start=1):\n    print(f\"{i}: {fruit}\")\n```\n\n#### `zip()`\n```python\nnames = [\"Alice\", \"Bob\"]\nages = [30, 25]\n\nfor name, age in zip(names, ages):\n    print(f\"{name} is {age}\")\n\n# Unzip\npairs = [(\"a\", 1), (\"b\", 2)]\nletters, numbers = zip(*pairs)\n```\n\n#### `reversed()` and `sorted()`\n```python\nlst = [3, 1, 4, 1, 5]\n\nlist(reversed(lst))  # [5, 1, 4, 1, 3]\nsorted(lst)          # [1, 1, 3, 4, 5] (new list)\nsorted(lst, reverse=True)  # [5, 4, 3, 1, 1]\n\n# Custom sorting\nwords = [\"banana\", \"pie\", \"apple\"]\nsorted(words, key=len)  # ['pie', 'apple', 'banana']\n```\n\n### Funciones de agregación\n\n```python\nnums = [1, 2, 3, 4, 5]\n\nsum(nums)       # 15\nmin(nums)       # 1\nmax(nums)       # 5\nlen(nums)       # 5\n\n# With key function\nwords = [\"hi\", \"hello\", \"hey\"]\nmax(words, key=len)  # \"hello\"\n```\n\n### Funciones booleanas\n\n```python\nnums = [1, 2, 0, 4]\n\nall(nums)       # False (0 is falsy)\nany(nums)       # True (some are truthy)\n\nall(x > 0 for x in [1, 2, 3])  # True\nany(x < 0 for x in [1, 2, -3])  # True\n```\n\n### Funciones de transformación\n\n```python\n# map() - apply function to all elements\nnums = [1, 2, 3]\nsquared = list(map(lambda x: x**2, nums))  # [1, 4, 9]\n\n# filter() - keep elements where function returns True\nevens = list(filter(lambda x: x % 2 == 0, range(10)))\n# [0, 2, 4, 6, 8]\n\n# Note: List comprehensions are often more Pythonic\nsquared = [x**2 for x in nums]\nevens = [x for x in range(10) if x % 2 == 0]\n```\n\n## Errores comunes\n1. **Usar `range(len(lst))` en lugar de `enumerate`** -- Escribir `for i in range(len(lst))` es verboso y propenso a errores. Usa `for i, item in enumerate(lst)` en su lugar.\n2. **Olvidar que `zip` se detiene en el iterable más corto** -- Si tus listas tienen longitudes diferentes, `zip` descarta silenciosamente los elementos extra. Usa `itertools.zip_longest` cuando necesites manejar longitudes desiguales.\n3. **Llamar a `sorted()` cuando necesitas ordenar in situ** -- `sorted()` crea una nueva lista. Si deseas ordenar en el lugar y ahorrar memoria, usa `lst.sort()`.\n\n## Buenas prácticas\n1. **Preferir comprensiones sobre `map`/`filter` con lambdas** -- `[x**2 for x in nums]` es más legible que `list(map(lambda x: x**2, nums))`.\n2. **Usar expresiones generadoras con `any`/`all`/`sum`** -- Realizan cortocircuito o fluyen sin crear listas intermedias.\n\n## Resumen\n- `enumerate` y `zip` eliminan la gestión manual de índices y el código boilerplate de iteración paralela.\n- `sorted` devuelve una nueva lista; `list.sort()` ordena in situ.\n- `any()` y `all()` hacen cortocircuito para verificaciones booleanas eficientes en iterables.\n- Prefiere comprensiones de lista sobre `map`/`filter` con lambdas para mayor legibilidad.\n- Usa `itertools.zip_longest` al combinar iterables de diferentes longitudes.\n\n## Ejemplos de código\n\n**Combinando funciones incorporadas**\n\n```python\n# Combining functions\ndata = [(\"Alice\", 85), (\"Bob\", 92), (\"Charlie\", 78)]\n\n# Sort by score descending\nsorted_data = sorted(data, key=lambda x: x[1], reverse=True)\n\n# Find top scorer\ntop = max(data, key=lambda x: x[1])\nprint(f\"Top scorer: {top[0]} with {top[1]}\")\n\n# Check if all passed (score >= 60)\nall_passed = all(score >= 60 for _, score in data)\n```\n\n## Recursos\n\n- [Funciones incorporadas](https://docs.python.org/3.14/library/functions.html) — Referencia oficial de Python 3.14 para todas las funciones incorporadas como enumerate, zip, sorted y más\n\n> 📘 *Esta lección forma parte del curso [Python Fundamentals: Modern 3.14 Edition](https://Codalia/courses/python) en [Codalia](https://Codalia) — la plataforma de aprendizaje nativa del IDE para desarrolladores.*",
+              "sections": {
+                "funciones_incorporadas_para_estructuras_de_datos": "",
+                "introducción": "Python viene con un conjunto amplio de funciones incorporadas diseñadas específicamente para trabajar con secuencias e iterables. Dominar `enumerate`, `zip`, `sorted`, `any` y `all` hará que tu código sea más corto, rápido y más Pythonic.",
+                "conceptos_clave": "- **`enumerate(iterable, start=0)`**: Empareja cada elemento con su índice.\n- **`zip(*iterables)`**: Combina elementos de múltiples iterables posición por posición.\n- **`sorted(iterable, key=None, reverse=False)`**: Devuelve una nueva lista ordenada sin modificar la original.\n- **`any()` / `all()`**: Evaluaciones booleanas de cortocircuito a través de un iterable.\n- **`map()` / `filter()`**: Transformación y filtrado al estilo funcional (las comprensiones suelen ser preferidas).",
+                "contexto_del_mundo_real": "Estas funciones incorporadas son la base del procesamiento de datos en Python. Un manejador web podría usar `any()` para verificar si un usuario tiene algún permiso requerido, `sorted()` con un `key` para clasificar resultados de búsqueda, o `zip()` para emparejar encabezados de columna con valores de fila de un CSV. Conocerlas de memoria elimina la necesidad de rastrear índices manualmente y de bucles verbosos.",
+                "análisis_profundo": "",
+                "ayudas_de_iteración": "#### `enumerate()`\n```python\nfruits = [\"apple\", \"banana\", \"cherry\"]\nfor i, fruit in enumerate(fruits):\n    print(f\"{i}: {fruit}\")",
+                "start_from_different_index": "for i, fruit in enumerate(fruits, start=1):\n    print(f\"{i}: {fruit}\")\n```\n\n#### `zip()`\n```python\nnames = [\"Alice\", \"Bob\"]\nages = [30, 25]\n\nfor name, age in zip(names, ages):\n    print(f\"{name} is {age}\")",
+                "unzip": "pairs = [(\"a\", 1), (\"b\", 2)]\nletters, numbers = zip(*pairs)\n```\n\n#### `reversed()` and `sorted()`\n```python\nlst = [3, 1, 4, 1, 5]\n\nlist(reversed(lst))  # [5, 1, 4, 1, 3]\nsorted(lst)          # [1, 1, 3, 4, 5] (new list)\nsorted(lst, reverse=True)  # [5, 4, 3, 1, 1]",
+                "custom_sorting": "words = [\"banana\", \"pie\", \"apple\"]\nsorted(words, key=len)  # ['pie', 'apple', 'banana']\n```",
+                "funciones_de_agregación": "```python\nnums = [1, 2, 3, 4, 5]\n\nsum(nums)       # 15\nmin(nums)       # 1\nmax(nums)       # 5\nlen(nums)       # 5",
+                "with_key_function": "words = [\"hi\", \"hello\", \"hey\"]\nmax(words, key=len)  # \"hello\"\n```",
+                "funciones_booleanas": "```python\nnums = [1, 2, 0, 4]\n\nall(nums)       # False (0 is falsy)\nany(nums)       # True (some are truthy)\n\nall(x > 0 for x in [1, 2, 3])  # True\nany(x < 0 for x in [1, 2, -3])  # True\n```",
+                "funciones_de_transformación": "```python",
+                "map_apply_function_to_all_elements": "nums = [1, 2, 3]\nsquared = list(map(lambda x: x**2, nums))  # [1, 4, 9]",
+                "filter_keep_elements_where_function_returns_true": "evens = list(filter(lambda x: x % 2 == 0, range(10)))",
+                "0_2_4_6_8": "",
+                "note_list_comprehensions_are_often_more_pythonic": "squared = [x**2 for x in nums]\nevens = [x for x in range(10) if x % 2 == 0]\n```",
+                "errores_comunes": "1. **Usar `range(len(lst))` en lugar de `enumerate`** -- Escribir `for i in range(len(lst))` es verboso y propenso a errores. Usa `for i, item in enumerate(lst)` en su lugar.\n2. **Olvidar que `zip` se detiene en el iterable más corto** -- Si tus listas tienen longitudes diferentes, `zip` descarta silenciosamente los elementos extra. Usa `itertools.zip_longest` cuando necesites manejar longitudes desiguales.\n3. **Llamar a `sorted()` cuando necesitas ordenar in situ** -- `sorted()` crea una nueva lista. Si deseas ordenar en el lugar y ahorrar memoria, usa `lst.sort()`.",
+                "buenas_prácticas": "1. **Preferir comprensiones sobre `map`/`filter` con lambdas** -- `[x**2 for x in nums]` es más legible que `list(map(lambda x: x**2, nums))`.\n2. **Usar expresiones generadoras con `any`/`all`/`sum`** -- Realizan cortocircuito o fluyen sin crear listas intermedias.",
+                "resumen": "- `enumerate` y `zip` eliminan la gestión manual de índices y el código boilerplate de iteración paralela.\n- `sorted` devuelve una nueva lista; `list.sort()` ordena in situ.\n- `any()` y `all()` hacen cortocircuito para verificaciones booleanas eficientes en iterables.\n- Prefiere comprensiones de lista sobre `map`/`filter` con lambdas para mayor legibilidad.\n- Usa `itertools.zip_longest` al combinar iterables de diferentes longitudes.",
+                "ejemplos_de_código": "**Combinando funciones incorporadas**\n\n```python",
+                "combining_functions": "data = [(\"Alice\", 85), (\"Bob\", 92), (\"Charlie\", 78)]",
+                "sort_by_score_descending": "sorted_data = sorted(data, key=lambda x: x[1], reverse=True)",
+                "find_top_scorer": "top = max(data, key=lambda x: x[1])\nprint(f\"Top scorer: {top[0]} with {top[1]}\")",
+                "check_if_all_passed_score_60": "all_passed = all(score >= 60 for _, score in data)\n```",
+                "recursos": "- [Funciones incorporadas](https://docs.python.org/3.14/library/functions.html) — Referencia oficial de Python 3.14 para todas las funciones incorporadas como enumerate, zip, sorted y más\n\n> 📘 *Esta lección forma parte del curso [Python Fundamentals: Modern 3.14 Edition](https://Codalia/courses/python) en [Codalia](https://Codalia) — la plataforma de aprendizaje nativa del IDE para desarrolladores.*"
+              },
+              "code_blocks": [
+                {
+                  "language": "python",
+                  "code": "fruits = [\"apple\", \"banana\", \"cherry\"]\nfor i, fruit in enumerate(fruits):\n    print(f\"{i}: {fruit}\")\n\n# Start from different index\nfor i, fruit in enumerate(fruits, start=1):\n    print(f\"{i}: {fruit}\")"
+                },
+                {
+                  "language": "python",
+                  "code": "names = [\"Alice\", \"Bob\"]\nages = [30, 25]\n\nfor name, age in zip(names, ages):\n    print(f\"{name} is {age}\")\n\n# Unzip\npairs = [(\"a\", 1), (\"b\", 2)]\nletters, numbers = zip(*pairs)"
+                },
+                {
+                  "language": "python",
+                  "code": "lst = [3, 1, 4, 1, 5]\n\nlist(reversed(lst))  # [5, 1, 4, 1, 3]\nsorted(lst)          # [1, 1, 3, 4, 5] (new list)\nsorted(lst, reverse=True)  # [5, 4, 3, 1, 1]\n\n# Custom sorting\nwords = [\"banana\", \"pie\", \"apple\"]\nsorted(words, key=len)  # ['pie', 'apple', 'banana']"
+                },
+                {
+                  "language": "python",
+                  "code": "nums = [1, 2, 3, 4, 5]\n\nsum(nums)       # 15\nmin(nums)       # 1\nmax(nums)       # 5\nlen(nums)       # 5\n\n# With key function\nwords = [\"hi\", \"hello\", \"hey\"]\nmax(words, key=len)  # \"hello\""
+                },
+                {
+                  "language": "python",
+                  "code": "nums = [1, 2, 0, 4]\n\nall(nums)       # False (0 is falsy)\nany(nums)       # True (some are truthy)\n\nall(x > 0 for x in [1, 2, 3])  # True\nany(x < 0 for x in [1, 2, -3])  # True"
+                },
+                {
+                  "language": "python",
+                  "code": "# map() - apply function to all elements\nnums = [1, 2, 3]\nsquared = list(map(lambda x: x**2, nums))  # [1, 4, 9]\n\n# filter() - keep elements where function returns True\nevens = list(filter(lambda x: x % 2 == 0, range(10)))\n# [0, 2, 4, 6, 8]\n\n# Note: List comprehensions are often more Pythonic\nsquared = [x**2 for x in nums]\nevens = [x for x in range(10) if x % 2 == 0]"
+                },
+                {
+                  "language": "python",
+                  "code": "# Combining functions\ndata = [(\"Alice\", 85), (\"Bob\", 92), (\"Charlie\", 78)]\n\n# Sort by score descending\nsorted_data = sorted(data, key=lambda x: x[1], reverse=True)\n\n# Find top scorer\ntop = max(data, key=lambda x: x[1])\nprint(f\"Top scorer: {top[0]} with {top[1]}\")\n\n# Check if all passed (score >= 60)\nall_passed = all(score >= 60 for _, score in data)"
+                }
+              ],
+              "word_count": 734
+            }
+          ],
+          "lesson_count": 4
+        }
+      ],
+      "chapter_count": 7,
+      "total_lessons": 28
+    }
+  ],
+  "translated_from": "en"
+}
