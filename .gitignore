@@ -45,3 +45,6 @@ src/data/exercises.json
 src/data/quizzes.json
 src/data/bundled/catalog.json
 src/data/bundled/python-fundamentals.json
+
+.vercel
+.env*
